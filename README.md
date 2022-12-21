@@ -78,7 +78,7 @@ Let's prevent working against each other!
 * [Production environment](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/Production-website.md)
 
 - WordPress installation: [szepeviktor/composer-managed-wordpress](https://github.com/szepeviktor/composer-managed-wordpress)
-- [`wp-config`](/wp-config)ű
+- [`wp-config`](/wp-config)
 - _Alternative [WP-CLI installation](WP-CLI-installation.md)_
 - MU plugins for core, theme and plugins: [/mu-plugins/](/mu-plugins) and how to install [Default plugins](/Plugins.md)
 - Plugin starter: [szepeviktor/small-project](https://github.com/szepeviktor/small-project)

@@ -1,6 +1,6 @@
-# Webserver stack for WordPress
+# Software stack for WordPress
 
-Essentially keep every operation in memory!
+:bulb: Essentially keep every operation in memory!
 
 - Modern CPU, high *memory* bandwidth as WordPress is mainly memory copying,
   sub-msec disk access time, use [UpCloud](https://www.upcloud.com/register/?promo=U29Q8S)
@@ -19,3 +19,5 @@ Essentially keep every operation in memory!
 - Static resource optimization
 - Cut on JavaScripts
 - Continuous monitoring (Monit, Pingdom, HetrixTools)
+
+###### This page contains an affiliate link

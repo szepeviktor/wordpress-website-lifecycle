@@ -45,7 +45,7 @@
 
 - Delete unused plugins and themes and demo content
 - Audit plugins and themes (source code) -
-  prefer [authors with enterprise mindset](/webserver/WordPress.md#plugin-authors-with-enterprise-mindset)
+  prefer [authors with enterprise mindset](/Plugins.md#plugin-authors-with-enterprise-mindset)
 - Install an [auditing plugin](https://wordpress.org/plugins/wp-user-activity/)
 - Disable file editing
 - Block on WordPress security events ([WAF for WordPress](https://github.com/szepeviktor/waf4wordpress))
