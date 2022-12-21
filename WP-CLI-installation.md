@@ -3,8 +3,8 @@
 `wp-cli.yml`
 
 ```yaml
-path: $WPROOT
-url: $WPHOMEURL
+path: WP-ROOT
+url: WP-HOME-URL
 debug: true
 user: viktor
 core update:

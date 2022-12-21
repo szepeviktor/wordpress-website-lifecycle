@@ -1,4 +1,4 @@
-# Plugins
+# Default WordPress plugins
 
 Search for things added by plugins and things that make up a plugin.
 https://plugintests.com/search-ids
