@@ -18,6 +18,6 @@
 - TokuDB (fractal tree) MariaDB engine
 - Static resource optimization
 - Cut on JavaScripts
-- Continuous monitoring (Monit, Pingdom, HetrixTools)
+- Continuous monitoring (Monit, HetrixTools, Bugsnag)
 
 ###### This page contains an affiliate link

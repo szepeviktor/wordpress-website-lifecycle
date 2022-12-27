@@ -8,7 +8,7 @@ Who does what.
 
 1. Editor manages the content and related settings.
 2. Developer commits plugin and theme source code to GitHub and initiates deployment (CI/CD).
-3. Viktor manages WordPress core, plugins, the theme,
+3. Viktor manages the operating system, webserver software, WordPress core, plugins, the theme,
    priviledged users, system settings, security, backup and migrations.
 
 There is no web based administration.
