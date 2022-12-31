@@ -2,6 +2,8 @@
 
 :bulb: How to work with WordPress.
 
+We run WordPress on Debian GNU/Linux operating system which runs on an UpCloud cloud instance.
+
 ### Division of labour
 
 Who does what.
