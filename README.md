@@ -1,6 +1,6 @@
 # WordPress website lifecycle
 
-:bulb: How to work with WordPress. #active-development #self-hosted #long-term #monitoring
+How to work with WordPress. :bulb: `#active-development` `#self-hosted` `#long-term` `#monitoring`
 
 We run WordPress on Debian GNU/Linux operating system which runs on an UpCloud cloud instance.
 
@@ -88,6 +88,7 @@ Let's prevent working against each other!
 - Child theme starter: [/divi-child/](/divi-child)
 - Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
+* [Leaving legacy technologies behind](https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md)
 * [Hooks in WordPress](/WordPress-hooks.md)
 * [OOP for WordPress](/WordPress-OOP.md)
 * Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
