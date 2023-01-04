@@ -1,6 +1,6 @@
 # WordPress website lifecycle
 
-:bulb: How to work with WordPress.
+:bulb: How to work with WordPress. #active-development #self-hosted #long-term #monitoring
 
 We run WordPress on Debian GNU/Linux operating system which runs on an UpCloud cloud instance.
 
@@ -13,7 +13,7 @@ Who does what.
 3. Viktor manages the operating system, webserver software, WordPress core, plugins, the theme,
    priviledged users, system settings, security, backup and migrations.
 
-There is no web based administration.
+There is no web-based administration.
 WordPress installation is managed with git, **Composer** and WP-CLI on the command-line.
 
 ### More than the famous 5-minute installation
