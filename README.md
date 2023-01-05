@@ -72,12 +72,14 @@ Let's prevent working against each other!
 - WordPress core is installed in a separate subdirectory
 - Please also see [hosting information for developers](https://github.com/szepeviktor/debian-server-tools/blob/master/Onboarding.md#onboarding-for-developers)
 
-### List of documents
+### Bird's-eye view
 
-* [Software stack](/WordPress-stack.md)
-* [Performance](/WordPress-performance.md)
-* [Security](/WordPress-security.md)
-* [Production environment](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/Production-website.md)
+- [Software stack](/WordPress-stack.md)
+- [Performance](/WordPress-performance.md)
+- [Security](/WordPress-security.md)
+- [Production environment](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/Production-website.md)
+
+### Installation materials
 
 - WordPress installation: [szepeviktor/composer-managed-wordpress](https://github.com/szepeviktor/composer-managed-wordpress)
 - [`wp-config`](/wp-config)
@@ -88,7 +90,9 @@ Let's prevent working against each other!
 - Child theme starter: [/divi-child/](/divi-child)
 - Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
-* [Leaving legacy technologies behind](https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md)
-* [Hooks in WordPress](/WordPress-hooks.md)
-* [OOP for WordPress](/WordPress-OOP.md)
-* Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
+### Development stuff
+
+- [Leaving legacy technologies behind](https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md)
+- [Hooks in WordPress](/WordPress-hooks.md)
+- [OOP for WordPress](/WordPress-OOP.md)
+- Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
