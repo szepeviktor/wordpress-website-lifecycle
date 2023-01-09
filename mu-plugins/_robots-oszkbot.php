@@ -3,12 +3,12 @@
 // Disallow OSZKbot.
 add_filter(
     'robots_txt',
-    static function ($output, $public) {
+    static function ($output, $isPublic) {
         $lines = [
             'User-agent: OSZKbot',
             'Disallow: /',
         ];
-        if ($public) {
+        if ($isPublic) {
             return implode("\n", $lines) . "\n\n" . $output;
         }
         return $output;
