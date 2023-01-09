@@ -72,7 +72,9 @@ Let's prevent working against each other!
 - WordPress core is installed in a separate subdirectory
 - Please also see [hosting information for developers](https://github.com/szepeviktor/debian-server-tools/blob/master/Onboarding.md#onboarding-for-developers)
 
-### Bird's-eye view
+### High level overview
+
+:bulb:
 
 - [Software stack](/WordPress-stack.md)
 - [Performance](/WordPress-performance.md)
