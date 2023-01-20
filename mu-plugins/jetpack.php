@@ -1,21 +1,41 @@
 <?php
 
+// Remove blacklisted Jetpack modules.
+add_filter(
+    'jetpack_get_available_modules',
+    static function ($modules) {
+        $blacklistedModules = [
+            'monitor',
+            'photon-cdn',
+            'photon',
+            'post-by-email',
+            'protect',
+            'seo-tools',
+            'sitemaps',
+            'sso',
+            'vaultpress',
+            'verification-tools',
+        ];
+        foreach ($blacklistedModules as $blacklistedModule) {
+            unset($modules[$blacklistedModule]);
+        }
+        return $modules;
+    },
+    PHP_INT_MAX,
+    1
+);
+
+// List modules in jetpack plugin directory
+// grep -r -F 'Module Name:' modules/|sed -e 's#^modules/##; s#\.php: \* Module Name: #\t#'|column -t -s $'\t'|sort
+
+/*
 // Enable Jetpack Search only.
 add_filter(
     'jetpack_get_available_modules',
     static function ($modules) {
         return array_intersect_key($modules, ['search' => true]);
     },
-    10,
+    PHP_INT_MAX,
     1
 );
-
-// Disable Jetpack Backup cron job.
-add_action(
-    'wp_loaded',
-    static function () {
-        remove_all_actions('jetpack_backup_cleanup_helper_scripts');
-    },
-    100,
-    0
-);
+*/

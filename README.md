@@ -98,3 +98,8 @@ Let's prevent working against each other!
 - [Hooks in WordPress](/WordPress-hooks.md)
 - [OOP for WordPress](/WordPress-OOP.md)
 - Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
+
+### Testing
+
+- Unit test without database https://github.com/Automattic/wordbless
+- Codeception https://github.com/lucatume/wp-browser
