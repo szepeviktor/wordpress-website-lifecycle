@@ -7,51 +7,50 @@
  * @package WordPress
  */
 
-/** Shared hosting. */
+/** Shared hosting shortcomings. */
 
-// User home directory: absolute path without trailing slash.
-if (empty($_SERVER['HOME'])) {
-    define('_HOME_DIR', realpath(getenv('HOME')));
-} else {
-    define('_HOME_DIR', realpath($_SERVER['HOME']));
-}
+// // User home directory: absolute path without trailing slash.
+// if (empty($_SERVER['HOME'])) {
+//     define('_HOME_DIR', realpath(getenv('HOME')));
+// } else {
+//     define('_HOME_DIR', realpath($_SERVER['HOME']));
+// }
+//
+// // Upload-temp and session directory.
+// ini_set('upload_tmp_dir', _HOME_DIR . '/tmp');
+// ini_set('session.save_path', _HOME_DIR . '/session');
+//
+// // Different FTP/PHP UID.
+// define('FS_CHMOD_DIR', (0775 & ~ umask()));
+// define('FS_CHMOD_FILE', (0664 & ~ umask()));
+//
+// // Create dirs - Comment out after first use!
+// mkdir(_HOME_DIR . '/tmp', 0700);
+// mkdir(_HOME_DIR . '/session', 0700);
+//
+// // See shared-hosting-aid/enable-logging.php
+// ini_set('error_log', _HOME_DIR . '/log/error.log');
+// ini_set('log_errors', '1');
+// ini_set('display_errors', '0');
 
-// Upload-temp and session directory.
-ini_set('upload_tmp_dir', _HOME_DIR . '/tmp');
-ini_set('session.save_path', _HOME_DIR . '/session');
+/** Composer. */
 
-// Different FTP/PHP UID.
-define('FS_CHMOD_DIR', (0775 & ~ umask()));
-define('FS_CHMOD_FILE', (0664 & ~ umask()));
-
-// Create dirs - Comment out after first use!
-mkdir(_HOME_DIR . '/tmp', 0700);
-mkdir(_HOME_DIR . '/session', 0700);
-
-// See shared-hosting-aid/enable-logging.php
-ini_set('error_log', _HOME_DIR . '/log/error.log');
-ini_set('log_errors', '1');
-ini_set('display_errors', '0');
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /** Security. */
 
 /**
- * Download both files.
-wget https://github.com/szepeviktor/waf4wordpress/raw/master/http-analyzer/waf4wordpress-http-analyzer.php
-wget https://github.com/szepeviktor/waf4wordpress/raw/master/core-events/waf4wordpress-core-events.php
+ * composer require szepeviktor/waf4wordpress
+ * Create wp-content/mu-plugins/waf4wordpress.php from readme
+ *
+ * @see https://github.com/szepeviktor/waf4wordpress/blob/master/README.md#composer-installation
  */
 
 // WAF for WordPress.
 define('W4WP_ALLOW_CONNECTION_EMPTY', true); // HTTP2.
 define('W4WP_CDN_HEADERS', 'HTTP_X_AMZ_CF_ID:HTTP_VIA:HTTP_X_FORWARDED_FOR'); // CDN.
 // define('W4WP_ALLOW_REDIRECT', true); // Polylang with separate domains.
-// require_once __DIR__ . '/wp-miniban-htaccess.inc.php';
-require_once __DIR__ . '/waf4wordpress-http-analyzer.php';
-new \Waf4WordPress\Http_Analyzer();
-
-/** Composer. */
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+new SzepeViktor\WordPress\Waf\HttpAnalyzer();
 
 /** Core. */
 
