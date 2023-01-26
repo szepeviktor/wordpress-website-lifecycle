@@ -1,7 +1,15 @@
 <?php
 
-// Disable admin email confirmation.
-add_filter('admin_email_check_interval', '__return_zero', PHP_INT_MAX, 0);
+/*
+ * Plugin Name: Disable admin email confirmation
+ */
+
+add_filter(
+    'admin_email_check_interval',
+    '__return_zero',
+    PHP_INT_MAX,
+    0
+);
 
 // Hard-code maintainer email address.
 /*

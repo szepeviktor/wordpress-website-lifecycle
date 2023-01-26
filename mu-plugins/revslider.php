@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Trigger fail2ban on Revolution Slider upload attempt.
+/*
+ * Trigger Fail2Ban on Revolution Slider upload attempt
  *
  * revslider/revslider_admin.php:389
  *
@@ -11,5 +11,5 @@
  *
  * Patched in version 4.2
  */
-error_log( 'Break-in attempt detected: ' . 'revslider_update_plugin' );
+error_log('Break-in attempt detected: ' . 'revslider_update_plugin');
 exit;

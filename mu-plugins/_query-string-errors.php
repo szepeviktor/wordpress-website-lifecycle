@@ -1,9 +1,12 @@
 <?php
 
-// Log non-WordPress URL query strings.
+/*
+ * Plugin Name: Log not WordPress friendly URL query strings
+ */
+
 add_action(
     'parse_request',
-    static function ($wp) {
+    static function () {
         if (empty($_SERVER['QUERY_STRING'])) {
             return;
         }
@@ -19,5 +22,5 @@ add_action(
         }
     },
     0,
-    1
+    0
 );

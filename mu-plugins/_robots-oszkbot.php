@@ -1,6 +1,9 @@
 <?php
 
-// Disallow OSZKbot.
+/*
+ * Plugin Name: Disallow OSZKbot
+ */
+
 add_filter(
     'robots_txt',
     static function ($output, $isPublic) {

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Plugin Name: Disallow Site Health.
+ */
+
 // Reset default REST Site Health capability.
 array_map(static function ($check) {
     add_filter(

@@ -1,9 +1,12 @@
 <?php
 
-// Log Disqus API errors.
+/*
+ * Plugin Name: Log Disqus API errors
+ */
+
 add_filter(
     'http_response',
-    function ($response, $parsed_args, $url) {
+    static function ($response, $parsed_args, $url) {
         if (
             strpos($url, 'https://disqus.com/api/') === 0
             && wp_remote_retrieve_response_code($response) !== 200

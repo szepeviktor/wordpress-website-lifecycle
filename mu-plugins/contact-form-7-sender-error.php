@@ -1,6 +1,9 @@
 <?php
 
-// Remove sender domain error.
+/*
+ * Plugin Name: Remove sender domain error in Contact Form 7 plugin
+ */
+
 add_action(
     'wpcf7_config_validator_validate',
     static function ($configValidator) {

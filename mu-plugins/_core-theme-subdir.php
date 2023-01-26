@@ -1,6 +1,9 @@
 <?php
 
-// Enable manual installation of themes with theme/ subdirectory.
+/*
+ * Plugin Name: Enable manual installation of themes with theme/ subdirectory
+ */
+
 function _core_theme_subdir_helper($source)
 {
     static $themePath;
@@ -21,14 +24,14 @@ function _core_theme_subdir_helper($source)
             && isset($themePath)
             && is_dir($themePath . 'theme')
         ) {
-            // Run on priority 11
+            // Run on priority 11.
             return $themePath;
         }
 
         return $source;
     }
 
-    // Run on priority 0
+    // Run on priority 0.
     $themePath = $source;
 
     return $source;

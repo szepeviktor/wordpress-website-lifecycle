@@ -1,6 +1,9 @@
 <?php
 
-// Disallow core, plugin, theme installation as WordPress is managed by Composer.
+/*
+ * Plugin Name: Disallow core, plugin, theme installation as WordPress is managed by Composer
+ */
+
 add_filter(
     'user_has_cap',
     static function ($capabilities) {

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Plugin Name: Jetpack plugin settings
+ */
+
 // Remove blacklisted Jetpack modules.
 add_filter(
     'jetpack_get_available_modules',
@@ -25,7 +29,7 @@ add_filter(
     1
 );
 
-// List modules in jetpack plugin directory
+// List modules in jetpack plugin directory.
 // grep -r -F 'Module Name:' modules/|sed -e 's#^modules/##; s#\.php: \* Module Name: #\t#'|column -t -s $'\t'|sort
 
 /*

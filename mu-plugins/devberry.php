@@ -1,9 +1,14 @@
 <?php
 
+/*
+ * Plugin Name: Devberry
+ */
+
 add_action(
     'wp_footer',
     static function () {
-        $title = sprintf('%s: v%s', wp_get_theme()->Name, \Company\Project\Theme::VERSION);
+        $title = sprintf('%s: v%s', wp_get_theme()->Name, wp_get_theme()->Version);
+        // $title = sprintf('%s: v%s', wp_get_theme()->Name, \Company\Project\Theme::VERSION);
 
         ?>
         <style>

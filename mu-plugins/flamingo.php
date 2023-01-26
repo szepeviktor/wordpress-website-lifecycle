@@ -1,6 +1,14 @@
 <?php
 
-// Remove Address Book submenu
-add_action( 'admin_menu', function () {
-    remove_submenu_page( 'flamingo', 'flamingo' );
-}, 9, 0 );
+/*
+ * Plugin Name: Remove Address Book submenu from Flamingo plugin
+ */
+
+add_action(
+    'admin_menu',
+    static function () {
+        remove_submenu_page('flamingo', 'flamingo');
+    },
+    9,
+    0
+);

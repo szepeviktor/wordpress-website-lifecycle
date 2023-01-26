@@ -1,5 +1,14 @@
 <?php
 
-add_action( 'wp_footer', function () {
-    echo "\n<!-- Infrastructure, source code management and consulting: Viktor Szépe <viktor@szepe.net> -->\n";
-}, PHP_INT_MAX, 0 );
+/*
+ * Plugin Name: Add my signature to footer
+ */
+
+add_action(
+    'wp_footer',
+    static function () {
+        echo "\n<!-- Premium DevOps services and consulting: Viktor Szépe <viktor@szepe.net> -->\n";
+    },
+    PHP_INT_MAX,
+    0
+);

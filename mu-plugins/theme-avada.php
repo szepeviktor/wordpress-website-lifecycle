@@ -1,9 +1,13 @@
 <?php
 
+/*
+ * Plugin Name: Avada theme settings
+ */
+
 // Disable Fusion Patcher.
 class Fusion_Patcher
 {
-    public function __construct( $array ) {}
+    public function __construct($array) {}
 
     public function get_patcher_checker()
     {
@@ -21,5 +25,5 @@ class Fusion_Patcher_Checker
 // Disable Fusion Updater.
 class Fusion_Updater
 {
-    public function __construct( $object ) {}
+    public function __construct($object) {}
 }

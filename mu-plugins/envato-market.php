@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Envato Market plugin for ThemeForest updates
  *
  * wp plugin install https://envato.github.io/wp-envato-market/dist/envato-market.zip --activate
@@ -17,5 +17,5 @@ fi
 
 EOF;
 
-file_put_contents( 'envato-market-update.sh', $envato_market_update );
-chmod( 'envato-market-update.sh', 0755 );
+file_put_contents('envato-market-update.sh', $envato_market_update);
+chmod('envato-market-update.sh', 0755);
