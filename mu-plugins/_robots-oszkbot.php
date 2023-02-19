@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disallow OSZKbot
+ * Plugin URI: https://webarchivum.oszk.hu/tartalomgazdaknak/technikai-tudnivalok-az-archivalasrol/
  */
 
 add_filter(
