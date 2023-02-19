@@ -28,18 +28,18 @@ add_action(
             animation: devberry-pulse-purple 2s infinite;
         }
         .devberry-static {
-          position: fixed;
-          width: 0;
-          height: 0;
-          top: 0;
-          right: 0;
-          z-index: 999990;
-          border-style: solid;
-          border-width: 16px;
-          border-top-color: rgba(154, 89, 181, 1);
-          border-right-color: rgba(154, 89, 181, 1);
-          border-bottom-color: transparent;
-          border-left-color: transparent;
+            position: fixed;
+            width: 0;
+            height: 0;
+            top: 0;
+            right: 0;
+            z-index: 999990;
+            border-style: solid;
+            border-width: 16px;
+            border-top-color: rgba(154, 89, 181, 1);
+            border-right-color: rgba(154, 89, 181, 1);
+            border-bottom-color: transparent;
+            border-left-color: transparent;
         }
         @keyframes devberry-pulse-purple {
             0% {
