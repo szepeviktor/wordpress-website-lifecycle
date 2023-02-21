@@ -101,5 +101,6 @@ Let's prevent working against each other!
 
 ### Testing
 
+- Query monitor https://github.com/johnbillion/query-monitor
 - Unit test without database https://github.com/Automattic/wordbless
 - Codeception https://github.com/lucatume/wp-browser
