@@ -76,6 +76,7 @@ Let's prevent working against each other!
 
 :bulb:
 
+- [Hosting](https://github.com/szepeviktor/infrastructure-for-hosting-web-applications)
 - [Software stack](/WordPress-stack.md)
 - [Performance](/WordPress-performance.md)
 - [Security](/WordPress-security.md)
