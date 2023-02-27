@@ -99,6 +99,7 @@ Let's prevent working against each other!
 - [Hooks in WordPress](/WordPress-hooks.md)
 - [OOP for WordPress](/WordPress-OOP.md)
 - Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
+- `wp_mail` emails https://github.com/johnbillion/wp_mail
 
 ### Testing
 
