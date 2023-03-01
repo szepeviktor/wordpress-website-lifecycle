@@ -2,7 +2,24 @@
 
 /*
  * Plugin Name: Devberry
+ * Description: Your development companion
  */
+
+add_filter(
+    'option_blog_public',
+    '__return_zero',
+    PHP_INT_MAX,
+    0
+);
+
+add_action(
+    'send_headers',
+    static function () {
+        header('X-Robots-Tag: noindex, nofollow', true);
+    },
+    PHP_INT_MAX,
+    0
+);
 
 add_action(
     'wp_footer',
