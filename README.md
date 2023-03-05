@@ -11,7 +11,7 @@ Who does what.
 1. Editor manages the content and related settings.
 2. Developer commits plugin and theme source code to GitHub and initiates deployment (CI/CD).
 3. Viktor manages the operating system, webserver software, WordPress core, plugins, the theme,
-   priviledged users, system settings, security, backup and migrations.
+    privileged users, system settings, security, backup and migrations.
 
 There is no web-based administration.
 WordPress installation is managed with git, **Composer** and WP-CLI on the command-line.
@@ -45,18 +45,18 @@ Keep the child theme in a git repository also.
 Let's prevent working against each other!
 
 - Don't write code changing WordPress core behavior anywhere else than **MU plugins**,
-  - removing admin menus, admin bar elements
-  - disabling emojis
-  - disabling comments
-  - disabling feeds
-  - disabling embeds
-  - mail settings and logging
-  - WAF: authentication/login, HTTP and REST API security
-  - comment form and contact form spam traps
-  - media management
-  - nav menu, translation and content caching
-  - HTTP and HTML optimization
-  - CDN support
+    - removing admin menus, admin bar elements
+    - disabling emojis
+    - disabling comments
+    - disabling feeds
+    - disabling embeds
+    - mail settings and logging
+    - WAF: authentication/login, HTTP and REST API security
+    - comment form and contact form spam traps
+    - media management
+    - nav menu, translation and content caching
+    - HTTP and HTML optimization
+    - CDN support
 - Plugin update check HTTP requests and updates itself are disabled
   because the whole WordPress installation is **managed with Composer**
 - Plugin and theme update and WordPress management-related admin pages are removed

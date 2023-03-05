@@ -2,7 +2,7 @@
 
 See https://codex.wordpress.org/Plugin_API/Action_Reference
 
-:bulb: Always hook the lastest possible action.
+:bulb: Always hook the latest possible action.
 
 ### Earliest time to use `add_filter` and `add_action`
 
