@@ -88,14 +88,14 @@ Let's prevent working against each other!
 - [`wp-config`](/wp-config)
 - _Alternative [WP-CLI installation](WP-CLI-installation.md)_
 - MU plugins for core, theme and plugins: [/mu-plugins/](/mu-plugins) and how to install [Default plugins](/Plugins.md)
-- Plugin starter: [szepeviktor/small-project](https://github.com/szepeviktor/small-project)
-- Theme starter: [timber/starter-theme](https://github.com/timber/starter-theme/tree/2.x)
-- Child theme starter: [/divi-child/](/divi-child)
+- Starter plugin: [szepeviktor/starter-plugin](https://github.com/szepeviktor/starter-plugin)
+- Starter theme: [timber/starter-theme](https://github.com/timber/starter-theme/tree/2.x)
+- Starter child theme: [/divi-child/](/divi-child)
 - Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
 ### Development stuff
 
-- [Leaving legacy technologies behind](https://github.com/szepeviktor/small-project/blob/master/MAIN-FILE-PARTS.md)
+- [Leaving legacy technologies behind](https://github.com/szepeviktor/starter-plugin)
 - [Hooks in WordPress](/WordPress-hooks.md)
 - [OOP for WordPress](/WordPress-OOP.md)
 - Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
