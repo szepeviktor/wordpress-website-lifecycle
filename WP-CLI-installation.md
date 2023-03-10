@@ -1,4 +1,4 @@
-# Installation by WP-CLI
+# Installation with WP-CLI
 
 `wp-cli.yml`
 
