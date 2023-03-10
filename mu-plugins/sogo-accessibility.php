@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Disable SOGO Accessability plugin (a11y) license check
+ * Plugin Name: Disable SOGO Accessibility plugin (a11y) license check
  */
 
 add_action(
