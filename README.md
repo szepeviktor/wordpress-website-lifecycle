@@ -4,7 +4,7 @@ How to work with WordPress. :bulb: `#active-development` `#self-hosted` `#long-t
 
 We run WordPress on Debian GNU/Linux operating system which runs on an UpCloud cloud instance.
 
-### Division of labour
+## Division of labour
 
 Who does what.
 
@@ -16,13 +16,19 @@ Who does what.
 There is no web-based administration.
 WordPress installation is managed with git, **Composer** and WP-CLI on the command-line.
 
-### More than the famous 5-minute installation
+## More than the famous 5-minute installation
 
 Our WordPress installation includes preparations for the next few **error-free years**.
 
 These preparations are implemented in [MU plugins](/mu-plugins/).
 
-### Working in a git repository
+## Support my work
+
+Please consider sponsoring me monthly if you use my packages in an agency.
+
+[![Sponsor](https://github.com/szepeviktor/.github/raw/master/.github/assets/github-like-sponsor-button.svg)](https://github.com/sponsors/szepeviktor)
+
+## Working in a git repository
 
 Our WordPress installation is stored in a git repository
 and managed with Composer.
@@ -40,7 +46,7 @@ wp plugin install child-theme-configurator --activate
 
 Keep the child theme in a git repository also.
 
-### Onboarding for developers
+## Onboarding for developers
 
 Let's prevent working against each other!
 
@@ -72,7 +78,7 @@ Let's prevent working against each other!
 - WordPress core is installed in a separate subdirectory
 - Please also see [hosting information for developers](https://github.com/szepeviktor/debian-server-tools/blob/master/Onboarding.md#onboarding-for-developers)
 
-### High level overview
+## High level overview
 
 :bulb:
 
@@ -82,7 +88,7 @@ Let's prevent working against each other!
 - [Security](/WordPress-security.md)
 - [Production environment](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/Production-website.md)
 
-### Installation materials
+## Installation materials
 
 - WordPress installation: [szepeviktor/composer-managed-wordpress](https://github.com/szepeviktor/composer-managed-wordpress)
 - [`wp-config`](/wp-config)
@@ -93,7 +99,7 @@ Let's prevent working against each other!
 - Starter child theme: [/divi-child/](/divi-child)
 - Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
-### Development stuff
+## Development stuff
 
 - [Leaving legacy technologies behind](https://github.com/szepeviktor/starter-plugin)
 - [Hooks in WordPress](/WordPress-hooks.md)
@@ -101,7 +107,7 @@ Let's prevent working against each other!
 - Tools for development: [SentencePress](https://github.com/szepeviktor/SentencePress)
 - `wp_mail` emails https://github.com/johnbillion/wp_mail
 
-### Testing
+## Testing
 
 - Query monitor https://github.com/johnbillion/query-monitor
 - Unit tests without a database https://github.com/Automattic/wordbless
