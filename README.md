@@ -99,6 +99,13 @@ Let's prevent working against each other!
 - Starter child theme: [/divi-child/](/divi-child)
 - Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
+## Theme review
+
+- [Theme Check plugin](https://wordpress.org/plugins/theme-check/)
+- [unofficial fork of Theme Check plugin](https://themecheck.info/)
+- [WPThemeReview Standard for PHP_CodeSniffer](https://github.com/WPTRT/WPThemeReview)
+- [PHP Insights](https://github.com/nunomaduro/phpinsights)
+
 ## Development stuff
 
 - [Leaving legacy technologies behind](https://github.com/szepeviktor/starter-plugin)
