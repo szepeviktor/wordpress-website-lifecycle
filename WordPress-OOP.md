@@ -8,7 +8,6 @@
 - [Options API + constants](https://github.com/TypistTech/wp-option-store)
 - [Settings API](https://github.com/TypistTech/wp-better-settings)
 - [Admin Tabs](https://github.com/TypistTech/wp-admin-tabs)
-- [OOP Toolkit](https://github.com/szepeviktor/Toolkit4WP)
 - [ACF `get_field()`](https://github.com/szepeviktor/acf-get)
 - [Twig Template Engine](https://github.com/timber/timber)
 - [Routing](https://github.com/Brain-WP/Cortex)
