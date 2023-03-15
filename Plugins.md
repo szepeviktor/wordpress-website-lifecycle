@@ -14,14 +14,14 @@ wget -qO- https://github.com/szepeviktor/debian-server-tools/raw/master/mysql/al
   | mysql -N $(wp eval 'echo DB_NAME;') | mysql
 
 # no parent themes
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/debian-server-tools/raw/master/webserver/wordpress/_core-themes.php
+wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-child-themes.php
 
 # disable updates
 wget -P wp-content/mu-plugins/ ${WPSZV}/mu-disable-updates/disable-updates.php
 
 # disable comments
-wget -P wp-content/mu-plugins/ https://github.com/solarissmoke/disable-comments-mu/raw/master/disable-comments-mu.php
-wget -P wp-content/mu-plugins/disable-comments-mu/ https://github.com/solarissmoke/disable-comments-mu/raw/master/disable-comments-mu/comments-template.php
+wget -P wp-content/mu-plugins/ https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu.php
+wget -P wp-content/mu-plugins/disable-comments-mu/ https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu/comments-template.php
 
 # disable feeds
 #wp plugin install disable-feeds --activate
@@ -36,7 +36,7 @@ wp plugin install classic-smilies --activate
 wp plugin install polylang --activate
 
 # mail
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/debian-server-tools/raw/master/webserver/wordpress/_core-mail.php
+wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-mail.php
 #wp plugin install wp-mailfrom-ii smtp-uri --activate
 # define( 'SMTP_URI', 'smtp://FOR-THE-WEBSITE%40DOMAIN.TLD:PWD@localhost' );
 wp plugin install wp-mailfrom-ii --activate
@@ -64,10 +64,8 @@ wget -P wp-content/mu-plugins/ ${WPSZV}/mu-keepass-button/keepass-button.php
 
 # WAF for WordPress
 
-wget https://github.com/szepeviktor/waf4wordpress/raw/master/http-analyzer/waf4wordpress-http-analyzer.php
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/waf4wordpress/raw/master/core-events/waf4wordpress-core-events.php
-#wget https://github.com/szepeviktor/waf4wordpress/raw/master/non-wp-projects/wp-login.php
-#wget https://github.com/szepeviktor/waf4wordpress/raw/master/non-wp-projects/xmlrpc.php
+composer require --dev szepeviktor/waf4wordpress
+wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/waf4wordpress.php
 
 # security suite + audit
 
