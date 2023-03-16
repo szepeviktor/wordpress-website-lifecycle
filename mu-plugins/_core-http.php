@@ -8,6 +8,16 @@
  * define('WP_ACCESSIBLE_HOSTS', 'api.wordpress.org');
  */
 
+// Disable HTTPS detection by setting error-free result.
+add_filter(
+    'pre_wp_update_https_detection_errors',
+    static function() {
+        return new \WP_Error();
+    },
+    10,
+    0
+);
+
 // Log failed external HTTP requests.
 add_action(
     'http_api_debug',
