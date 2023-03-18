@@ -28,9 +28,10 @@ Please consider sponsoring me monthly if you use my packages in an agency.
 
 [![Sponsor](https://github.com/szepeviktor/.github/raw/master/.github/assets/github-like-sponsor-button.svg)](https://github.com/sponsors/szepeviktor)
 
-They are already sponsoring me
+They are already sponsoring me.
 
 [<img src="https://github.com/johnbillion.png" width="50px" alt="johnbillion">](https://github.com/johnbillion)&nbsp;&nbsp;
+[<img src="https://github.com/JJJ.png" width="50px" alt="JJJ">](https://github.com/JJJ)&nbsp;&nbsp;
 [<img src="https://github.com/montchr.png" width="50px" alt="montchr">](https://github.com/montchr)&nbsp;&nbsp;
 
 ## Working in a git repository
