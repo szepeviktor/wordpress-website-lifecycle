@@ -11,7 +11,7 @@
 // Disable HTTPS detection by setting error-free result.
 add_filter(
     'pre_wp_update_https_detection_errors',
-    static function() {
+    static function () {
         return new \WP_Error();
     },
     10,

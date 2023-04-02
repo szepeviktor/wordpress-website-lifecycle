@@ -6,7 +6,7 @@
 1. Ban IP addresses on the very first suspicious request preventing further scanning
 1. Serve requests as quickly as possible to prevent DoS attacks
 1. Lowest access level possible for users
-1. Monitor everything (source code, traffic, humans)
+1. Monitor everything (source code, database, logs, traffic, humans)
 
 ### Compromise from your computer and mobile
 
