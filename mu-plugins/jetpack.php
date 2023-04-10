@@ -43,3 +43,6 @@ add_filter(
     1
 );
 */
+
+// Disable Jetpack promotions
+// https://github.com/wearerequired/hide-jetpack-promotions/blob/master/hide-jetpack-promotions.php
