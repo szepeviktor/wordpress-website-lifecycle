@@ -7,7 +7,7 @@
 add_action(
     'wp_footer',
     static function () {
-        echo "\n<!-- Premium DevOps services and consulting: Viktor Szépe <viktor@szepe.net> -->\n";
+        echo "\n<!-- DevOps services and consulting: Viktor Szépe <viktor@szepe.net> -->\n";
     },
     PHP_INT_MAX,
     0

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Plugin Name: HTTP settings
  *
