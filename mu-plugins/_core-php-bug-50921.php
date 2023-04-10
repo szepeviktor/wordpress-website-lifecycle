@@ -2,9 +2,9 @@
 
 /*
  * Plugin Name: Fix PHP bug #50921: '200 OK' HTTP status despite PHP error
+ * Plugin URI: https://bugs.php.net/bug.php?id=50921
  */
 
-// https://bugs.php.net/bug.php?id=50921
 add_action(
     'shutdown',
     static function () {

@@ -101,7 +101,7 @@ add_filter(
 );
 add_filter(
     'gform_cdata_close',
-    function () {
+    static function () {
         return ' }, false);';
     },
     10,
