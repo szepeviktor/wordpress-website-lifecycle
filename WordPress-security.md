@@ -13,7 +13,7 @@
 - Do not store usernames and passwords in browsers
 - Use a password manager
 - Second opinion anti-malware software (HitmanPro.Alert)
-- [Protect devices](/Onboarding.md#cyber-security)
+- [Protect devices](https://github.com/szepeviktor/debian-server-tools/blob/master/Onboarding.md#cyber-security)
 
 ### Compromise from hosting provider
 
