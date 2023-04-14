@@ -122,6 +122,6 @@ Let's prevent working against each other!
 
 ## Testing
 
-- Query monitor https://github.com/johnbillion/query-monitor
+- [Query monitor](https://github.com/johnbillion/query-monitor)
 - Unit tests without a database https://github.com/Automattic/wordbless
-- Codeception https://github.com/lucatume/wp-browser
+- [Codeception](https://github.com/lucatume/wp-browser)
