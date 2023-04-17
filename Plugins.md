@@ -64,7 +64,7 @@ wget -P wp-content/mu-plugins/ ${WPSZV}/mu-keepass-button/keepass-button.php
 
 # WAF for WordPress
 
-composer require --dev szepeviktor/waf4wordpress
+composer require szepeviktor/waf4wordpress
 wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/waf4wordpress.php
 
 # security suite + audit
@@ -90,6 +90,11 @@ wget -P wp-content/plugins/comment-form-robot-trap/ ${WPSZV}/comment-form-robot-
 wp plugin install email-address-encoder --activate
 # Stop spammers
 #wp plugin install stop-spammer-registrations-plugin --activate
+
+# SVG upload and sanitization
+
+# Safe SVG
+composer require darylldoyle/safe-svg
 ```
 
 ### Restrictions
