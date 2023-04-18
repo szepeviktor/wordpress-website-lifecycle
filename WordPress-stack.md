@@ -4,7 +4,7 @@
 
 - Modern CPU, high *memory* bandwidth as WordPress is mainly memory copying,
   sub-msec disk access time, use [UpCloud](https://www.upcloud.com/register/?promo=U29Q8S)
-- Thin virtualization layer, use UpCloud, stay away from popular, non-enterprise providers
+- Thin virtualization layer, use UpCloud, stay away from popular, not enterprise ready providers
 - Fast operating system: No systemd, Enough entropy, IRQ balance, Low memory usage
 - Block hammering attackers: Fail2ban, permanently block hostile networks
 - Anycast DNS
@@ -15,9 +15,9 @@
 - Modern PHP with OPcache, FastCGI connected through UDS
 - Lean WordPress installation: minimal and audited plugins only
 - Redis in-memory object cache
-- TokuDB (fractal tree) MariaDB engine
+- InnoDB MariaDB engine
 - Static resource optimization
-- Cut on JavaScripts
+- Cut on JavaScripts and stylesheets
 - Continuous monitoring (Monit, HetrixTools, Bugsnag)
 
 ###### This page contains an affiliate link
