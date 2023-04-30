@@ -46,7 +46,7 @@ This is the starter template.
 
 Custom plugins and themes live in separate git repositories.
 
-**Purchased themes** can be customized using a child theme.
+**Purchased themes** should have an active child theme.
 
 ```bash
 wp plugin install child-theme-configurator --activate
@@ -75,7 +75,7 @@ Let's prevent working against each other!
   because the whole WordPress installation is **managed with Composer**
 - Plugin and theme update and WordPress management-related admin pages are removed
   (updated with Composer, administered with WP-CLI)
-- WP-Cron is ran by a linux cron job (the default pseudo cron/web callback is disabled)
+- WP-Cron is ran by a Linux cron job (the default pseudo cron/web callback is disabled)
 - Only things necessary for generating custom admin pages
   and generating HTML go into the **theme**
 - Business logic (e.g. processing input from visitors) goes into **plugins**
@@ -126,4 +126,4 @@ Let's prevent working against each other!
 
 - [Query monitor](https://github.com/johnbillion/query-monitor)
 - Unit tests without a database https://github.com/Automattic/wordbless
-- [Codeception](https://github.com/lucatume/wp-browser)
+- [Codeception](https://github.com/lucatume/wp-browser) (BDD)
