@@ -3,93 +3,96 @@
 Search for things added by plugins and things that make up a plugin.
 https://plugintests.com/search-ids
 
+`_core-disallow-updates.php` is already in mu-plugins/ directory.
+https://github.com/szepeviktor/composer-managed-wordpress/tree/master/public/wp-content/mu-plugins
+
 ### For core
 
 ```bash
-export WPSZV="https://github.com/szepeviktor/wordpress-plugin-construction/raw/master"
-mkdir wp-content/mu-plugins/
+# Put content_disposition = on into ~/.wgetrc
+export LEGACY_PLUGINS_URL="https://github.com/szepeviktor/wordpress-plugin-construction/raw/master"
 
-# InnoDB table engine
+cd public/wp-content/mu-plugins/
+
+# Use InnoDB table engine
 wget -qO- https://github.com/szepeviktor/debian-server-tools/raw/master/mysql/alter-table.sql \
   | mysql -N $(wp eval 'echo DB_NAME;') | mysql
 
-# no parent themes
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-child-themes.php
+# No parent themes
+wget https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-child-themes.php
 
-# disable updates
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-disable-updates/disable-updates.php
+# Disable updates
+wget ${LEGACY_PLUGINS_URL}/mu-disable-updates/disable-updates.php
 
-# disable comments
-wget -P wp-content/mu-plugins/ https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu.php
-wget -P wp-content/mu-plugins/disable-comments-mu/ https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu/comments-template.php
+# Disable comments
+wget https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu.php
+wget -P disable-comments-mu/ https://github.com/WPDevelopers/disable-comments-mu/raw/master/disable-comments-mu/comments-template.php
 
-# disable feeds
-#wp plugin install disable-feeds --activate
+# Disable feeds
+composer require wpackagist-plugin/disable-feeds
 
-# disable embeds
-#wp plugin install disable-embeds --activate
+# Disable embeds
+composer require wpackagist-plugin/disable-embeds
 
-# smilies
-wp plugin install classic-smilies --activate
+# Smilies
+composer require wpackagist-plugin/classic-smilies
 
-# multilanguage
-wp plugin install polylang --activate
+# Multilanguage
+composer require wpackagist-plugin/polylang
 
-# mail
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-mail.php
-#wp plugin install wp-mailfrom-ii smtp-uri --activate
+# Mailing
+wget https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-mail.php
+composer require wpackagist-plugin/wp-mailfrom-ii
+composer require wpackagist-plugin/smtp-uri
 # define( 'SMTP_URI', 'smtp://FOR-THE-WEBSITE%40DOMAIN.TLD:PWD@localhost' );
-wp plugin install wp-mailfrom-ii --activate
-#wget -P wp-content/mu-plugins/ https://github.com/danielbachhuber/mandrill-wp-mail/raw/master/mandrill-wp-mail.php
+wget https://github.com/danielbachhuber/mandrill-wp-mail/raw/master/mandrill-wp-mail.php
+
+wp plugin activate --all
 wp eval 'var_dump(wp_mail("admin@szepe.net","First outgoing",site_url()));'
 ```
 
 ### Security
 
 ```bash
-# users/login
+# Users and login
 
-#wp plugin install password-bcrypt
-#cp -v wp-content/plugins/password-bcrypt/wp-password-bcrypt.php wp-content/mu-plugins/
-#wp plugin uninstall password-bcrypt
+wget https://github.com/szepeviktor/password-bcrypt/raw/wp/wp-password-bcrypt.php
 composer require typisttech/wp-password-argon-two
-# sessions
-wp plugin install user-session-control --activate
-# pwned passwords
-wp plugin install disallow-pwned-passwords --activate
-# user roles
-wp plugin install user-role-editor --activate
+# Sessions
+composer require wpackagist-plugin/user-session-control
+# Pwned passwords
+composer require wpackagist-plugin/disallow-pwned-passwords
+# User roles
+composer require wpackagist-plugin/user-role-editor
 # KeePass button
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-keepass-button/keepass-button.php
+wget ${LEGACY_PLUGINS_URL}/mu-keepass-button/keepass-button.php
 
 # WAF for WordPress
 
 composer require szepeviktor/waf4wordpress
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/waf4wordpress.php
+wget https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/waf4wordpress.php
 
-# security suite + audit
+# Security suite + audit
 
-# logbook
-wp plugin install logbook --activate
-# audit
-wp plugin install wp-user-activity --activate
-# simple audit
-wp plugin install simple-history --activate
-# Sucuri
-#wp plugin install custom-sucuri sucuri-scanner --activate
+# Logbook
+composer require wpackagist-plugin/logbook
+# Audit
+composer require wpackagist-plugin/wp-user-activity
+# Simple audit
+composer require wpackagist-plugin/simple-history
 
-# prevent spam
+# Prevent spam
 
-# installation: https://github.com/szepeviktor/wordpress-plugin-construction/tree/master/mu-nofollow-robot-trap
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-nofollow-robot-trap/nofollow-robot-trap.php
+# Installation: https://github.com/szepeviktor/wordpress-plugin-construction/tree/master/mu-nofollow-robot-trap
+wget ${LEGACY_PLUGINS_URL}/mu-nofollow-robot-trap/nofollow-robot-trap.php
 # CF7 robot trap
-wget -P wp-content/plugins/contact-form-7-robot-trap/ ${WPSZV}/contact-form-7-robot-trap/cf7-robot-trap.php
+wget ${LEGACY_PLUGINS_URL}/contact-form-7-robot-trap/cf7-robot-trap.php
 # Comment form robot trap
-wget -P wp-content/plugins/comment-form-robot-trap/ ${WPSZV}/comment-form-robot-trap/comment-form-robot-trap.php
+wget ${LEGACY_PLUGINS_URL}/comment-form-robot-trap/comment-form-robot-trap.php
 # Email address encoder
-wp plugin install email-address-encoder --activate
+composer require wpackagist-plugin/email-address-encoder
 # Stop spammers
-#wp plugin install stop-spammer-registrations-plugin --activate
+composer require wpackagist-plugin/stop-spammer-registrations-plugin
 
 # SVG upload and sanitization
 
@@ -100,67 +103,62 @@ composer require darylldoyle/safe-svg
 ### Restrictions
 
 ```bash
-# lock session IP
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-lock-session-ip/lock-session-ip.php
+# Lock session IP
+wget ${LEGACY_PLUGINS_URL}/mu-lock-session-ip/lock-session-ip.php
 
-# concurrent logins
-#wp plugin install prevent-concurrent-logins --activate
+# Concurrent logins
+composer require wpackagist-plugin/prevent-concurrent-logins
 
-# weak passwords
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-disallow-weak-passwords/disallow-weak-passwords.php
+# Weak passwords
+wget ${LEGACY_PLUGINS_URL}/mu-disallow-weak-passwords/disallow-weak-passwords.php
 
-# user email addresses
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-banned-email-addresses/banned-email-addresses.php
+# User email addresses
+wget ${LEGACY_PLUGINS_URL}/mu-banned-email-addresses/banned-email-addresses.php
 
-# media
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-image-upload-control/image-upload-control.php
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-image-upload-control/image-upload-control-hu.php
-
-# protect plugins
-#wget -P wp-content/mu-plugins/ ${WPSZV}/mu-protect-plugins/protect-plugins.php
+# Media
+wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control.php
+wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control-hu.php
 ```
 
 ### Object cache
 
 ```php
 // In wp-config.php
-define( 'WP_CACHE_KEY_SALT', 'SITE-SHORT_' );
-$redis_server = array(
+define('WP_CACHE_KEY_SALT', 'SITE-SHORT_');
+$redis_server = [
     'host'     => '127.0.0.1',
     'port'     => 6379,
     'auth'     => 'secret',
     'database' => 0,
-);
+];
 ```
 
 ```bash
-wget -P wp-content/mu-plugins/ ${WPSZV}/mu-cache-flush-button/flush-cache-button.php
-
-# Redis @danielbachhuber
-wp plugin install wp-redis --activate
+# Redis @Pantheon
+composer require wpackagist-plugin/wp-redis
+wp plugin activate wp-redis
 wp redis enable
 wp transient delete-all
 
 # Memcached @HumanMade
-wget -P wp-content/ https://github.com/humanmade/wordpress-pecl-memcached-object-cache/raw/master/object-cache.php
+wget -P ../ https://github.com/humanmade/wordpress-pecl-memcached-object-cache/raw/master/object-cache.php
 wp transient delete-all
 
 # File-based @emrikol from Automattic
-#wp plugin install focus-object-cache
-wget -P wp-content/ ${WPSZV}/focus-cache/object-cache.php
+wget -P ../ ${LEGACY_PLUGINS_URL}/focus-cache/object-cache.php
 wp transient delete-all
 
 # FileSystem, Sqlite, APC/u, Memcached, Redis @inpsyde
 # See https://github.com/inpsyde/WP-Stash (inpsyde/wp-stash:dev-master) and https://www.stashphp.com/Drivers.html
 
 # Tiny cache
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/tiny-cache/raw/master/tiny-translation-cache.php
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/tiny-cache/raw/master/tiny-nav-menu-cache.php
-wget -P wp-content/mu-plugins/ https://github.com/szepeviktor/tiny-cache/raw/master/tiny-cache.php
+wget https://github.com/szepeviktor/tiny-cache/raw/master/tiny-translation-cache.php
+wget https://github.com/szepeviktor/tiny-cache/raw/master/tiny-nav-menu-cache.php
+wget https://github.com/szepeviktor/tiny-cache/raw/master/tiny-cache.php
 ```
 
 Redis object cache as a service:
-[Free 30 MB Redis instance by redislab](https://redislabs.com/redis-cloud)
+[Free 30 MB Redis instance by redislab](https://redis.com/redis-enterprise-cloud/overview/)
 
 ### Optimize HTML + HTTP
 
@@ -168,32 +166,20 @@ Resource optimization
 
 ```bash
 # JPEG image quality
-# add_filter( 'jpeg_quality', function ( $quality ) { return 91; } );
+# add_filter('jpeg_quality', static function ($quality) {return 91;});
 
 # Resource Versioning
-wp plugin install resource-versioning --activate
+composer require wpackagist-plugin/resource-versioning
 
 # Tiny CDN
-wp plugin install tiny-cdn --activate
+composer require wpackagist-plugin/tiny-cdn
 
 # Minit
-#wp plugin install https://github.com/kasparsd/minit/archive/master.zip
-#wp plugin install https://github.com/markoheijnen/Minit-Pro/archive/master.zip
+composer require kasparsd/minit
+composer require markoheijnen/minit-pro
 
 # Safe Redirect Manager
-wp plugin install safe-redirect-manager --activate
-
-# WP-FFPC
-# backends: APCu, Memcached with ngx_http_memcached_module
-# https://github.com/petermolnar/wp-ffpc
-#wp plugin install https://github.com/petermolnar/wp-ffpc/archive/master.zip --activate
-
-## Autoptimize - CONFLICTS with resource-versioning
-##     define( 'AUTOPTIMIZE_WP_CONTENT_NAME', '/static' );
-#wp plugin install autoptimize --activate
-
-#https://github.com/optimalisatie/above-the-fold-optimization
-#https://github.com/o10n-x
+composer require wpackagist-plugin/safe-redirect-manager
 ```
 
 Set up CDN.
@@ -211,7 +197,6 @@ MU Plugin Template
  * Version: 0.0.0
  * Description: This MU plugin contains customizations.
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle/blob/master/Plugins.md
- * Author: Viktor Szépe
  */
 ```
 
@@ -220,28 +205,28 @@ See [/mu-plugins/](/mu-plugins/) directory for its content.
 ### Plugin authors with enterprise mindset
 
 - [Daniel Bachhuber](https://profiles.wordpress.org/danielbachhuber/#content-plugins)
-  &bull; [GitHub](https://github.com/danielbachhuber?tab=repositories&type=source)
+    &bull; [GitHub](https://github.com/danielbachhuber?tab=repositories&type=source)
 - [John Blackbourn](https://profiles.wordpress.org/johnbillion#content-plugins)
-  &bull; [GitHub](https://github.com/johnbillion?tab=repositories&type=source)
+    &bull; [GitHub](https://github.com/johnbillion?tab=repositories&type=source)
 - [Ben Huson](https://profiles.wordpress.org/husobj/#content-plugins)
-  &bull; [GitHub](https://github.com/benhuson?utf8=✓&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/benhuson?utf8=✓&tab=repositories&q=&type=source)
 - [10up](https://profiles.wordpress.org/10up#content-plugins)
-  &bull; [GitHub](https://github.com/10up?utf8=%E2%9C%93&q=&type=source)
+    &bull; [GitHub](https://github.com/10up?utf8=%E2%9C%93&q=&type=source)
 - [Inpsyde](https://profiles.wordpress.org/inpsyde#content-plugins)
-  &bull; [GitHub](https://github.com/inpsyde?utf8=%E2%9C%93&q=&type=source)
+    &bull; [GitHub](https://github.com/inpsyde?utf8=%E2%9C%93&q=&type=source)
 - [Andrew Norcross](https://profiles.wordpress.org/norcross#content-plugins)
-  &bull; [GitHub](https://github.com/norcross?utf8=%E2%9C%93&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/norcross?utf8=%E2%9C%93&tab=repositories&q=&type=source)
 - [XWP](https://profiles.wordpress.org/xwp#content-plugins)
-  &bull; [GitHub](https://github.com/xwp?utf8=✓&q=&type=source&)
+    &bull; [GitHub](https://github.com/xwp?utf8=✓&q=&type=source&)
 - [Frankie Jarrett](https://profiles.wordpress.org/fjarrett#content-plugins)
-  &bull; [GitHub](https://github.com/fjarrett?utf8=%E2%9C%93&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/fjarrett?utf8=%E2%9C%93&tab=repositories&q=&type=source)
 - [Weston Ruter](https://profiles.wordpress.org/westonruter#content-plugins)
-  &bull; [GitHub](https://github.com/westonruter?utf8=✓&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/westonruter?utf8=✓&tab=repositories&q=&type=source)
 - [Scott Kingsley Clark](https://profiles.wordpress.org/sc0ttkclark#content-plugins)
-  &bull; [GitHub](https://github.com/sc0ttkclark?utf8=✓&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/sc0ttkclark?utf8=✓&tab=repositories&q=&type=source)
 - [Voce Platforms](https://profiles.wordpress.org/voceplatforms#content-plugins)
-  &bull; [GitHub](https://github.com/voceconnect?utf8=✓&q=&type=source)
+    &bull; [GitHub](https://github.com/voceconnect?utf8=✓&q=&type=source)
 - [interconnect/it](https://profiles.wordpress.org/interconnectit#content-plugins)
-  &bull; [GitHub](https://github.com/interconnectit?utf8=✓&q=&type=source)
+    &bull; [GitHub](https://github.com/interconnectit?utf8=✓&q=&type=source)
 - [Zack Tollman](https://profiles.wordpress.org/tollmanz#content-plugins)
-  &bull; [GitHub](https://github.com/tollmanz?utf8=✓&tab=repositories&q=&type=source)
+    &bull; [GitHub](https://github.com/tollmanz?utf8=✓&tab=repositories&q=&type=source)
