@@ -34,7 +34,8 @@
 - HTTPS websites receive less attacks: force HTTPS ([HSTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security))
 - Block known hostile networks ([myattackers-ipset](/security/myattackers-ipsets))
 - Preventively block vulnerability scanners ([WAF for WordPress](https://github.com/szepeviktor/waf4wordpress))
-- Restrict access to core, theme and plugin files and directories ([wordpress.inc.conf](/webserver/apache-conf-available/wordpress.inc.conf))
+- Restrict access to core, theme and plugin files and directories
+    ([wordpress.inc.conf](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/apache-conf-available/wordpress.inc.conf))
 - Disable file upload to the server
 - Source code integrity check ([hourly](/monitoring/tripwire-fake.sh))
 - Alert on source code change ([hourly](/monitoring/siteprotection.sh))
