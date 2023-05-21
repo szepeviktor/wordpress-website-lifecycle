@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Reencode spaces in query string with %20
+ * Plugin Name: Re-encode spaces in query string with %20
  */
 
 add_action(
