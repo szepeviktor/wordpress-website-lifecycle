@@ -7,7 +7,6 @@
 add_action(
     'after_switch_theme',
     static function ($oldtheme_name, $old_theme) {
-        $error_message = 'Reverted to previous theme as new one has a child theme';
         // Child themes are OK.
         if (is_child_theme()) {
             return;
@@ -26,6 +25,7 @@ add_action(
             add_action(
                 'admin_notices',
                 static function () {
+                    $error_message = 'Reverted to previous theme as new one has a child theme';
                     printf('<div class="notice-error"><p>%s</p></div>', esc_html($error_message));
                 },
                 10,
