@@ -28,7 +28,7 @@ add_action(
 add_action(
     'admin_enqueue_scripts',
     static function ($hook) {
-        if (false === strpos($hook, 'wpseo_')) {
+        if (strpos($hook, 'wpseo_') === false) {
             return;
         }
         $style = '.wp-admin .yoast_premium_upsell { display:none !important; }';
@@ -42,14 +42,14 @@ add_action(
 // Remove Premium pages.
 add_filter(
     'wpseo_submenu_pages',
-    static function ($submenu_pages) {
-        foreach ($submenu_pages as $key => $submenu_page) {
+    static function ($submenuPages) {
+        foreach ($submenuPages as $pageIndex => $submenuPage) {
             // Fifth element is $page_slug
-            if (in_array($submenu_page[4], ['wpseo_licenses', 'wpseo_workouts', 'wpseo_redirects'])) {
-                unset($submenu_pages[$key]);
+            if (in_array($submenuPage[4], ['wpseo_licenses', 'wpseo_workouts', 'wpseo_redirects'], true)) {
+                unset($submenuPages[$pageIndex]);
             }
         }
-        return $submenu_pages;
+        return $submenuPages;
     },
     99,
     1

@@ -7,7 +7,7 @@
 // Log usage of deprecated WordPress features.
 array_map(
     static function ($hook) {
-        add_filter(
+        add_action(
             $hook,
             static function ($deprecated) use ($hook) {
                 error_log(sprintf('WordPress %s: %s', $hook, $deprecated));

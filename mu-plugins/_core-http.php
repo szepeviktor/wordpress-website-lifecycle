@@ -22,8 +22,8 @@ add_filter(
 // Log failed external HTTP requests.
 add_action(
     'http_api_debug',
-    static function ($response, $context, $class, $parsed_args, $url) {
-        if ('response' !== $context || 'Requests' !== $class || ! is_wp_error($response)) {
+    static function ($response, $context, $class, $parsedArgs, $url) {
+        if ($context !== 'response' || $class !== 'Requests' || ! is_wp_error($response)) {
             return;
         }
         error_log(
@@ -32,7 +32,7 @@ add_action(
                 $response->get_error_code(),
                 $response->get_error_message(),
                 $url,
-                json_encode($parsed_args, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+                wp_json_encode($parsedArgs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
             )
         );
     },
@@ -44,8 +44,8 @@ add_action(
 if (defined('WP_DEBUG') && WP_DEBUG) :
     add_action(
         'http_api_debug',
-        static function ($response, $context, $class, $parsed_args, $url) {
-            if ('response' !== $context || 'Requests' !== $class || is_wp_error($response)) {
+        static function ($response, $context, $class, $parsedArgs, $url) {
+            if ($context !== 'response' || $class !== 'Requests' || is_wp_error($response)) {
                 return;
             }
             error_log(
@@ -53,7 +53,7 @@ if (defined('WP_DEBUG') && WP_DEBUG) :
                     '%s: %s (%s)',
                     'WordPress external HTTP request',
                     $url,
-                    json_encode($parsed_args, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+                    wp_json_encode($parsedArgs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
                 )
             );
         },

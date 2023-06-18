@@ -49,13 +49,13 @@ add_filter(
 // Add charset attribute to Content-Type headers in multipart messages.
 add_filter(
     'gform_pre_send_email',
-    static function ($email, $message_format) {
-        if ('multipart' === $message_format) {
+    static function ($email, $messageFormat) {
+        if ($messageFormat === 'multipart') {
             $charset = sprintf(' charset="%s";', get_option('blog_charset'));
             // '\S+' could be preg_quote(GFCommon::$email_boundary)
             $email['message'] = preg_replace(
                 '/^(--\S+\r?\nContent-Type: text\/(plain|html);)(\r?\n)/m',
-                '\1' . $charset . '\3',
+                sprintf('\\1%s\\3', $charset),
                 $email['message']
             );
         }
@@ -71,8 +71,8 @@ add_filter(
     static function ($form) {
         if (
             count($form['fields']) > 1
-            && 'honeypot' === RGFormsModel::get_input_type(end($form['fields']))
-            && 'honeypot' !== RGFormsModel::get_input_type($form['fields'][1])
+            && RGFormsModel::get_input_type(end($form['fields'])) === 'honeypot'
+            && RGFormsModel::get_input_type($form['fields'][1]) !== 'honeypot'
         ) {
             $honeypot = end($form['fields']);
             array_pop($form['fields']);

@@ -6,6 +6,10 @@
 
 class ThemeUpdateChecker
 {
+    /** @var string|false */
     public $purchaseCode = false;
 }
-class PluginUpdateChecker_2_0 {}
+
+class PluginUpdateChecker_2_0
+{
+}

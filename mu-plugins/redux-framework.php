@@ -12,7 +12,7 @@ add_filter(
     0
 );
 add_filter(
-    'get_user_option_' . 'r_tru_u_x',
+    sprintf('%s_%s', 'get_user_option', 'r_tru_u_x'),
     static function () {
         return [
             'expires' => PHP_INT_MAX,

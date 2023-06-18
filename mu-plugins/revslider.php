@@ -11,5 +11,5 @@
  *
  * Patched in version 4.2
  */
-error_log('Break-in attempt detected: ' . 'revslider_update_plugin');
+error_log('Break-in attempt detected: revslider_update_plugin');
 exit;

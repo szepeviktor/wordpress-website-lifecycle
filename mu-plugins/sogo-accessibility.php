@@ -10,7 +10,7 @@ add_action(
         add_filter(
             'pre_http_request',
             static function () {
-                return new WP_Error('sogo_license_check_disabled');
+                return new \WP_Error('sogo_license_check_disabled');
             },
             0,
             0
