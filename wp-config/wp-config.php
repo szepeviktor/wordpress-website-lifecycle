@@ -66,10 +66,10 @@ define('WP_CONTENT_URL', 'https://DOMAIN.TLD/wp-content');
 
 /**
  * Moving to subdirs.
-wp option set siteurl "$(wp option get siteurl)/site"
+wp option update siteurl "$(wp option get siteurl)/site"
 wp search-replace # /wp-includes/ -> /site/wp-includes/ and /wp-content/ -> /static/
-wp option set home https://DOMAIN.TLD
-wp option set siteurl https://DOMAIN.TLD/site
+wp option update home "https://DOMAIN.TLD"
+wp option update siteurl "https://DOMAIN.TLD/site"
  */
 
 define('WP_ALLOW_REPAIR', false);

@@ -28,7 +28,7 @@ wp core config --dbname="$DBNAME" --dbuser="$DBUSER" --dbpass="$DBPASS" \
 EOF
 wp core install --title="WP" --admin_user="viktor" --admin_email="viktor@szepe.net" --admin_password="12345"
 
-wp option set home "WP-HOME-URL"
-wp option set blog_public 0
-wp option set admin_email "webmaster@example.com"
+wp option update home "WP-HOME-URL"
+wp option update blog_public 0
+wp option update admin_email "webmaster@example.com"
 ```

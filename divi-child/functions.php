@@ -6,7 +6,7 @@
  */
 
 // Set API key
-// wp option set --format=json et_automatic_updates_options '{"username":"USERNAME","api_key":"API-KEY"}'
+// wp option update et_automatic_updates_options '{"username":"USERNAME","api_key":"API-KEY"}' --format=json
 
 // Elegant Themes API call: core/components/Updates.php:573
 
