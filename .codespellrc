@@ -1,6 +1,0 @@
-[codespell]
-skip=./.git
-check-hidden=
-check-filenames=
-builtin=clear,rare,informal,usage,code,names
-ignore-words-list=master
