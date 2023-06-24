@@ -35,6 +35,7 @@ They are already sponsoring me.
 [<img src="https://github.com/johnbillion.png" width="50px" alt="johnbillion">](https://github.com/johnbillion)&nbsp;&nbsp;
 [<img src="https://github.com/JJJ.png" width="50px" alt="JJJ">](https://github.com/JJJ)&nbsp;&nbsp;
 [<img src="https://github.com/montchr.png" width="50px" alt="montchr">](https://github.com/montchr)&nbsp;&nbsp;
+[<img src="https://github.com/blockifywp.png" width="50px" alt="montchr">](https://github.com/blockifywp)&nbsp;&nbsp;
 
 ## Working in a git repository
 
