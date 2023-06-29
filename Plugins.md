@@ -44,7 +44,7 @@ composer require wpackagist-plugin/polylang
 wget https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-mail.php
 composer require wpackagist-plugin/wp-mailfrom-ii
 composer require wpackagist-plugin/smtp-uri
-# define( 'SMTP_URI', 'smtp://FOR-THE-WEBSITE%40DOMAIN.TLD:PWD@localhost' );
+# define( 'SMTP_URI', 'smtp://FOR-THE-WEBSITE%40EXAMPLE.COM:PWD@localhost' );
 wget https://github.com/danielbachhuber/mandrill-wp-mail/raw/master/mandrill-wp-mail.php
 
 wp plugin activate --all

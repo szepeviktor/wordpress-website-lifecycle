@@ -61,15 +61,15 @@ define('FS_METHOD', 'direct');
 
 // "wp-content" location.
 // EDIT!
-define('WP_CONTENT_DIR', '/HOME/USER/SITE/DOC-ROOT/wp-content');
-define('WP_CONTENT_URL', 'https://DOMAIN.TLD/wp-content');
+define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
+define('WP_CONTENT_URL', 'https://EXAMPLE.COM/wp-content');
 
 /**
  * Moving to subdirs.
 wp option update siteurl "$(wp option get siteurl)/site"
 wp search-replace # /wp-includes/ -> /site/wp-includes/ and /wp-content/ -> /static/
-wp option update home "https://DOMAIN.TLD"
-wp option update siteurl "https://DOMAIN.TLD/site"
+wp option update home "https://EXAMPLE.COM"
+wp option update siteurl "https://EXAMPLE.COM/site"
  */
 
 define('WP_ALLOW_REPAIR', false);
