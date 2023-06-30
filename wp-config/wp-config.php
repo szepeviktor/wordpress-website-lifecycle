@@ -64,14 +64,6 @@ define('FS_METHOD', 'direct');
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
 define('WP_CONTENT_URL', 'https://EXAMPLE.COM/wp-content');
 
-/**
- * Moving to subdirs.
-wp option update siteurl "$(wp option get siteurl)/site"
-wp search-replace # /wp-includes/ -> /site/wp-includes/ and /wp-content/ -> /static/
-wp option update home "https://EXAMPLE.COM"
-wp option update siteurl "https://EXAMPLE.COM/site"
- */
-
 define('WP_ALLOW_REPAIR', false);
 define('WP_MEMORY_LIMIT', '40M');
 define('WP_MAX_MEMORY_LIMIT', '256M');
