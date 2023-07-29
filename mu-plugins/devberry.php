@@ -25,7 +25,7 @@ add_action(
     'wp_footer',
     static function () {
         $title = sprintf('%s: v%s', wp_get_theme()->get('Name'), wp_get_theme()->get('Version'));
-        // $title = sprintf('%s: v%s', wp_get_theme()->Name, \Company\Project\Theme::VERSION);
+        // $title = sprintf('%s: v%s', wp_get_theme()->get('Name'), \Company\Project\Theme::VERSION);
 
         ?>
         <style>
