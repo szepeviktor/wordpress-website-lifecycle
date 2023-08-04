@@ -1,0 +1,111 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: "Integrity"
+
+on:  # yamllint disable-line rule:truthy
+    pull_request: null
+    push:
+        branches:
+        - "master"
+
+permissions: {}  # yamllint disable-line rule:braces
+#permissions: "read-all"
+#permissions:
+#    contents: "read"
+
+concurrency:
+    group: "${{ github.workflow }}-${{ github.ref }}"
+    cancel-in-progress: true
+
+jobs:
+    file:
+        name: "File"
+        runs-on: "ubuntu-22.04"
+        timeout-minutes: 1
+        steps:
+        -
+            name: "Checkout repository"
+            uses: "actions/checkout@v3"
+        -
+            name: "Check file permissions"
+            run: |
+                test "$(find ./ -type f -not -path './.git/*' -executable)" = ""
+        -
+            # https://github.com/greut/eclint/issues/6
+            name: "Check for byte order mark (BOM)"
+            run: |
+                ! git grep --perl-regexp -I -e '^\xEF\xBB\xBF'
+        -
+            # https://html.spec.whatwg.org/multipage/named-characters.html
+            name: "Search for characters outside the printable ASCII range"
+            run: |
+                ! LC_ALL=C.UTF-8 git grep --perl-regexp --line-number -e '[^ -~]' -- src/ resources/ tests/
+                # Filesystem-based
+                #! LC_ALL=C.UTF-8 find src/ resources/ tests/ -type f -print0 \
+                #    | xargs --null -- grep --perl-regexp --with-filename --line-number '[^ -~]'
+                # Ignore lines
+                #    | grep -v '// @ignore-non-ascii$'
+        -
+            name: "Check EditorConfig configuration"
+            run: "test -f .editorconfig"
+        -
+            name: "Check adherence to EditorConfig"
+            uses: "greut/eclint-action@v0"
+        -
+            name: "Look for TAB characters in the middle of the line 🐌"
+            run: |
+                ! git grep --perl-regexp --line-number -I '^(?!//)[^\t]+\t'
+        -
+            # Move TODO-s into GitHub issues!
+            name: "Search for TODO-s and FIXME-s 🐌"
+            run: |
+                ! git grep --extended-regexp --ignore-case '\b(TODO|FIXME)\b' \
+                    -- ':!:*/integrity.yml' ':!:*/back-end.yml'
+        -
+            name: "Remove blank first lines and multiple blank lines 🐌"
+            run: |
+                git ls-files --cached -z -- ':(exclude,glob)**/yarn.lock' \
+                    | xargs --null -L 1 -- sed -i -e '/./,$!d' -e '/^$/N;/^\n$/D'
+        -
+            name: "Check differences to repository"
+            run: "git diff --exit-code"
+
+    commit:
+        name: "Commit"
+        runs-on: "ubuntu-22.04"
+        timeout-minutes: 1
+        steps:
+        -
+            name: "Checkout repository"
+            uses: "actions/checkout@v3"
+        -
+            name: "Search for conflict markers 🐌"
+            run: |
+                ! git grep --line-number -e '^\(<<<<<<<\s\|=======\s\|=======$\|>>>>>>>\s\||||||||\s\)'
+
+    git_archive:
+        name: "Git archive"
+        runs-on: "ubuntu-22.04"
+        timeout-minutes: 1
+        steps:
+        -
+            name: "Checkout repository"
+            uses: "actions/checkout@v3"
+        -
+            name: "Check for ignored files in the index 🐌"
+            run: |
+                # Add negated files: ':!:path/to/negated'
+                IGNORED_FILES="$(git ls-files --cached --ignored --exclude-standard)"
+                test -z "${IGNORED_FILES}"
+        -
+            name: "Check exported files"
+            run: |
+                EXPECTED="LICENSE,README.md,composer.json,package.json"
+                CURRENT="$(
+                    git archive HEAD \
+                        | tar --list --exclude="src" --exclude="src/*" --exclude="resources" --exclude="resources/*" \
+                        | paste --serial --delimiters=","
+                )"
+                echo "CURRENT =${CURRENT}"
+                echo "EXPECTED=${EXPECTED}"
+                test "${CURRENT}" = "${EXPECTED}"

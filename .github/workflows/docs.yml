@@ -1,12 +1,19 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow
 
-name: "Spelling"
+name: "Docs"
 
 on:  # yamllint disable-line rule:truthy
-    pull_request: null
+    pull_request:
+        paths:
+        - "**/*.md"
+        - ".markdownlint-cli2.yaml"
     push:
         branches:
         - "master"
+        paths:
+        - "**/*.md"
+        - ".markdownlint-cli2.yaml"
+# Add [skip ci] to commit message to skip CI.
 
 permissions: {}  # yamllint disable-line rule:braces
 #permissions: "read-all"
@@ -18,8 +25,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    typos_check:
-        name: "文A Typos check"
+    markdown:
+        name: "Markdown"
         runs-on: "ubuntu-22.04"
         timeout-minutes: 1
         steps:
@@ -27,5 +34,7 @@ jobs:
             name: "Checkout repository"
             uses: "actions/checkout@v3"
         -
-            name: "Search for misspellings"
-            uses: "crate-ci/typos@master"
+            name: "Check Markdown documents"
+            uses: "DavidAnson/markdownlint-cli2-action@v11"
+            with:
+                globs: "**/*.md"

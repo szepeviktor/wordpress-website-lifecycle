@@ -1,0 +1,12 @@
+config:
+    # https://cirosantilli.com/markdown-style-guide#spaces-after-list-marker
+    list-marker-space:
+        ul_single: 1
+        ul_multi: 3
+        ol_single: 1
+        ol_multi: 2
+    ul-indent:
+        indent: 4
+        start_indent: 4
+        start_indented: false
+    no-bare-urls: false
