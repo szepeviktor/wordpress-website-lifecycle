@@ -56,7 +56,7 @@ new SzepeViktor\WordPress\Waf\HttpAnalyzer();
 
 // See wp-config-live-debugger/
 define('WP_DEBUG', false);
-// Don't allow any other write method
+// Don't allow any other write method.
 define('FS_METHOD', 'direct');
 
 // "wp-content" location.
@@ -81,7 +81,7 @@ define('MEDIA_TRASH', true);
 define('WP_CACHE', true);
  */
 
-// CLI cron job: /webserver/wp-install/wp-cron-cli.sh
+// CLI cron job: https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/wp-install/wp-cron-cli.sh
 // Simple CLI cron job: /usr/bin/php7.4 ABSPATH/wp-cron.php # stdout and stderr to cron email.
 define('DISABLE_WP_CRON', true);
 define('AUTOMATIC_UPDATER_DISABLED', true);
@@ -147,7 +147,7 @@ wget -qO- https://api.wordpress.org/secret-key/1.1/salt/
 
 /** Absolute path to the WordPress directory. */
 if (! defined('ABSPATH')) {
-    define('ABSPATH', __DIR__ . '/core/');
+    define('ABSPATH', __DIR__ . '/project/');
     error_log('Please use wp-load.php to load WordPress.');
     exit;
 }
