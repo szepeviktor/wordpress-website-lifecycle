@@ -4,7 +4,7 @@ See https://codex.wordpress.org/Plugin_API/Action_Reference
 
 :bulb: Always hook the latest possible action.
 
-### Earliest time to use `add_filter` and `add_action`
+## Earliest time to use `add_filter` and `add_action`
 
 - **Not** when plugin's main file or the themes's `functions.php` file is being loaded!
 - Plugins at `plugins_loaded`
@@ -15,21 +15,22 @@ See https://codex.wordpress.org/Plugin_API/Action_Reference
 add_action('plugins_loaded', 'myprefix_add_hooks', 10, 0);
 ```
 
-### Unconditional hooking
+## Unconditional hooking
 
 - `register_activation_hook()`
 - `register_post_type()`
 
-### Based on HTTP request type
+## Based on HTTP request type
 
-- Core request type (entry points and routes),
-  see [template hierarchy](https://wphierarchy.com/) and
-  [`Toolkit4WP\Is::request()`](https://github.com/szepeviktor/Toolkit4WP/blob/master/src/Is.php#L64-L117)
-- Plugin and themes request types (e.g. AMP pages, XML sitemap)
+-   Core request type (entry points and routes),
+    see [template hierarchy](https://wphierarchy.com/) and
+    [`Toolkit4WP\Is::request()`](https://github.com/szepeviktor/Toolkit4WP/blob/master/src/Is.php#L64-L117)
+-   Plugin and themes request types (e.g. AMP pages, XML sitemap)
 
-:bulb: Anonymous visitors include ones with JS disabled, robots, attackers and pull CDN.
+:bulb: Anonymous visitors include ones with JS disabled,
+robots, attackers and pull CDN.
 
-### Conditional Tags
+## Conditional Tags
 
 See https://codex.wordpress.org/Conditional_Tags
 
@@ -37,7 +38,7 @@ See https://codex.wordpress.org/Conditional_Tags
 - Page template
 - Archives
 
-### On admin pages
+## On admin pages
 
 - Current admin page, see https://codex.wordpress.org/Plugin_API/Action_Reference/load-(page)
 - Logged in users with core roles
@@ -45,18 +46,18 @@ See https://codex.wordpress.org/Conditional_Tags
 
 :bulb: `is_admin()` includes `wp_doing_ajax()`!
 
-### In development
+## In development
 
 - Based on `WP_DEBUG`
 - Based on environment name from `WP_ENV`
 
-### HTTP Request variables
+## HTTP Request variables
 
 GET and POST variables.
 
 :bulb: Best to avoid direct request variable access.
 
-### Login requests
+## Login requests
 
 - `register` GET, POST
 - `login` GET, POST

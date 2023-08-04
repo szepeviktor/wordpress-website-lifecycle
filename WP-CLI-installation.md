@@ -26,7 +26,8 @@ wp core config --dbname="$DBNAME" --dbuser="$DBUSER" --dbpass="$DBPASS" \
     --dbhost="$DBHOST" --dbprefix="prod" --dbcharset="$DBCHARSET" --extra-php <<EOF
 // Extra PHP code
 EOF
-wp core install --title="WP" --admin_user="viktor" --admin_email="viktor@szepe.net" --admin_password="12345"
+wp core install --title="WP" \
+    --admin_user="viktor" --admin_email="viktor@szepe.net" --admin_password="12345"
 
 wp option update home "WP-HOME-URL"
 wp option update blog_public 0

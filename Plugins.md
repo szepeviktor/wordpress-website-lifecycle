@@ -6,8 +6,9 @@ https://plugintests.com/search-ids
 `_core-disallow-updates.php` is already in mu-plugins/ directory.
 https://github.com/szepeviktor/composer-managed-wordpress/tree/master/public/wp-content/mu-plugins
 
-### For core
+## For core
 
+<!-- markdownlint-disable MD013 -->
 ```bash
 # Put content_disposition = on into ~/.wgetrc
 export LEGACY_PLUGINS_URL="https://github.com/szepeviktor/wordpress-plugin-construction/raw/master"
@@ -16,7 +17,8 @@ cd public/wp-content/mu-plugins/
 
 # Use InnoDB table engine
 wget -qO- https://github.com/szepeviktor/debian-server-tools/raw/master/mysql/alter-table.sql \
-  | mysql -N $(wp eval 'echo DB_NAME;') | mysql
+    | mysql -N $(wp eval 'echo DB_NAME;') \
+    | mysql
 
 # No parent themes
 wget https://github.com/szepeviktor/wordpress-website-lifecycle/raw/master/mu-plugins/_core-child-themes.php
@@ -51,7 +53,7 @@ wp plugin activate --all
 wp eval 'var_dump(wp_mail("admin@szepe.net","First outgoing",site_url()));'
 ```
 
-### Security
+## Security
 
 ```bash
 # Users and login
@@ -100,7 +102,7 @@ composer require wpackagist-plugin/stop-spammer-registrations-plugin
 composer require darylldoyle/safe-svg
 ```
 
-### Restrictions
+## Restrictions
 
 ```bash
 # Lock session IP
@@ -120,7 +122,7 @@ wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control.php
 wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control-hu.php
 ```
 
-### Object cache
+## Object cache
 
 ```php
 // In wp-config.php
@@ -160,7 +162,7 @@ wget https://github.com/szepeviktor/tiny-cache/raw/master/tiny-cache.php
 Redis object cache as a service:
 [Free 30 MB Redis instance by redislab](https://redis.com/redis-enterprise-cloud/overview/)
 
-### Optimize HTML + HTTP
+## Optimize HTML + HTTP
 
 Resource optimization
 
@@ -184,7 +186,7 @@ composer require wpackagist-plugin/safe-redirect-manager
 
 Set up CDN.
 
-### Plugin fixes
+## Plugin fixes
 
 MU Plugin Template
 
@@ -202,31 +204,31 @@ MU Plugin Template
 
 See [/mu-plugins/](/mu-plugins/) directory for its content.
 
-### Plugin authors with enterprise mindset
+## Plugin authors with enterprise mindset
 
-- [Daniel Bachhuber](https://profiles.wordpress.org/danielbachhuber/#content-plugins)
+-   [Daniel Bachhuber](https://profiles.wordpress.org/danielbachhuber/#content-plugins)
     &bull; [GitHub](https://github.com/danielbachhuber?tab=repositories&type=source)
-- [John Blackbourn](https://profiles.wordpress.org/johnbillion#content-plugins)
+-   [John Blackbourn](https://profiles.wordpress.org/johnbillion#content-plugins)
     &bull; [GitHub](https://github.com/johnbillion?tab=repositories&type=source)
-- [Ben Huson](https://profiles.wordpress.org/husobj/#content-plugins)
+-   [Ben Huson](https://profiles.wordpress.org/husobj/#content-plugins)
     &bull; [GitHub](https://github.com/benhuson?utf8=✓&tab=repositories&q=&type=source)
-- [10up](https://profiles.wordpress.org/10up#content-plugins)
+-   [10up](https://profiles.wordpress.org/10up#content-plugins)
     &bull; [GitHub](https://github.com/10up?utf8=%E2%9C%93&q=&type=source)
-- [Inpsyde](https://profiles.wordpress.org/inpsyde#content-plugins)
+-   [Inpsyde](https://profiles.wordpress.org/inpsyde#content-plugins)
     &bull; [GitHub](https://github.com/inpsyde?utf8=%E2%9C%93&q=&type=source)
-- [Andrew Norcross](https://profiles.wordpress.org/norcross#content-plugins)
+-   [Andrew Norcross](https://profiles.wordpress.org/norcross#content-plugins)
     &bull; [GitHub](https://github.com/norcross?utf8=%E2%9C%93&tab=repositories&q=&type=source)
-- [XWP](https://profiles.wordpress.org/xwp#content-plugins)
+-   [XWP](https://profiles.wordpress.org/xwp#content-plugins)
     &bull; [GitHub](https://github.com/xwp?utf8=✓&q=&type=source&)
-- [Frankie Jarrett](https://profiles.wordpress.org/fjarrett#content-plugins)
+-   [Frankie Jarrett](https://profiles.wordpress.org/fjarrett#content-plugins)
     &bull; [GitHub](https://github.com/fjarrett?utf8=%E2%9C%93&tab=repositories&q=&type=source)
-- [Weston Ruter](https://profiles.wordpress.org/westonruter#content-plugins)
+-   [Weston Ruter](https://profiles.wordpress.org/westonruter#content-plugins)
     &bull; [GitHub](https://github.com/westonruter?utf8=✓&tab=repositories&q=&type=source)
-- [Scott Kingsley Clark](https://profiles.wordpress.org/sc0ttkclark#content-plugins)
+-   [Scott Kingsley Clark](https://profiles.wordpress.org/sc0ttkclark#content-plugins)
     &bull; [GitHub](https://github.com/sc0ttkclark?utf8=✓&tab=repositories&q=&type=source)
-- [Voce Platforms](https://profiles.wordpress.org/voceplatforms#content-plugins)
+-   [Voce Platforms](https://profiles.wordpress.org/voceplatforms#content-plugins)
     &bull; [GitHub](https://github.com/voceconnect?utf8=✓&q=&type=source)
-- [interconnect/it](https://profiles.wordpress.org/interconnectit#content-plugins)
+-   [interconnect/it](https://profiles.wordpress.org/interconnectit#content-plugins)
     &bull; [GitHub](https://github.com/interconnectit?utf8=✓&q=&type=source)
-- [Zack Tollman](https://profiles.wordpress.org/tollmanz#content-plugins)
+-   [Zack Tollman](https://profiles.wordpress.org/tollmanz#content-plugins)
     &bull; [GitHub](https://github.com/tollmanz?utf8=✓&tab=repositories&q=&type=source)
