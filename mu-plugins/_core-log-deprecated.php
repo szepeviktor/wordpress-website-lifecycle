@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Deprecation logger
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Log usage of deprecated WordPress features.

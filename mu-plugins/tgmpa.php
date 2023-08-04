@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable TGMPA
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Disable TGMPA (procedural)

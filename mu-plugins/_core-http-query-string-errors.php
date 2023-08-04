@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Log not WordPress friendly URL query strings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable Easy Social Share Buttons plugin updates
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

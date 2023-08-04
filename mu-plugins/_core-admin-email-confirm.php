@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable admin email confirmation
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

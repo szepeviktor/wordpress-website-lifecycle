@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Prevent Redux Framework HTTP requests
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 $GLOBALS['redux_update_check'] = 1;

@@ -1,7 +1,9 @@
 <?php
 
 /*
- * Plugin Name: Disallow core, plugin, theme installation as WordPress is managed by Composer
+ * Plugin Name: Disallow core, plugin, theme installation
+ * Description: WordPress is managed by Composer
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

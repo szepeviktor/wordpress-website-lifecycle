@@ -3,6 +3,7 @@
 /*
  * Plugin Name: Devberry
  * Description: Your development companion
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

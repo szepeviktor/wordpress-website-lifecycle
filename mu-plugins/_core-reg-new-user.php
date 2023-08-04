@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable new user registration email to admin
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 remove_action('register_new_user', 'wp_send_new_user_notifications');

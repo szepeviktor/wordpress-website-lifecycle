@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Hide ACF admin pages
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  *
  * Add-ons
  *

@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Add my signature to footer
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

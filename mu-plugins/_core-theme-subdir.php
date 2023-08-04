@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Enable manual installation of themes with theme/ subdirectory
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 function _core_theme_subdir_helper($source)

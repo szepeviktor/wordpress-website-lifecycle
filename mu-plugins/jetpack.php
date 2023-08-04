@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Jetpack plugin settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Remove blacklisted Jetpack modules.

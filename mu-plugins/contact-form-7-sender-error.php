@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Remove sender domain error in Contact Form 7 plugin
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

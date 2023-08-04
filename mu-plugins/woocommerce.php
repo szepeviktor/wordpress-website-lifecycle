@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Remove WooCommerce guided tour videos
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

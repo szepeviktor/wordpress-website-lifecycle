@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Mail settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Remove X-Mailer header from emails.

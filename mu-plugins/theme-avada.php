@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Avada theme settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 /**

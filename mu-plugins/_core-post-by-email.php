@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable post-by-email
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Remove Address Book submenu from Flamingo plugin
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

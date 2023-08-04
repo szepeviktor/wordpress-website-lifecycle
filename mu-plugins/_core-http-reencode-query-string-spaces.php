@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Re-encode spaces in query string with %20
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable SOGO Accessibility plugin (a11y) license check
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

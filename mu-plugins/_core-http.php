@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: HTTP settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  *
  * Use these constants to restrict outbound HTTP requests.
  *

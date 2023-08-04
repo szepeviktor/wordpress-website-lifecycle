@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Never enqueue jQuery Migrate before WordPress 5.5
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

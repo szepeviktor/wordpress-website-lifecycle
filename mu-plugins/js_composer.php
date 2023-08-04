@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable WPBakery Visual Composer plugin updates
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

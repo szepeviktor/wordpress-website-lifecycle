@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Yoast SEO plugin settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Remove JSON for Linking Data.

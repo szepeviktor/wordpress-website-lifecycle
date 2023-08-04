@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Log Disqus API errors
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Move WP User Activity plugin menu under Dashboard
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(

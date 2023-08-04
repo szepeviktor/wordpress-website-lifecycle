@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disallow Site Health.
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Reset default REST Site Health capability.

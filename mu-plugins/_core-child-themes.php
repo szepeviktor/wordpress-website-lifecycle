@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Prevent activation of themes having a child theme available
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_action(

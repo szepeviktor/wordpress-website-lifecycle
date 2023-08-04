@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Gravity Forms plugin settings
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 // Disable Gravity Forms plugin updates.

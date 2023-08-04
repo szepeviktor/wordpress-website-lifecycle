@@ -2,6 +2,7 @@
 
 /*
  * Plugin Name: Disable Kernl plugin - Private WordPress Plugin & Theme Updates
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 class ThemeUpdateChecker
