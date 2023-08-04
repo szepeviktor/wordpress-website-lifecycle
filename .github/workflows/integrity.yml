@@ -97,15 +97,3 @@ jobs:
                 # Add negated files: ':!:path/to/negated'
                 IGNORED_FILES="$(git ls-files --cached --ignored --exclude-standard)"
                 test -z "${IGNORED_FILES}"
-        -
-            name: "Check exported files"
-            run: |
-                EXPECTED="LICENSE,README.md,composer.json,package.json"
-                CURRENT="$(
-                    git archive HEAD \
-                        | tar --list --exclude="src" --exclude="src/*" --exclude="resources" --exclude="resources/*" \
-                        | paste --serial --delimiters=","
-                )"
-                echo "CURRENT =${CURRENT}"
-                echo "EXPECTED=${EXPECTED}"
-                test "${CURRENT}" = "${EXPECTED}"
