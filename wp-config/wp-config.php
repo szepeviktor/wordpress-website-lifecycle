@@ -109,6 +109,7 @@ define('TINY_CDN_INCLUDES_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/site/wp-i
 define('TINY_CDN_CONTENT_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/wp-content');
 define('WP_CACHE_KEY_SALT', 'SITE-SHORT:');
 define('ENABLE_FORCE_CHECK_UPDATE', true);
+define('PERFLAB_DISABLE_OBJECT_CACHE_DROPIN', true);
 /**
  * https://polylang.wordpress.com/documentation/documentation-for-developers/list-of-options-which-can-be-set-in-wp-config-php/
 define('PLL_LINGOTEK_AD', false);
