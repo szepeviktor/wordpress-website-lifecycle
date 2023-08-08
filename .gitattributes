@@ -1,0 +1,9 @@
+/*.md export-ignore
+/README.md -export-ignore
+/.github/ export-ignore
+/.gitattributes export-ignore
+/.editorconfig export-ignore
+/.markdownlint-cli2.yaml export-ignore
+/.typos.toml export-ignore
+/divi-child/ export-ignore
+/wp-config/ export-ignore
