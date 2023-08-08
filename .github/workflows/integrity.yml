@@ -23,6 +23,7 @@ jobs:
             not-printable-ascii-paths: >-
                 divi-child/
                 mu-plugins/
+                :!:mu-plugins/szv-signature.php
                 wp-config/
             export-excludes: >-
                 --exclude="mu-plugins" --exclude="mu-plugins/*"
