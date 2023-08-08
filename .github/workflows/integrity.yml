@@ -29,4 +29,3 @@ jobs:
             exported-paths: >-
                 LICENSE
                 README.md
-                composer.json
