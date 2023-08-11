@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Disallow Site Health.
+ * Plugin Name: Disallow Site Health
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
