@@ -9,7 +9,7 @@ add_action(
     'plugins_loaded',
     static function () {
         global $essb_manager;
-        if (method_exists($essb_manager, 'disableUpdater')) {
+        if (method_exists($essb_manager, 'disableUpdates')) {
             $essb_manager->disableUpdates(true);
         }
     },
