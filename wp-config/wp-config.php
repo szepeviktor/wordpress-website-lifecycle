@@ -41,7 +41,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
  * composer require szepeviktor/waf4wordpress
- * Create wp-content/mu-plugins/waf4wordpress.php from readme
+ * Copy mu-plugins/waf4wordpress.php
  *
  * @see https://github.com/szepeviktor/waf4wordpress/blob/master/README.md#composer-installation
  */
@@ -105,10 +105,13 @@ define('BLOG_ID_CURRENT_SITE', 1);
 // typisttech/wp-password-argon-two
 define('WP_PASSWORD_ARGON_TWO_PEPPER', getenv('WP_PASSWORD_ARGON_TWO_PEPPER'));
 // Tiny CDN - No trailing slash!
-define('TINY_CDN_INCLUDES_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/site/wp-includes');
+define('TINY_CDN_INCLUDES_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/project/wp-includes');
 define('TINY_CDN_CONTENT_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/wp-content');
+// WP Redis
 define('WP_CACHE_KEY_SALT', 'SITE-SHORT:');
+// disable-updates.php
 define('ENABLE_FORCE_CHECK_UPDATE', true);
+// Performance Lab
 define('PERFLAB_DISABLE_OBJECT_CACHE_DROPIN', true);
 define('PERFLAB_DISABLE_SERVER_TIMING', true);
 /**
@@ -122,7 +125,6 @@ define('PODS_SESSION_AUTO_START', false);
 define('WPCF7_LOAD_CSS', false);
 define('WPCF7_LOAD_JS', false);
 define('ACF_LITE', true); // Use 'acf/settings/show_admin' filter!
-define('AUTOPTIMIZE_WP_CONTENT_NAME', '/static');
 define('YIKES_MC_API_KEY', '00000000-us3');
  * Non-free plugins.
 define('GF_LICENSE_KEY', ''); // Gravity Forms "rg_gforms_key".
