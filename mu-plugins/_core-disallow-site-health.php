@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-// Reset default REST Site Health capability.
+// Reset default REST Site Health capabilities.
 array_map(
     static function ($check) {
         add_filter(
@@ -18,12 +18,18 @@ array_map(
         );
     },
     [
+        // From WP_REST_Site_Health_Controller::register_routes
         'background_updates',
         'loopback_requests',
         'https_status',
         'dotorg_communication',
         'authorization_header',
+        // Incorrectly named "directory_sizes"
         'debug_enabled',
+        'directory_sizes',
+        // Incorrectly named "page_cache"
+        'view_site_health_checks',
+        'page_cache',
     ]
 );
 
