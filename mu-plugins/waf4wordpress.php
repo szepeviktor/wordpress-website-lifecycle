@@ -21,7 +21,9 @@ add_action(
             <th scope="row" class="check-column"></th>
             <td class="plugin-title column-primary"><strong>HttpAnalyzer.php</strong></td>
             <td class="column-description desc">
-                <div class="plugin-description"><p><strong>HTTP request analyzer part of WAF for WordPress.</strong></p></div>
+                <div class="plugin-description">
+                    <p><strong>HTTP request analyzer part of WAF for WordPress.</strong></p>
+                </div>
                 <div class="active second plugin-version-author-uri"><a
                     href="https://github.com/szepeviktor/waf4wordpress"
                     aria-label="Visit plugin site"
