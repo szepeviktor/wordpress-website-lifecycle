@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: Disallow core, plugin, theme installation
- * Description: WordPress is managed by Composer
+ * Description: WordPress is managed with Composer
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 

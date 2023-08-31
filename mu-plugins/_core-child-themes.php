@@ -7,7 +7,7 @@
 
 add_action(
     'after_switch_theme',
-    static function ($oldtheme_name, $old_theme) {
+    static function ($old_theme_name, $old_theme) {
         // Child themes are OK.
         if (is_child_theme()) {
             return;
