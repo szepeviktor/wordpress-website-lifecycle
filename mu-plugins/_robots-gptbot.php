@@ -1,15 +1,15 @@
 <?php
 
 /*
- * Plugin Name: Disallow OSZKbot
- * Plugin URI: https://webarchivum.oszk.hu/tartalomgazdaknak/technikai-tudnivalok-az-archivalasrol/
+ * Plugin Name: Disallow GPTBot
+ * Plugin URI: https://platform.openai.com/docs/gptbot
  */
 
 add_filter(
     'robots_txt',
     static function ($output, $is_public) {
         $lines = [
-            'User-agent: OSZKbot',
+            'User-agent: GPTBot',
             'Disallow: /',
         ];
         if (!$is_public) {
