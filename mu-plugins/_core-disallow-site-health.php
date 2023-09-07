@@ -5,6 +5,8 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
+// Remove empty cron hook: wp cron event delete wp_site_health_scheduled_check
+
 // Reset default REST Site Health capabilities.
 array_map(
     static function ($check) {
