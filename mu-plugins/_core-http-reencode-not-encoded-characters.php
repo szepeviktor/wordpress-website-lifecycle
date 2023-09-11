@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Re-encode spaces in query string with %20
+ * Plugin Name: Re-encode not encoded characters in query string
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
@@ -16,6 +16,8 @@ add_action(
         $request_uri = $parsed_url['path'];
         $query_string = '';
         if (isset($parsed_url['query'])) {
+            // + character from Facebook Ads
+            // * character from Google Analytics
             $query_parameters = [];
             parse_str($parsed_url['query'], $query_parameters);
             $query_string = http_build_query($query_parameters, '', '&', PHP_QUERY_RFC3986);
