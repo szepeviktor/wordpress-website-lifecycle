@@ -20,6 +20,14 @@ add_action(
             return;
         }
 
+        if (strpos($_SERVER['QUERY_STRING'], '*') !== false) {
+            error_log(sprintf(
+                'Non-WordPress query string: not_encoded_asterisk ("%s")',
+                $_SERVER['QUERY_STRING']
+            ));
+            return;
+        }
+
         if (preg_match('/%[[:xdigit:]]?[a-f]/', $_SERVER['QUERY_STRING']) === 1) {
             error_log(sprintf(
                 'Non-WordPress query string: lower_case_hexadecimal_digit ("%s")',
