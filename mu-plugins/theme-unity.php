@@ -9,11 +9,10 @@ $unity_theme_update = <<<'EOF'
 
 CURRENT="$(dirname "$0")/external-plugin-update.log"
 
-# From wp-content/themes/unity/inc/frontend.php
+# From wp-content/themes/unity/inc/tgm-plugins.php
 EXTERNAL_PLUGINS=(
-    "http://www.wpopal.com/thememods/appthemer-crowdfunding.zip"
-    "http://www.wpopal.com/thememods/js_composer.zip"
-    "http://www.wpopal.com/thememods/revslider.zip"
+    "http://source.wpopal.com/plugins/new/js_composer.zip"
+    "http://source.wpopal.com/plugins/new/revslider.zip"
 )
 
 for PLUGIN in "${EXTERNAL_PLUGINS[@]}"; do
