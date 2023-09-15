@@ -5,9 +5,8 @@
  *
  * revslider/revslider_admin.php:389
  *
- *     case "update_plugin":
- *
- *     // self::updatePlugin(self::DEFAULT_VIEW);
+ * case "update_plugin":
+ * // self::updatePlugin(self::DEFAULT_VIEW);
  *
  * Patched in version 4.2
  */

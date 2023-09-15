@@ -10,11 +10,7 @@
 /** Shared hosting shortcomings. */
 
 // // User home directory: absolute path without trailing slash.
-// if (empty($_SERVER['HOME'])) {
-//     define('_HOME_DIR', realpath(getenv('HOME')));
-// } else {
-//     define('_HOME_DIR', realpath($_SERVER['HOME']));
-// }
+// define('_HOME_DIR', realpath(empty($_SERVER['HOME']) ? getenv('HOME') : $_SERVER['HOME']));
 //
 // // Upload-temp and session directory.
 // ini_set('upload_tmp_dir', _HOME_DIR . '/tmp');
