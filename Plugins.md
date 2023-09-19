@@ -202,7 +202,7 @@ MU Plugin Template
  */
 ```
 
-See [/mu-plugins/](/mu-plugins/) directory for its content.
+See [/mu-plugins/](/mu-plugins/) directory for MU plugins.
 
 ## Plugin authors with enterprise mindset
 

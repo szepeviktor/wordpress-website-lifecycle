@@ -20,8 +20,9 @@ add_action(
             // * character from Google Analytics
             $query_parameters = [];
             parse_str($parsed_url['query'], $query_parameters);
-            $query_string = http_build_query($query_parameters, '', '&', PHP_QUERY_RFC3986);
-            $request_uri .= '?' . $query_string;
+            // RFC 3986
+            $request_uri = add_query_arg(rawurlencode_deep($query_parameters), $request_uri);
+            $query_string = ltrim(add_query_arg(rawurlencode_deep($query_parameters), ''), '?');
         }
 
         $_SERVER['REQUEST_URI'] = $request_uri;
