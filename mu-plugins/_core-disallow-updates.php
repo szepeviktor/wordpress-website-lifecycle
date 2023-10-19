@@ -28,3 +28,28 @@ add_filter(
     PHP_INT_MAX,
     1
 );
+
+add_action(
+    'activated_plugin',
+    static function ($plugin) {
+        wp_mail(
+            get_bloginfo('admin_email'),
+            sprintf('[%s] Plugin activated: %s', get_bloginfo('name'), $plugin),
+            get_bloginfo('url')
+        );
+    },
+    10,
+    1
+);
+add_action(
+    'deactivated_plugin',
+    static function ($plugin) {
+        wp_mail(
+            get_bloginfo('admin_email'),
+            sprintf('[%s] Plugin deactivated: %s', get_bloginfo('name'), $plugin),
+            get_bloginfo('url')
+        );
+    },
+    10,
+    1
+);
