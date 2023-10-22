@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: Remove global styles
- * Plugin URI: https://make.wordpress.org/design/handbook/focuses/global-styles/
+ * Plugin URI: https://github.com/WordPress/gutenberg/blob/trunk/docs/explanations/architecture/styles.md#global-styles
  */
 
 add_action(
