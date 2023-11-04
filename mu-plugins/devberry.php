@@ -6,6 +6,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
+// Discourage Search Engines.
 add_filter(
     'option_blog_public',
     '__return_zero',
@@ -13,6 +14,7 @@ add_filter(
     0
 );
 
+// Discourage Search Engines in HTTP headers.
 add_action(
     'send_headers',
     static function () {
@@ -22,6 +24,7 @@ add_action(
     0
 );
 
+// Display Devberry.
 add_action(
     'wp_footer',
     static function () {
@@ -82,5 +85,18 @@ add_action(
 
     },
     10,
+    0
+);
+
+// Force visitors to log in.
+add_action(
+    'template_redirect',
+    static function () {
+        if (!is_user_logged_in()) {
+            wp_redirect(wp_login_url($_SERVER['REQUEST_URI']));
+            exit;
+        }
+    },
+    0,
     0
 );
