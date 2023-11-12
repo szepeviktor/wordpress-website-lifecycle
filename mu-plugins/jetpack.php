@@ -33,6 +33,12 @@ add_filter(
 // List modules in jetpack plugin directory.
 // grep -r -F 'Module Name:' modules/|sed -e 's#^modules/##; s#\.php: \* Module Name: #\t#'|column -t -s $'\t'|sort
 
+// List available jetpack modules.
+// wp option get jetpack_available_modules
+
+// List active jetpack modules.
+// wp option get jetpack_active_modules
+
 /*
 // Enable Jetpack Search only.
 add_filter(
@@ -45,5 +51,10 @@ add_filter(
 );
 */
 
-// Disable Jetpack promotions
+/*
+// Disable Jetpack promotions.
 // https://github.com/wearerequired/hide-jetpack-promotions/blob/master/hide-jetpack-promotions.php
+add_filter('jetpack_blaze_enabled', '__return_false', 10, 0);
+add_filter('jetpack_just_in_time_msgs', '__return_false', 20, 0);
+add_filter('jetpack_show_promotions', '__return_false', 20, 0);
+*/
