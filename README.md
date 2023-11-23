@@ -134,4 +134,5 @@ Let's prevent working against each other!
 
 - [Query monitor](https://github.com/johnbillion/query-monitor)
 - Unit tests without a database https://github.com/Automattic/wordbless
+- [WP_Mock](https://github.com/10up/wp_mock)
 - [Codeception](https://github.com/lucatume/wp-browser) (BDD)
