@@ -2,8 +2,7 @@
 
 [![Tweet](https://img.shields.io/badge/Tweet-share-d5d5d5?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=Here%20is%20how%20to%20run%20WordPress&url=https%3A%2F%2Fgithub.com%2Fszepeviktor%2Fwordpress-website-lifecycle)
 
-How to work with WordPress.
-:bulb: `#active-development` `#self-hosted` `#long-term` `#monitoring`
+How to work with WordPress. :bulb: `#active-development` `#self-hosted` `#long-term` `#monitoring`
 
 We run WordPress on Debian GNU/Linux operating system
 which runs on an UpCloud cloud instance.
