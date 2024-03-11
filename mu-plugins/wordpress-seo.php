@@ -15,13 +15,19 @@ add_filter(
     0
 );
 
-// Dequeue HelpScout Beacon JavaScript.
+// Disable HelpScout Beacon.
 add_action(
     'admin_enqueue_scripts',
     static function () {
         wp_dequeue_script('yoast-seo-help-scout-beacon');
     },
     99,
+    0
+);
+add_filter(
+    'wpseo_helpscout_show_beacon',
+    '__return_false',
+    10,
     0
 );
 
