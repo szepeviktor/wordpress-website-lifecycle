@@ -38,8 +38,8 @@
 -   Restrict access to core, theme and plugin files and directories
     ([wordpress.inc.conf](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/apache-conf-available/wordpress.inc.conf))
 -   Disable file upload to the server
--   Source code integrity check ([hourly](/monitoring/tripwire-fake.sh))
--   Alert on source code change ([hourly](/monitoring/siteprotection.sh))
+-   Source code integrity check ([hourly](https://github.com/szepeviktor/debian-server-tools/blob/master/monitoring/tripwire-fake.sh))
+-   Alert on source code change ([hourly](https://github.com/szepeviktor/debian-server-tools/blob/master/monitoring/siteprotection.sh))
 -   Have daily offsite [backup](/backup)
 -   Keep backups for one week
 
