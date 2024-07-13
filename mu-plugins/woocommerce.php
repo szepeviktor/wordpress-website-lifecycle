@@ -45,3 +45,11 @@ add_filter(
     0,
     1
 );
+
+// Disable password change notification email
+add_filter(
+    'woocommerce_disable_password_change_notification',
+    '__return_true',
+    10,
+    0
+);
