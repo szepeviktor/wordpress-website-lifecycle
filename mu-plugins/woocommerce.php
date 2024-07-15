@@ -42,7 +42,7 @@ add_filter(
         ];
         return array_diff($features, $disabled_features);
     },
-    0,
+    11,
     1
 );
 
