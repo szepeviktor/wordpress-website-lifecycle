@@ -3,3 +3,6 @@ extend-exclude = [
     ".git/"
 ]
 ignore-hidden = false
+
+[default.extend-identifiers]
+"Automattic" = "Automattic"
