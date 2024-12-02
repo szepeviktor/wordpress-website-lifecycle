@@ -87,7 +87,7 @@ Let's prevent working against each other!
     and generating HTML go into the **theme**
 -   Business logic (e.g. processing input from visitors) goes into **plugins**
 -   Please adhere to a coding standard of **your choice**
--   Please avoid [discouraged functions](https://github.com/szepeviktor/debian-server-tools/blob/master/webserver/laravel/phpcs.xml#L18)
+-   Please avoid [discouraged functions](https://github.com/szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset/blob/master/PSR12NeutronRuleset/ruleset.xml#L11)
 -   We run static analysis on all source code
 -   PSR-4 autoloading is suggested (no need for `require` and custom class autoloading)
 -   WordPress core is installed in a separate subdirectory
