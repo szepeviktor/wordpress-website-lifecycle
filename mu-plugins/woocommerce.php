@@ -53,3 +53,11 @@ add_filter(
     10,
     0
 );
+
+// Disable Marketplace promotions
+add_filter(
+    'woocommerce_marketplace_suppress_promotions',
+    '__return_true',
+    10,
+    0
+);
