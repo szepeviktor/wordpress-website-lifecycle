@@ -29,7 +29,7 @@ add_filter(
         $cron_jobs = _get_cron_array();
         ksort($cron_jobs, SORT_NUMERIC);
 
-        if (array_key_first($cron_jobs) < time() - (60 * MINUTE_IN_SECONDS)) {
+        if (array_key_first($cron_jobs) < time() - HOUR_IN_SECONDS) {
             error_log('WP-Cron event did not run at: '.date('Y-m-d H:i:s', array_key_first($cron_jobs)));
         }
     },
