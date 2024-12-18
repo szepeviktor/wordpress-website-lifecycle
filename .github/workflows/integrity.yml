@@ -21,6 +21,7 @@ jobs:
         uses: "szepeviktor/byte-level-care/.github/workflows/reusable-integrity.yml@master"
         with:
             not-printable-ascii-paths: >-
+                debug/
                 divi-child/
                 mu-plugins/
                 :!:mu-plugins/szv-signature.php
