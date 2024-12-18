@@ -21,3 +21,19 @@ add_filter(
 CRON_LAST_RUN="$(wp option get cron_last_run)"
 test "${CRON_LAST_RUN%%.*}" -ge "$(date -d "1 hour ago" "+%s")"
 */
+
+/*
+add_filter(
+    'init',
+    static function () {
+        $cron_jobs = _get_cron_array();
+        ksort($cron_jobs, SORT_NUMERIC);
+
+        if (array_key_first($cron_jobs) < time() - HOUR_IN_SECONDS) {
+            error_log('WP-Cron event did not run at: '.date('Y-m-d H:i:s', array_key_first($cron_jobs)));
+        }
+    },
+    10,
+    0
+);
+*/
