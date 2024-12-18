@@ -21,12 +21,12 @@ jobs:
         uses: "szepeviktor/byte-level-care/.github/workflows/reusable-integrity.yml@master"
         with:
             not-printable-ascii-paths: >-
-                debug/
                 divi-child/
                 mu-plugins/
                 :!:mu-plugins/szv-signature.php
                 wp-config/
             export-excludes: >-
+                --exclude="debug" --exclude="debug/*"
                 --exclude="mu-plugins" --exclude="mu-plugins/*"
             exported-paths: >-
                 LICENSE
