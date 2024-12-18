@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Display page load time
+ * Plugin Name: Display page load time (DBG)
  * Plugin URI: https://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
  */
 

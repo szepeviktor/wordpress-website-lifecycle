@@ -26,6 +26,7 @@ jobs:
                 :!:mu-plugins/szv-signature.php
                 wp-config/
             export-excludes: >-
+                --exclude="debug" --exclude="debug/*"
                 --exclude="mu-plugins" --exclude="mu-plugins/*"
             exported-paths: >-
                 LICENSE
