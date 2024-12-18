@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Log memory usage
+ * Plugin Name: Log memory usage (DBG)
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
