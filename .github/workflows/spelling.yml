@@ -24,5 +24,8 @@ jobs:
             name: "Checkout repository"
             uses: "actions/checkout@v3"
         -
+            name: Grab John's attention
+            run: sudo apt-get install -y subversion
+        -
             name: "Search for misspellings"
             uses: "crate-ci/typos@master"
