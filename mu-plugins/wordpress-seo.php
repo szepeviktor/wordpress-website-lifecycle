@@ -50,7 +50,7 @@ add_action(
 add_filter(
     'wpseo_submenu_pages',
     static function ($submenuPages) {
-        $hidePages = [
+        $premiumPages = [
             'wpseo_licenses',
             'wpseo_redirects',
             'wpseo_workouts',
@@ -59,7 +59,7 @@ add_filter(
         ];
         foreach ($submenuPages as $pageIndex => $submenuPage) {
             // Fifth element is $page_slug
-            if (in_array($submenuPage[4], $hidePages, true)) {
+            if (in_array($submenuPage[4], $premiumPages, true)) {
                 unset($submenuPages[$pageIndex]);
             }
         }
