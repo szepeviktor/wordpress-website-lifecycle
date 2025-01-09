@@ -6,3 +6,8 @@ ignore-hidden = false
 
 [default.extend-identifiers]
 "Automattic" = "Automattic"
+# Typos
+"Github" = "GitHub"
+"Wordpress" = "WordPress"
+"Woocommerce" = "WooCommerce"
+"get_post_stati" = "get_post_stati"
