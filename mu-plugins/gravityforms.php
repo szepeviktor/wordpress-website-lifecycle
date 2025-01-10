@@ -5,6 +5,19 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
+// Add changelog link
+add_filter(
+    'plugin_row_meta',
+    static function ($plugin_meta, $plugin_file) {
+        if ($plugin_file === 'gravityforms/gravityforms.php') {
+            $plugin_meta[] = '<a href="https://docs.gravityforms.com/gravityforms-change-log/" target="_blank">Changelog</a>';
+        }
+        return $plugin_meta;
+    },
+    20,
+    2
+);
+
 // Disable Gravity Forms plugin updates.
 define('GRAVITY_MANAGER_URL', null);
 define('GRAVITY_MANAGER_PROXY_URL', null);
