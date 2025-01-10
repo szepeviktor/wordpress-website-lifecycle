@@ -35,7 +35,7 @@ add_action(
         wp_mail(
             get_bloginfo('admin_email'),
             sprintf('[%s] Plugin activated: %s', get_bloginfo('name'), $plugin),
-            get_bloginfo('url')
+            admin_url('plugins.php')
         );
     },
     10,
@@ -47,7 +47,7 @@ add_action(
         wp_mail(
             get_bloginfo('admin_email'),
             sprintf('[%s] Plugin deactivated: %s', get_bloginfo('name'), $plugin),
-            get_bloginfo('url')
+            admin_url('plugins.php')
         );
     },
     10,
