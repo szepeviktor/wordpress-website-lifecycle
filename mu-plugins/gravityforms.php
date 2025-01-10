@@ -10,7 +10,11 @@ add_filter(
     'plugin_row_meta',
     static function ($plugin_meta, $plugin_file) {
         if ($plugin_file === 'gravityforms/gravityforms.php') {
-            $plugin_meta[] = '<a href="https://docs.gravityforms.com/gravityforms-change-log/" target="_blank">Changelog</a>';
+            $plugin_meta[] = sprintf(
+                '<a href="%s" target="_blank">%s</a>',
+                'https://docs.gravityforms.com/gravityforms-change-log/',
+                'Changelog'
+            );
         }
         return $plugin_meta;
     },
