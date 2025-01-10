@@ -36,4 +36,4 @@ jobs:
             uses: "actions/checkout@v4"
         -
             name: "Check source code for syntax errors"
-            run: "composer exec --no-interaction -- parallel-lint debug/ divi-child/ mu-plugins/ wp-config/"
+            run: "parallel-lint debug/ divi-child/ mu-plugins/ wp-config/"
