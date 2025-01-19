@@ -78,8 +78,8 @@ Let's prevent working against each other!
     - nav menu, translation and content caching
     - HTTP and HTML optimization
     - CDN support
--   Plugin update check HTTP requests and updates itself are disabled
-    because the whole WordPress installation is **managed with Composer**
+-   Plugin update check HTTP requests and updates themselves are disabled
+    because the entire WordPress installation is **managed with Composer**
 -   Plugin and theme update and WordPress management-related admin pages are removed
     (updated with Composer, administered with WP-CLI)
 -   WP-Cron is ran by a Linux cron job (the default pseudo cron/web callback is disabled)
