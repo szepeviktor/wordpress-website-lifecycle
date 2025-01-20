@@ -9,7 +9,7 @@
 add_filter(
     'pre_set_transient_doing_cron',
     static function ($value) {
-        update_option('cron_last_run', $value, 'no');
+        update_option('cron_last_run', $value, false);
         return $value;
     },
     0,
