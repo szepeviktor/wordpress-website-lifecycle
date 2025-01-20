@@ -5,5 +5,5 @@
  */
 
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    error_log('POSTed:'.$_SERVER['REQUEST_URI'].json_encode($POST));
+    error_log(sprintf('POSTed:%s:%s', $_SERVER['REQUEST_URI'], json_encode($_POST)));
 }
