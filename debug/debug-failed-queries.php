@@ -14,6 +14,7 @@ add_filter(
         if ($wpdb->result === false) {
             error_log('Failed SQL query:' . $query);
         }
+        return $query_data;
     },
     10,
     2
