@@ -23,8 +23,10 @@ add_action('plugins_loaded', 'myprefix_add_hooks', 10, 0);
 ## Based on HTTP request type
 
 -   Core request type (entry points and routes),
-    see [template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/#visual-overview) and
-    [`Toolkit4WP\Is::request()`](https://github.com/szepeviktor/SentencePress/blob/master/src/Is.php#L78-L88)
+    see
+    [template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/#visual-overview)
+    and
+    [`SzepeViktor\SentencePress\Is::request()`](https://github.com/szepeviktor/SentencePress/blob/master/src/Is.php#L78-L88)
 -   Plugin and themes request types (e.g. AMP pages, XML sitemap)
 
 :bulb: Anonymous visitors include ones with JS disabled,
