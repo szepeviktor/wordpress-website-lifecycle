@@ -17,7 +17,7 @@
 
 ## Compromise from hosting provider
 
-- Choose an enterprise ready server provider (e.g. [UpCloud](https://www.upcloud.com/register/?promo=U29Q8S))
+- Choose an enterprise ready server provider (e.g. [UpCloud](https://signup.upcloud.com/?promo=U29Q8S))
 - Secure control panel access: 2FA, login notification
 - Secure API: IP whitelisting
 - Subscribe to [status updates](https://status.upcloud.com/)
