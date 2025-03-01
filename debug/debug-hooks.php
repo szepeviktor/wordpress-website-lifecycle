@@ -14,7 +14,7 @@ file_put_contents(
     sprintf(
         '%.2f %s@%.4f %s %s *%s =%s%c',
         microtime(true),
-        $_SERVER['REMOTE_ADDR'],
+        php_sapi_name() === 'cli' ? 'CLI' : $_SERVER['REMOTE_ADDR'],
         $_SERVER['REQUEST_TIME_FLOAT'],
         $_SERVER['REQUEST_METHOD'],
         $_SERVER['REQUEST_URI'],
@@ -37,7 +37,7 @@ file_put_contents(
     sprintf(
         '%.2f %s@%.4f %s %s %s =%s%c',
         microtime(true),
-        $_SERVER['REMOTE_ADDR'],
+        php_sapi_name() === 'cli' ? 'CLI' : $_SERVER['REMOTE_ADDR'],
         $_SERVER['REQUEST_TIME_FLOAT'],
         $_SERVER['REQUEST_METHOD'],
         $_SERVER['REQUEST_URI'],
