@@ -8,12 +8,19 @@
 add_action(
     'all',
     static function () {
+        $skip_hooks = [
+            'gettext',
+            'gettext_default',
+            'gettext_with_context',
+            'gettext_with_context_default'
+        ];
+
         $log_path = WP_CONTENT_DIR.'/debug-hooks.log';
         $args = func_get_args();
         $hook_name = $args[0];
         $value = isset($args[1]) ? $args[1] : null;
 
-        if (in_array($hook_name, ['gettext', 'gettext_default', 'gettext_with_context', 'gettext_with_context_default'])) {
+        if (in_array($hook_name, $skip_hooks, true)) {
             return;
         }
 
