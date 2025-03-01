@@ -41,9 +41,9 @@ function wp_debug_log_hook_triggered($hook_name, $value) {
                 ? $value
                 : '<'.(is_object($value)
                     ? get_class($value)
-                    : is_bool($value)
+                    : (is_bool($value)
                         ? ($value ? 'TRUE' : 'FALSE')
-                        : gettype($value)).'>',
+                        : gettype($value))).'>',
             10
         ),
         FILE_APPEND | LOCK_EX
