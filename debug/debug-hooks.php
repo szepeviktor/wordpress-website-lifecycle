@@ -19,7 +19,13 @@ file_put_contents(
         $_SERVER['REQUEST_METHOD'],
         $_SERVER['REQUEST_URI'],
         $hook_name,
-        is_string($value) ? $value : '<'.(is_object($value) ? get_class($value) : is_bool($value) ? ($value ? 'TRUE' : 'FALSE') : gettype($value)).'>',
+        is_string($value)
+            ? $value
+            : '<'.(is_object($value)
+                ? get_class($value)
+                : is_bool($value)
+                    ? ($value ? 'TRUE' : 'FALSE')
+                    : gettype($value)).'>',
         10
     ),
     FILE_APPEND | LOCK_EX
@@ -36,7 +42,13 @@ file_put_contents(
         $_SERVER['REQUEST_METHOD'],
         $_SERVER['REQUEST_URI'],
         $hook_name,
-        is_string($arg[0]) ? $arg[0] : '<'.(is_object($arg[0]) ? get_class($arg[0]) : is_bool($arg[0]) ? ($arg[0] ? 'TRUE' : 'FALSE') : gettype($arg[0])).'>',
+        is_string($arg[0])
+            ? $arg[0]
+            : '<'.(is_object($arg[0])
+                ? get_class($arg[0])
+                : is_bool($arg[0])
+                    ? ($arg[0] ? 'TRUE' : 'FALSE')
+                    : gettype($arg[0])).'>',
         10
     ),
     FILE_APPEND | LOCK_EX
