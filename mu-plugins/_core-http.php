@@ -41,28 +41,6 @@ add_action(
     5
 );
 
-// Debug external HTTP requests.
-if (defined('WP_DEBUG') && WP_DEBUG) :
-    add_action(
-        'http_api_debug',
-        static function ($response, $context, $class, $parsedArgs, $url) {
-            if ($context !== 'response' || $class !== 'Requests' || is_wp_error($response)) {
-                return;
-            }
-            error_log(
-                sprintf(
-                    '%s: %s (%s)',
-                    'WordPress external HTTP request',
-                    $url,
-                    wp_json_encode($parsedArgs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
-                )
-            );
-        },
-        100,
-        5
-    );
-endif;
-
 // Send Pragma HTTP header only for HTTP/1.0 clients.
 add_action(
     'send_headers',
