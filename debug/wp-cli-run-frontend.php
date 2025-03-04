@@ -19,6 +19,18 @@ add_filter(
     1
 );
 
+// Display HTTP headers
+add_filter(
+    'wp_headers',
+    static function ($headers) {
+        var_export($headers);
+        echo "\n";
+        return $headers;
+    },
+    PHP_INT_MAX,
+    1
+);
+
 wp();
 define('WP_USE_THEMES', true);
 require_once ABSPATH . WPINC . '/template-loader.php';
