@@ -14,7 +14,8 @@
 -   [High speed SSL](https://istlsfastyet.com/): ECDSA certificate, Entropy source,
     TLS1.2, Ciphersuites for AES-NI, SSL session cache, OCSP stapling, HTTP/2
 -   Modern PHP with OPcache, FastCGI connected through UDS
--   Lean WordPress installation: minimal and audited plugins only
+-   Lean WordPress installation: minimal and audited plugins only,
+    manage WordPress with git, Composer and WP-CLI on the command-line
 -   Redis in-memory object cache
 -   InnoDB MariaDB engine
 -   Static resource optimization
