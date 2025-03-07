@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Log external HTTP requests (DBG)
+ * Plugin Name: Log outbound HTTP requests (DBG)
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
@@ -14,7 +14,7 @@ add_action(
         error_log(
             sprintf(
                 '%s: %s (%s)',
-                'WordPress external HTTP request',
+                'WordPress outbound HTTP request',
                 $url,
                 wp_json_encode($parsedArgs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
             )
