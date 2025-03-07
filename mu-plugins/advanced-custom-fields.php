@@ -19,3 +19,12 @@ add_filter(
 );
 
 // Export fields to .acf/acf-export.json and as code to inc/acf-fields.php
+
+add_action(
+    'admin_footer',
+    static function () {
+        echo '<style>#tmpl-acf-field-group-pro-features { display: none !important; }</style>';
+    },
+    PHP_INT_MAX,
+    0
+);
