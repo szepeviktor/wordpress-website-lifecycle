@@ -135,7 +135,8 @@ Let's prevent working against each other!
 
 ## Testing
 
-- [Query monitor](https://github.com/johnbillion/query-monitor)
+- [Query Monitor](https://github.com/johnbillion/query-monitor)
+- [Test Mode](https://github.com/szepeviktor/test-mode)
 - Unit tests without a database https://github.com/Automattic/wordbless
 - [WP_Mock](https://github.com/10up/wp_mock)
 - [Codeception](https://github.com/lucatume/wp-browser) (BDD)
