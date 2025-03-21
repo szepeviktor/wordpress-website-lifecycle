@@ -10,5 +10,5 @@ config:
         start_indent: 4
         start_indented: false
     no-bare-urls: false
-    ignores:
-        - "WordPress-internals.md"
+ignores:
+    - "WordPress-internals.md"
