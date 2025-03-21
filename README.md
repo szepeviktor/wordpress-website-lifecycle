@@ -115,9 +115,12 @@ Let's prevent working against each other!
 -   Starter child theme: [/divi-child/](/divi-child)
 -   Feature plugins: [szepeviktor/wordpress-plugin-construction](https://github.com/szepeviktor/wordpress-plugin-construction)
 
-## Theme review
+## Plugin and Theme review
 
-- [Theme Check plugin](https://wordpress.org/plugins/theme-check/)
+- `wp plugin install https://github.com/WordPress/plugin-check/archive/refs/heads/trunk.zip`
+- `wordpress/plugin-check-action` GitHub action
+- `wp plugin install https://github.com/WordPress/theme-check/archive/refs/heads/master.zip`
+- `Wordpress/theme-review-action` GitHub action
 - [unofficial fork of Theme Check plugin](https://themecheck.info/)
 - [WPThemeReview Standard for PHP_CodeSniffer](https://github.com/WPTRT/WPThemeReview)
 - [PHP Insights](https://github.com/nunomaduro/phpinsights)
