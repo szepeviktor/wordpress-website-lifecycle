@@ -20,6 +20,14 @@ jobs:
         name: "Integrity"
         uses: "szepeviktor/byte-level-care/.github/workflows/reusable-integrity.yml@master"
         with:
+            executables: >-
+                check-installation/wp-core-4.9-latest.sh
+                check-installation/wp-cron-cli.sh
+                check-installation/wp-invalid-character.sh
+                check-installation/wp-invalid-lang.sh
+                check-installation/wp-invalid-media.sh
+                check-installation/wp-missing-cron.sh
+                check-installation/wp-nonsilent-indices.sh
             not-printable-ascii-paths: >-
                 divi-child/
                 mu-plugins/
