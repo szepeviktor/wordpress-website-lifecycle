@@ -22,7 +22,6 @@ jobs:
         with:
             executables: >-
                 check-installation/wp-core-4.9-latest.sh
-                check-installation/wp-cron-cli.sh
                 check-installation/wp-invalid-character.sh
                 check-installation/wp-invalid-lang.sh
                 check-installation/wp-invalid-media.sh
