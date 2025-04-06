@@ -10,7 +10,7 @@ add_filter(
     static function ($features) {
         // From includes/react-admin/feature-config.php
         $disabled_features = [
-            // 'marketplace', // Marketplace (extensions)
+            // 'marketplace', // Extensions
             'cost_of_goods_sold', // COGS
             'email_improvements', // New placeholders
             'order_attribution', // Data collection by sourcebuster.js
@@ -108,6 +108,28 @@ add_filter(
     'pre_option_woocommerce_allow_tracking',
     static function () {
         return 'no';
+    },
+    PHP_INT_MAX,
+    0
+);
+
+// Disable suggestions and incentives
+add_action(
+    'plugins_loaded',
+    static function () {
+        if (class_exists(WooCommerce::class, false)) {
+            require __DIR__.'/woocommerce/AdminSuggestionsServiceProvider.php';
+        }
+    },
+    0,
+    0
+);
+
+// Mark onboarding as skipped
+add_filter(
+    'pre_option_woocommerce_onboarding_profile',
+    static function () {
+        return ['skipped' => true];
     },
     PHP_INT_MAX,
     0
