@@ -58,3 +58,13 @@ add_filter('jetpack_blaze_enabled', '__return_false', 10, 0);
 add_filter('jetpack_just_in_time_msgs', '__return_false', 20, 0);
 add_filter('jetpack_show_promotions', '__return_false', 20, 0);
 */
+
+// Remove Newsletter dashboard widget
+add_action(
+    'wp_dashboard_setup',
+    static function () {
+        remove_meta_box('jetpack_newsletter_dashboard_widget', 'dashboard', 'side');
+    },
+    20,
+    0
+);
