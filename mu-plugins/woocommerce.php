@@ -8,24 +8,51 @@
 add_filter(
     'woocommerce_admin_features',
     static function ($features) {
-        // From includes/react-admin/feature-config.php
         $disabled_features = [
-            // 'marketplace', // Extensions
-            'cost_of_goods_sold', // COGS
-            'email_improvements', // New placeholders
-            'order_attribution', // Data collection by sourcebuster.js
-            'product_block_editor', // Gutenberg blocks
+            // Cost of Goods Sold
+            // https://developer.woocommerce.com/2024/12/04/cogs-in-core/
+            'cost_of_goods_sold',
+            // New email template placeholders
+            // https://developer.woocommerce.com/2025/01/20/woocommerce-9-6-fresh-new-tools-and-modernizing-classics/#h-email-improvements-beta
+            'email_improvements',
+            // Extensions, connect to your WooCommerce.com account
+            // https://woocommerce.com/products/
+            // 'marketplace',
+            // Customer data collection by sourcebuster.js
+            // https://woocommerce.com/document/order-attribution-tracking/
+            'order_attribution',
+            // Store API rate limiting
+            // https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/src/StoreApi/docs/rate-limiting.md
             'rate_limit_checkout',
-            'remote_logging', // Remote logging
-            'site_visibility_badge', // Launch Your Store
+            // Remote logging at public-api.wordpress.com
+            // https://developer.woocommerce.com/2024/09/23/recent-updates-to-error-handling-and-optional-remote-error-logging/
+            'remote_logging',
+            // Coming soon mode and admin bar badge
+            // https://woocommerce.com/document/configuring-woocommerce-settings/coming-soon-mode/
+            'site_visibility_badge',
+            // From includes/react-admin/feature-config.php
+            // A toolbar-like area
+            // https://woocommerce.com/document/home-screen/#section-6
             'activity-panels',
+            // Analytics and Sales Reports
+            // https://woocommerce.com/document/woocommerce-analytics/
             'analytics',
+            // Gutenberg blocks
+            // https://woocommerce.com/document/woocommerce-store-editing/blocks/#woocommerce-blocks
             'product-block-editor',
+            // Loads assets related to the product block editor
             'product-data-views',
+            // New and in-development Gutenberg blocks
             'experimental-blocks',
+            // Coming soon template with newsletter signup
             'coming-soon-newsletter-template',
+            // Coupons
+            // https://woocommerce.com/document/coupon-management/
             'coupons',
+            // Onboarding setup for merchants
             'core-profiler',
+            // Design the look and feel of your online store without code
+            // https://woocommerce.com/document/woocommerce-customize-your-store/
             'customize-store',
             'customer-effort-score-tracks',
             'import-products-task',
