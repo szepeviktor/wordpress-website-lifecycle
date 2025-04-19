@@ -9,7 +9,7 @@ WP_ORG_CORE_TRANSLATIONS="https://api.wordpress.org/translations/core/1.0/"
 
 set -e
 
-LANGS_REGEXP="en_US|$(wget -q -O- "$WP_ORG_CORE_TRANSLATIONS" | jq -r '.translations[].language' | paste -s -d "|")"
+LANGS_REGEXP="en_US|$(wget -q -O- "$WP_ORG_CORE_TRANSLATIONS" | jq -r '."translations" | map(."language") | join("|")'
 
 while read -r MO; do
     MO_LANG="$(basename "$MO")"
