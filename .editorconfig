@@ -18,5 +18,7 @@ eclint_block_comment_end = */
 max_line_length = 300
 trim_trailing_whitespace = false
 
+[mu-plugins/woocommerce.php]
+max_line_length = 150
 [wp-config/wp-config.php]
 max_line_length = 130
