@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-define('HOSTING_DISALLOWED_PLUGINS', [
+const HOSTING_DISALLOWED_PLUGINS = [
     'hello-dolly',
     'ithemes-security',
     'ithemes-security-pro',
@@ -82,7 +82,7 @@ define('HOSTING_DISALLOWED_PLUGINS', [
     'wpengine-snapshot',
     'wponlinebackup',
     'wpsmilepack',
-]);
+];
 
 // Deactivate disallowed plugins
 add_action(
