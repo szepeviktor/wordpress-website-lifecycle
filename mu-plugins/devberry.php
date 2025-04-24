@@ -92,7 +92,7 @@ add_action(
 add_action(
     'template_redirect',
     static function () {
-        if (!is_user_logged_in()) {
+        if (!is_user_logged_in() && !is_robots()) {
             wp_redirect(wp_login_url($_SERVER['REQUEST_URI']));
             exit;
         }
