@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-// Enable NOFS version in wp-config: define('WSAL_NOFS_TOOL_PATH', true);
+// Enable NOFS (No Freemius SDK) in wp-config: define('WSAL_NOFS_TOOL_PATH', true);
 
 // Remove menu items
 add_filter(
