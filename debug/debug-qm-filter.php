@@ -7,6 +7,7 @@
  */
 
 global $wp_filter;
+// EDIT filter name here!
 $_do_debug_filter = ($wp_filter['wp_head'] ?? null) === $this;
 if ($_do_debug_filter) do_action('qm/start', 'filter');
 
