@@ -13,7 +13,8 @@ if ($_do_debug_filter) do_action('qm/start', 'filter');
     // foreach ( $this->callbacks[ $priority ] as $the_ ) {
     // call_user_func calls ...
 
-if ($_do_debug_filter) do_action('qm/lap', 'filter', QM_Util::populate_callback(['function' => $the_['function']])['name'] ?? 'N/A');
+if ($_do_debug_filter)
+    do_action('qm/lap', 'filter', QM_Util::populate_callback(['function' => $the_['function']])['name'] ?? 'N/A');
 
     // }
 
