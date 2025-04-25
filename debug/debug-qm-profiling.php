@@ -7,7 +7,7 @@
 
 $qm_profiling_stage_hooks = [
     'bootstrap' => [
-        'muplugins_loaded',
+        // Too early for QM 'muplugins_loaded',
         'plugins_loaded',
         'setup_theme',
         'after_setup_theme',
@@ -18,7 +18,7 @@ $qm_profiling_stage_hooks = [
         'parse_request',
         'send_headers',
         // Fires multiple times 'pre_get_posts',
-        'the_posts',
+        // This is a filter 'the_posts',
         'wp',
     ],
     'template' => [
@@ -31,19 +31,25 @@ $qm_profiling_stage_hooks = [
     ],
 ];
 foreach ($qm_profiling_stage_hooks as $stage => $hooks) {
-    foreach ($hooks as $hook) {
+    foreach ($hooks as $index => $hook) {
+        if ($index === 0) {
+            add_action(
+                $hook,
+                static function () use ($stage) {
+                    do_action('qm/start', $stage);
+                },
+                PHP_INT_MIN,
+                0
+            );
+        }
+        $is_last = $index === count($hooks) - 1;
         add_action(
             $hook,
-            static function () use ($stage, $hook) {
-                do_action('qm/start', sprintf('%s/%s', $stage, $hook));
-            },
-            PHP_INT_MIN,
-            0
-        );
-        add_action(
-            $hook,
-            static function () use ($stage, $hook) {
-                do_action('qm/stop', sprintf('%s/%s', $stage, $hook));
+            static function () use ($stage, $hook, $is_last) {
+                do_action('qm/lap', $stage, $hook);
+                if ($is_last) {
+                    do_action('qm/stop', $stage);
+                }
             },
             PHP_INT_MAX,
             0
