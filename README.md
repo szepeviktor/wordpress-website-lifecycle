@@ -136,6 +136,7 @@ Let's prevent working against each other!
 ## Testing
 
 - [Query Monitor](https://github.com/johnbillion/query-monitor)
+- [OPcache status](https://github.com/szepeviktor/qm-opcache-status)
 - [Test Mode](https://github.com/szepeviktor/test-mode)
 - Unit tests without a database https://github.com/Automattic/wordbless
 - [WP_Mock](https://github.com/10up/wp_mock)
