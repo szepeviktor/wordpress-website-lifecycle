@@ -24,7 +24,7 @@ add_filter(
 add_action(
     'http_api_debug',
     static function ($response, $context, $class, $parsedArgs, $url) {
-        if ($context !== 'response' || $class !== 'Requests' || ! is_wp_error($response)) {
+        if ($context !== 'response' || $class !== 'WpOrg\Requests\Requests' || ! is_wp_error($response)) {
             return;
         }
         error_log(
