@@ -13,9 +13,9 @@ add_action(
         if ($peakUsage < 20 * 1024 * 1024) {
             return;
         }
-        $uri = 'CLI';
-        if (isset($_SERVER['REQUEST_URI'])) {
-            $uri = wp_json_encode($_SERVER['REQUEST_URI'], JSON_UNESCAPED_SLASHES);
+        $uri = isset($_SERVER['REQUEST_URI'])
+            ? wp_json_encode($_SERVER['REQUEST_URI'], JSON_UNESCAPED_SLASHES)
+            : 'CLI';
         }
         error_log(sprintf('Peak memory usage = %d bytes, %s', $peakUsage, $uri));
     },
