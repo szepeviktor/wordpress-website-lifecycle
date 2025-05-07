@@ -201,3 +201,11 @@ add_filter(
     PHP_INT_MAX,
     0
 );
+
+// Hide footer text
+add_action(
+    'woocommerce_display_admin_footer_text',
+    '__return_false',
+    10,
+    0
+);
