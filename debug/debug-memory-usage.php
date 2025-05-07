@@ -16,7 +16,6 @@ add_action(
         $uri = isset($_SERVER['REQUEST_URI'])
             ? wp_json_encode($_SERVER['REQUEST_URI'], JSON_UNESCAPED_SLASHES)
             : 'CLI';
-        }
         error_log(sprintf('Peak memory usage = %d bytes, %s', $peakUsage, $uri));
     },
     -1,
