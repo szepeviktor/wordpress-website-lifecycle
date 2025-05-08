@@ -31,14 +31,14 @@ add_filter(
     0
 );
 
-// Hide Premium Upsell metabox and dim sidebar.
+// Hide Premium Upsell elements and dim sidebar.
 add_action(
     'admin_enqueue_scripts',
     static function ($hook) {
         if (strpos($hook, 'wpseo_') === false) {
             return;
         }
-        $style = '.wp-admin .yoast_premium_upsell { display:none !important; }';
+        $style = '.wp-admin .yoast_premium_upsell, .yoast-button-upsell { display:none !important; }';
         $style .= '.wp-admin #sidebar-container { opacity: 0.30; }';
         wp_add_inline_style('wp-admin', $style);
     },
