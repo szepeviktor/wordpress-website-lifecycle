@@ -209,3 +209,16 @@ add_action(
     10,
     0
 );
+
+// Hide Status page for users
+add_action(
+    'admin_init',
+    static function () {
+        if (get_current_user_id() === 1) {
+            return;
+        }
+        remove_submenu_page('woocommerce', 'wc-status');
+    },
+    10,
+    0
+);
