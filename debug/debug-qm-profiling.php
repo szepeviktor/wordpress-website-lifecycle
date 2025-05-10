@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Profile stages with Query Monitor
+ * Plugin Name: Profile stages with Query Monitor (DBG)
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
