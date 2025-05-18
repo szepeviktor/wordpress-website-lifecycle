@@ -17,7 +17,17 @@ add_action(
             ? wp_json_encode($_SERVER['REQUEST_URI'], JSON_UNESCAPED_SLASHES)
             : 'CLI';
         $message = sprintf('Peak memory usage = %d bytes, %s', $peakUsage, $uri);
-        (defined('WP_CLI') && WP_CLI) ? WP_CLI::debug($message) : error_log($message);
+        switch (true) {
+            case defined('WP_CLI') && WP_CLI:
+                WP_CLI::debug($message);
+                break;
+            case wp_doing_cron() && php_sapi_name() === 'cli':
+                // No output during WP-Cron run from CLI.
+                break;
+            default:
+                error_log($message);
+                break;
+        }
     },
     -1,
     0
