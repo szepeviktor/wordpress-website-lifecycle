@@ -10,10 +10,9 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
     file_put_contents(
         WP_CONTENT_DIR.'/debug-post-request.log',
         sprintf(
-            '%.2f %s@%.4f %s %s%c',
+            '%.2f %s %s %s%c',
             microtime(true),
             php_sapi_name() === 'cli' ? 'CLI' : $_SERVER['REMOTE_ADDR'],
-            $_SERVER['REQUEST_TIME_FLOAT'],
             $_SERVER['REQUEST_URI'],
             json_encode($_POST),
             10
