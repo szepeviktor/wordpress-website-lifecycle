@@ -8,9 +8,9 @@
 
 // Discourage Search Engines.
 add_filter(
-    'option_blog_public',
+    'pre_option_blog_public',
     '__return_zero',
-    PHP_INT_MAX,
+    10,
     0
 );
 
@@ -90,7 +90,7 @@ add_action(
 
 // Force visitors to log in.
 add_action(
-    'template_redirect',
+    'wp',
     static function () {
         if (!is_user_logged_in() && !is_robots()) {
             wp_redirect(wp_login_url($_SERVER['REQUEST_URI']));
