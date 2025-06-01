@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Insert this snippet at the top of the _do_query method
+ * Insert this snippet at the top of wpdb::_do_query()
  *
  * wp-includes/class-wpdb.php
  */
