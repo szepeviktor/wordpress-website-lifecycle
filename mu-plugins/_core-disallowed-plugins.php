@@ -13,6 +13,7 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'limit-login-attempts-reloaded',
     'litespeed-cache',
     'loginizer',
+    'ninjafirewall',
     'really-simple-ssl',
     'redirection',
     'sucuri-scanner',
@@ -24,7 +25,6 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'wp-file-manager',
     'wp-rocket',
     'wps-hide-login',
-    'wp-super-cache',
     // From https://wpengine.com/support/disallowed-plugins/
     'adminer',
     'async-google-analytics',
