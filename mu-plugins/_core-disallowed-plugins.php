@@ -24,6 +24,7 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'wp-fastest-cache',
     'wp-file-manager',
     'wp-rocket',
+    'wpremote',
     'wps-hide-login',
     // From https://wpengine.com/support/disallowed-plugins/
     'adminer',
