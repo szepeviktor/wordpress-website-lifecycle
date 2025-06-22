@@ -123,7 +123,8 @@ define('WPCF7_LOAD_JS', false);
 define('ACF_LITE', true); // Use 'acf/settings/show_admin' filter!
 define('YIKES_MC_API_KEY', '00000000-us3');
  * Non-free plugins.
-define('GF_LICENSE_KEY', ''); // Gravity Forms "rg_gforms_key".
+define('ACF_PRO_LICENSE', '00000000'); // ACF PRO "acf_pro_license"
+define('GF_LICENSE_KEY', ''); // Gravity Forms "rg_gforms_key"
 define('OTGS_DISABLE_AUTO_UPDATES', true); // WPML.
  */
 
