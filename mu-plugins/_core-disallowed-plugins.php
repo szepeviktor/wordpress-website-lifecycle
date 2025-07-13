@@ -6,6 +6,7 @@
  */
 
 const HOSTING_DISALLOWED_PLUGINS = [
+    'all-in-one-wp-security-and-firewall',
     'hello-dolly',
     'ithemes-security',
     'ithemes-security-pro',

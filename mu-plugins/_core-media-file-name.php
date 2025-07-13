@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: ASCII media file names only
- * Plugin URI: https://www.unicode.org/versions/Unicode16.0.0/core-spec/chapter-4/#G134153
+ * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
 add_filter(
