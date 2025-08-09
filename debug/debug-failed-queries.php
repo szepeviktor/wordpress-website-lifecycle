@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Log failed SQL queries
+ * Plugin Name: Log failed SQL queries (DBG)
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
