@@ -37,6 +37,7 @@ Please consider sponsoring me monthly if you use my packages in an agency.
 They are already sponsoring me.
 
 <!-- markdownlint-disable MD033 -->
+[<img src="https://github.com/yamadashy.png" width="50px" alt="yamadashy">](https://github.com/yamadashy)&nbsp;&nbsp;
 [<img src="https://github.com/johnbillion.png" width="50px" alt="johnbillion">](https://github.com/johnbillion)&nbsp;&nbsp;
 [<img src="https://github.com/JJJ.png" width="50px" alt="JJJ">](https://github.com/JJJ)&nbsp;&nbsp;
 [<img src="https://github.com/montchr.png" width="50px" alt="montchr">](https://github.com/montchr)&nbsp;&nbsp;
