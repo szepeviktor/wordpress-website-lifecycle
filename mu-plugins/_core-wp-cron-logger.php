@@ -32,6 +32,15 @@ add_filter(
             10,
             1
         );
+        // Always return core messages in English
+        add_filter(
+            'gettext_default',
+            static function ($translation, $text) {
+                return $text;
+            },
+            11,
+            2
+        );
         return $cron_request_array;
     },
     10,
