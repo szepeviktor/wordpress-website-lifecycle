@@ -15,6 +15,10 @@ class Admin_Notices extends Module
         return 'admin-notices';
     }
 
+    public function print_admin_notice(array $options, $exclude_pages = [])
+    {
+    }
+
     public static function add_plg_campaign_data($url, $campaign_data)
     {
         return $url;

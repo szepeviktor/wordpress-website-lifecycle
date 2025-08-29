@@ -7,5 +7,6 @@ use Automattic\WooCommerce\Internal\DependencyManagement\AbstractServiceProvider
 class AdminSuggestionsServiceProvider extends AbstractServiceProvider
 {
     public function register()
-    {}
+    {
+    }
 }
