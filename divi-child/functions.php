@@ -6,11 +6,9 @@
  */
 
 // Set API key
+// Elegant Themes API call: core/components/Updates.php:573
 // wp option update et_automatic_updates_options '{"username":"USERNAME","api_key":"API-KEY"}' --format=json
 
-// Elegant Themes API call: core/components/Updates.php:573
-
-/*
 // The Blog Posts Index page / home.php / `page_for_posts` cannot be a Divi page
 // https://help.elegantthemes.com/en/articles/2188833-blog-page-not-changing-when-built-with-divi-builder
 add_filter(
@@ -19,7 +17,17 @@ add_filter(
     PHP_INT_MAX,
     0
 );
-*/
+
+// Disable updates
+add_action(
+    'admin_init',
+    static function () {
+        remove_action('admin_init', 'et_register_updates_component', 9);
+    },
+    // After et_register_updates_component
+    10,
+    0
+);
 
 function prefix_theme_enqueue_styles()
 {
