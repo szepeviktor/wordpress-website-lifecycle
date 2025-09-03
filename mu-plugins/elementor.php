@@ -8,7 +8,7 @@
 add_action(
     'init',
     static function () {
-        if (!did_action('elementor/loaded')) {
+        if (did_action('elementor/loaded') === 0) {
             return;
         }
         require_once __DIR__.'/elementor/Admin_Notices.php';

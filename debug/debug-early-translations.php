@@ -8,7 +8,7 @@
 add_filter(
     'gettext',
     static function ($translated, $text, $domain) {
-        if (did_action('plugins_loaded')) {
+        if (did_action('plugins_loaded') !== 0) {
             return $translated;
         }
         error_log('[DBG] Early translation: ('.$domain.') '.$text);
