@@ -8,7 +8,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
     error_log(sprintf('[HTTP POST] %s:%s', $_SERVER['REQUEST_URI'], json_encode($_POST)));
     /*
     file_put_contents(
-        WP_CONTENT_DIR.'/debug-post-request.log',
+        __DIR__.'/wp-content/debug-post-request.log',
         sprintf(
             '%.2f %s %s %s%c',
             microtime(true),

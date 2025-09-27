@@ -9,7 +9,8 @@
 function YIT_Upgrade()
 {
     return new class {
-        public function register($slug, $init) {
+        public function register($slug, $init)
+        {
         }
     };
 }

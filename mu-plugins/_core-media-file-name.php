@@ -8,7 +8,7 @@
 add_filter(
     'wp_handle_upload_prefilter',
     static function ($file) {
-        $transliterator = Transliterator::create('Any-Latin; Latin-ASCII; [\u007f-\u7fff] remove');
+        $transliterator = Transliterator::create('Any-Latin; Latin-ASCII; [:^ASCII:] remove');
         $file['name'] = preg_replace('/[^0-9A-Za-z._-]/', ' ', $transliterator->transliterate($file['name']));
         return $file;
     },
@@ -18,7 +18,7 @@ add_filter(
 add_filter(
     'wp_handle_sideload_prefilter',
     static function ($file) {
-        $transliterator = Transliterator::create('Any-Latin; Latin-ASCII; [\u007f-\u7fff] remove');
+        $transliterator = Transliterator::create('Any-Latin; Latin-ASCII; [:^ASCII:] remove');
         $file['name'] = preg_replace('/[^0-9A-Za-z._-]/', ' ', $transliterator->transliterate($file['name']));
         return $file;
     },
