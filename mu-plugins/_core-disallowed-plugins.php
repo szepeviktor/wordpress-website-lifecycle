@@ -51,6 +51,8 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'hcs.php',
     'hello.php',
     'hyper-cache',
+    // eval($code)
+    'insert-headers-and-footers',
     'jr-referrer',
     'jumpple',
     'missed-schedule',
