@@ -43,6 +43,8 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'dynamic-related-posts',
     'ezpz-one-click-backup',
     'file-commander',
+    // anti WordPress
+    'freesoul-deactivate-plugins',
     'fuzzy-seo-booster',
     'gd-system-plugin',
     'gd-system-plugin.php',
