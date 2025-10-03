@@ -7,6 +7,7 @@ ignore-hidden = false
 [default.extend-identifiers]
 "Automattic" = "Automattic"
 "get_post_stati" = "get_post_stati"
+"r_tru_u_x" = "r_tru_u_x"
 # Typos
 "Github" = "GitHub"
 "Wordpress" = "WordPress"
