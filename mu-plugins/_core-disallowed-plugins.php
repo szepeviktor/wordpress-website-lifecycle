@@ -36,6 +36,8 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'backupwordpress',
     'backwpup',
     'bad-behavior',
+    // eval($code)
+    'code-snippets',
     'content-molecules',
     'contextual-related-posts',
     'db-cache-reloaded',
