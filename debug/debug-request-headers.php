@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-function _core_debug_requests_headers()
+function _core_debug_request_headers()
 {
     if (!isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
         return;
@@ -23,4 +23,4 @@ function _core_debug_requests_headers()
         FILE_APPEND | LOCK_EX
     );
 }
-_core_debug_requests_headers();
+_core_debug_request_headers();
