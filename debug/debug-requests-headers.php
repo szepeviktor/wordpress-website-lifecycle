@@ -19,7 +19,7 @@ function _core_debug_requests_headers()
     }
     file_put_contents(
         WP_CONTENT_DIR.'/debug-requests-headers.log',
-        implode("\n", $log_items),
+        implode("\n", $log_items)."\n",
         FILE_APPEND | LOCK_EX
     );
 }
