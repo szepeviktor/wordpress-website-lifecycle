@@ -5,15 +5,22 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-if (isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
-    $log_item = sprintf("[%s] %s --- HTTP headers\n", date('c'), $_SERVER['REMOTE_ADDR']);
-    $log_item .= sprintf("%s %s %s\n", $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL']);
-    foreach (apache_request_headers() as $k => $v) {
-        $log_item .= sprintf("%s: %s\n", $k, $v);
+function _core_debug_requests_headers()
+{
+    if (!isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
+        return;
+    }
+    $log_items = [
+        sprintf('[%s] %s --- HTTP headers', date('c'), $_SERVER['REMOTE_ADDR']),
+        sprintf('%s %s %s', $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL']),
+    ];
+    foreach (getallheaders() as $name => $value) {
+        $log_items[] = sprintf('%s: %s', $name, $value);
     }
     file_put_contents(
-        __DIR__.'/wp-content/debug-requests-headers.log',
-        $log_item,
+        WP_CONTENT_DIR.'/debug-requests-headers.log',
+        implode("\n", $log_items),
         FILE_APPEND | LOCK_EX
     );
 }
+_core_debug_requests_headers();
