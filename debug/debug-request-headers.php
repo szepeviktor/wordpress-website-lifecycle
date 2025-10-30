@@ -7,7 +7,7 @@
 
 function _core_debug_request_headers()
 {
-    if (!isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
+    if (php_sapi_name() === 'cli' || wp_doing_cron() || !isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
         return;
     }
     $log_items = [
