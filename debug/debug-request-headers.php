@@ -18,7 +18,7 @@ function _core_debug_request_headers()
         $log_items[] = sprintf('%s: %s', $name, $value);
     }
     file_put_contents(
-        WP_CONTENT_DIR.'/debug-requests-headers.log',
+        WP_CONTENT_DIR.'/debug-request-headers.log',
         implode("\n", $log_items)."\n",
         FILE_APPEND | LOCK_EX
     );
