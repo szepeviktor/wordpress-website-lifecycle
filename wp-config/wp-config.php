@@ -36,6 +36,14 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 /** Security. */
 
 /**
+ * PHP rate limiter
+ *
+ * @see https://github.com/szepeviktor/php-rate-limiter
+ */
+
+require __DIR__ . '/rate-limiter.php';
+
+/**
  * composer require szepeviktor/waf4wordpress
  * Copy mu-plugins/waf4wordpress.php
  *
