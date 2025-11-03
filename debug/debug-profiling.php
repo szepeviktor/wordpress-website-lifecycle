@@ -22,7 +22,7 @@ array_map(
                     return;
                 }
                 $time = timer_float();
-                $mem = round(memory_get_peak_usage(true) / 1048576, 0);
+                $mem = round(memory_get_usage(false) / 1048576, 0);
                 add_action(
                     'shutdown',
                     static function () use ($hook, $time, $mem) {
