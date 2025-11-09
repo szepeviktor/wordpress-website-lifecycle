@@ -59,6 +59,7 @@ new SzepeViktor\WordPress\Waf\HttpAnalyzer();
 /** Core. */
 
 // See wp-config-live-debugger/
+// define('WP_DEBUG', defined('DOING_CRON') || false);
 define('WP_DEBUG', false);
 // Don't allow any other write method.
 define('FS_METHOD', 'direct');

@@ -19,7 +19,7 @@ add_action(
         $message = sprintf('Peak memory usage = %d bytes, %s', $peakUsage, $uri);
         switch (true) {
             case defined('WP_CLI') && WP_CLI:
-                WP_CLI::debug($message);
+                WP_CLI::debug($message, 'memory-usage');
                 break;
             case wp_doing_cron() && php_sapi_name() === 'cli':
                 // No output during WP-Cron run from CLI.
