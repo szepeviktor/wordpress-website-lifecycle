@@ -113,6 +113,12 @@ define('WP_PASSWORD_ARGON_TWO_PEPPER', getenv('WP_PASSWORD_ARGON_TWO_PEPPER'));
 define('TINY_CDN_INCLUDES_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/project/wp-includes');
 define('TINY_CDN_CONTENT_URL', 'https://d2aaaaaaaaaaae.cloudfront.net/wp-content');
 // WP Redis
+$redis_server = [
+    'host' => '127.0.0.1',
+    'port' => 6379,
+    'auth' => 'password', // ['user', 'password']
+    'database' => 0,
+];
 define('WP_CACHE_KEY_SALT', 'SITE-SHORT:');
 // disable-updates.php
 define('ENABLE_FORCE_CHECK_UPDATE', true);
