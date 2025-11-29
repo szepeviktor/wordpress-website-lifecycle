@@ -3,7 +3,7 @@
 /*
  * Emulate a web request
  *
- * php debug-web-request.php
+ * php web-request.php
  */
 
 $_SERVER = [
