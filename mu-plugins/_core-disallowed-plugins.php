@@ -8,7 +8,13 @@
 const HOSTING_DISALLOWED_PLUGINS = [
     'all-in-one-wp-security-and-firewall',
     'autoptimize',
+    // eval($code)
+    'code-snippets',
+    // anti WordPress
+    'freesoul-deactivate-plugins',
     'hello-dolly',
+    // eval($code)
+    'insert-headers-and-footers',
     'ithemes-security',
     'ithemes-security-pro',
     'jetpack',
@@ -23,6 +29,8 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'updraftplus',
     'wordfence',
     'worker',
+    // eval($code)
+    'wp-console',
     'wp-fastest-cache',
     'wp-file-manager',
     'wp-rocket',
@@ -36,8 +44,6 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'backupwordpress',
     'backwpup',
     'bad-behavior',
-    // eval($code)
-    'code-snippets',
     'content-molecules',
     'contextual-related-posts',
     'db-cache-reloaded',
@@ -45,8 +51,6 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'dynamic-related-posts',
     'ezpz-one-click-backup',
     'file-commander',
-    // anti WordPress
-    'freesoul-deactivate-plugins',
     'fuzzy-seo-booster',
     'gd-system-plugin',
     'gd-system-plugin.php',
@@ -55,8 +59,6 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'hcs.php',
     'hello.php',
     'hyper-cache',
-    // eval($code)
-    'insert-headers-and-footers',
     'jr-referrer',
     'jumpple',
     'missed-schedule',
