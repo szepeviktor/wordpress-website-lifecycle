@@ -13,7 +13,6 @@ array_map(
             static function () use ($hook) {
                 if (
                     php_sapi_name() === 'cli'
-                    || (did_action('parse_query') > 0 && is_robots())
                     || wp_doing_cron()
                     || wp_doing_ajax()
                     || wp_is_json_request()
@@ -26,6 +25,9 @@ array_map(
                 add_action(
                     'shutdown',
                     static function () use ($hook, $time, $mem) {
+                        if (is_robots()) {
+                            return;
+                        }
                         printf(
                             '%c<!-- Profiling: [%.03f] %s - mem %d MB -->',
                             10,
