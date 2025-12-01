@@ -25,7 +25,7 @@ array_map(
                 add_action(
                     'shutdown',
                     static function () use ($hook, $time, $mem) {
-                        if (is_robots()) {
+                        if (is_robots() || wp_doing_ajax()) {
                             return;
                         }
                         printf(
