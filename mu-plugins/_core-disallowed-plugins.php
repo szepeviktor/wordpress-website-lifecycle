@@ -8,6 +8,7 @@
 const HOSTING_DISALLOWED_PLUGINS = [
     'all-in-one-wp-security-and-firewall',
     'autoptimize',
+    'broken-link-checker',
     // eval($code)
     'code-snippets',
     // anti WordPress
@@ -27,12 +28,14 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'sucuri-scanner',
     'svg-support',
     'updraftplus',
+    'webp-express',
     'wordfence',
     'worker',
     // eval($code)
     'wp-console',
     'wp-fastest-cache',
     'wp-file-manager',
+    'wp-phpmyadmin-extension',
     'wp-rocket',
     'wpremote',
     'wps-hide-login',
