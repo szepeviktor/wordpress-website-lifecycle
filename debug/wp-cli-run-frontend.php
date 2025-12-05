@@ -8,15 +8,24 @@
 
 WP_CLI::get_runner()->load_wordpress();
 
-// EDIT Optionally add your code here
-add_filter(
-    'woocommerce_admin_features',
-    static function ($features) {
-        var_dump($features);
-        return $features;
+// Log fired hooks
+add_action(
+    'all',
+    static function () {
+        $args = func_get_args();
+        $hook_name = $args[0];
+        $value = isset($args[1]) ? $args[1] : null;
+        $formatted_value = (is_string($value) || is_numeric($value))
+            ? $value
+            : '<'.(is_object($value)
+                ? get_class($value)
+                : (is_bool($value)
+                    ? ($value ? 'TRUE' : 'FALSE')
+                    : gettype($value))).'>';
+        printf("%s=%s\n", $hook_name, $formatted_value);
     },
-    0,
-    1
+    PHP_INT_MAX,
+    0
 );
 
 // Display HTTP headers
