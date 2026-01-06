@@ -29,14 +29,12 @@
 // ini_set('log_errors', '1');
 // ini_set('display_errors', '0');
 
-/** Composer. */
+/** Composer autoloader. */
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-/** Security. */
-
 /**
- * PHP rate limiter
+ * PHP rate limiter.
  *
  * @see https://github.com/szepeviktor/php-rate-limiter
  */
@@ -44,8 +42,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 require __DIR__ . '/rate-limiter.php';
 
 /**
+ * Security.
+ *
  * composer require szepeviktor/waf4wordpress
- * Copy mu-plugins/waf4wordpress.php
+ * Install mu-plugins/waf4wordpress.php
  *
  * @see https://github.com/szepeviktor/waf4wordpress/blob/master/README.md#composer-installation
  */
@@ -83,6 +83,7 @@ define('MEDIA_TRASH', true);
 
 /**
  * Full page cache.
+ *
 define('WP_CACHE', true);
  */
 
