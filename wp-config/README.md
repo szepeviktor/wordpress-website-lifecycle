@@ -1,4 +1,4 @@
-# WordPress configuration skeleton.
+# WordPress configuration skeleton
 
 https://codex.wordpress.org/Editing_wp-config.php
 
