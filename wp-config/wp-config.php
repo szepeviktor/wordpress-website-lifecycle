@@ -121,6 +121,7 @@ $redis_server = [
     'database' => 0,
 ];
 define('WP_CACHE_KEY_SALT', 'SITE-SHORT:');
+define('WP_REDIS_DEFAULT_EXPIRE_SECONDS', 86400);
 // disable-updates.php
 define('ENABLE_FORCE_CHECK_UPDATE', true);
 // Performance Lab
