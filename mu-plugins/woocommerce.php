@@ -222,3 +222,18 @@ add_action(
     10,
     0
 );
+
+// Log failed AS actions
+add_action(
+    'action_scheduler_failed_execution',
+    static function ($action_id, $e, $context) {
+        error_log(sprintf(
+            '[AS FAILED] action_id=%d context=%s error=%s',
+            $action_id,
+            (string) $context,
+            $e instanceof \Exception ? $e->getMessage() : 'unknown'
+        ));
+    },
+    10,
+    3
+);
