@@ -9,7 +9,7 @@ add_filter(
     'mod_rewrite_rules',
     static function (string $rules) {
         $insertion = <<<HTACCESS
-# Add trailing slash if doesn't end with / and doesn't contain a dot
+# Add trailing slash if URL doesn't contain a dot and doesn't already end with /
 RewriteCond %{REQUEST_URI} !(\.|/$)
 RewriteRule ^(.+)$ /$1/ [R=301,L]
 
