@@ -223,6 +223,14 @@ add_action(
     0
 );
 
+// Disable AS async runner
+add_filter(
+    'action_scheduler_allow_async_request_runner',
+    '__return_false',
+    10,
+    0
+);
+
 // Log failed AS actions
 add_action(
     'action_scheduler_failed_execution',
