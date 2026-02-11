@@ -210,6 +210,22 @@ add_action(
     0
 );
 
+// Disable order step logging
+add_filter(
+    'woocommerce_logger_log_message',
+    static function ($message, $level, $context, $handler) {
+        if ($level === WC_Log_Levels::DEBUG) {
+            $source = $context['source'] ?? '';
+            if (is_string($source) && strpos($source, 'place-order') !== false) {
+                return null;
+            }
+        }
+        return $message;
+    },
+    10,
+    4
+);
+
 // Hide Status page for users
 add_action(
     'admin_init',
