@@ -30,6 +30,21 @@ add_filter(
             // Coming soon mode and admin bar badge
             // https://woocommerce.com/document/configuring-woocommerce-settings/coming-soon-mode/
             'site_visibility_badge',
+            // Analytics scheduled import
+            // https://developer.woocommerce.com/2026/02/06/woocommerce-10-5-improving-analytics-and-admin-performance/
+            'analytics-scheduled-import',
+            // Experimental Interactivity API mini cart
+            // https://developer.woocommerce.com/2025/12/10/woocommerce-10-4-the-interactivity-api-mini-cart-goes-live/
+            'experimental-iapi-mini-cart',
+            // Experimental Interactivity API runtime
+            // https://developer.woocommerce.com/2025/10/30/understanding-the-interactivity-api-driven-future-for-woocommerce-blocks/
+            'experimental-iapi-runtime',
+            // Products catalog API
+            // https://developer.woocommerce.com/2025/12/10/woocommerce-10-4-the-interactivity-api-mini-cart-goes-live/
+            'products-catalog-api',
+            // REST API v4
+            // https://github.com/woocommerce/woocommerce/pull/60634
+            'rest-api-v4',
 
             // From includes/react-admin/feature-config.php
             // A toolbar-like area
@@ -125,9 +140,9 @@ add_filter(
             // Use horizon as calypso_env
             'use-wp-horizon',
             // Plus (+) and minus (-) buttons for the number of items
-            'add-to-cart-with-options-stepper-layout',
+            // Removed in v10.2.0 'add-to-cart-with-options-stepper-layout',
             // Gutenberg Add to Cart block
-            'blockified-add-to-cart',
+            // Removed in v10.0.0 'blockified-add-to-cart',
         ];
         return array_diff($features, $disabled_features);
     },
