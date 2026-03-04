@@ -44,6 +44,10 @@ They are already sponsoring me.
 [<img src="https://github.com/blockifywp.png" width="50px" alt="blockifywp">](https://github.com/blockifywp)&nbsp;&nbsp;
 <!-- markdownlint-enable MD033 -->
 
+> [!IMPORTANT]
+> This project is not expected to be deployed directly to a production environment.
+> I recommend that you review the code and re-use only the relevant parts.
+
 ## Working in a git repository
 
 Our WordPress installation is stored in a git repository
