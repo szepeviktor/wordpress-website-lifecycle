@@ -276,3 +276,29 @@ add_action(
     10,
     3
 );
+
+// Disallow search requests for robots
+add_filter(
+    'robots_txt',
+    static function ($output) {
+        $site_url = parse_url(site_url());
+        $path = (!empty($site_url['path'])) ? $site_url['path'] : '';
+        $lines = preg_split('/\r\n|\r|\n/', $output);
+        $agent_index = array_search('User-agent: *', $lines, true);
+        if (false !== $agent_index) {
+            $above = array_slice($lines, 0, $agent_index + 1);
+            $below = array_slice($lines, $agent_index + 1);
+        } else {
+            $above = $lines;
+            $below = [];
+            $above[] = '';
+            $above[] = 'User-agent: *';
+        }
+        $above[] = 'Disallow: /*?s=';
+        $above[] = 'Disallow: /*?*s=';
+        $lines = array_merge($above, $below);
+        return implode(PHP_EOL, $lines);
+    },
+    20,
+    1
+);
