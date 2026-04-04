@@ -52,6 +52,16 @@ add_filter(
     0
 );
 
+// Disable telemetry.
+add_filter(
+    'pre_option_gf_last_telemetry_run',
+    static function ($pre_option) {
+        return time();
+    },
+    10,
+    1
+);
+
 // Multipart emails.
 // https://docs.gravityforms.com/gform_notification/#4-change-the-message-format
 add_filter(
