@@ -30,7 +30,7 @@ add_action(
             return;
         }
 
-        $url_path = (string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        $url_path = ltrim((string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/');
 
         if (!str_contains($url_path, '.')) {
             return;
