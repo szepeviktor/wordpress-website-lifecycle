@@ -92,7 +92,30 @@ namespace {
     add_action(
         'admin_head',
         static function (): void {
-            echo '<style id="elementor-quiet-mode-ai">#editor-one-top-bar,#editor-one-sidebar-navigation,#elementor-ai-admin,.e-ai-layout-button,#e-image-ai-media-library,#e-image-ai-attachment-details,#elementor-panel-get-pro-elements-sticky,#elementor-navigator__footer__promotion,#elementor-panel-category-pro-elements,#elementor-panel-category-helloplus,#elementor-panel-category-theme-elements,#elementor-panel-category-theme-elements-single,#elementor-panel-category-woocommerce-elements,#tmpl-elementor-dynamic-tags-promo,#tmpl-elementor-template-library-upgrade-plan-button,#e-admin-top-bar-root,#footer-upgrade{display:none!important;}</style>';
+            echo '<style id="elementor-quiet-mode-ai">'
+                . implode(
+                    ',',
+                    [
+                        '#editor-one-top-bar',
+                        '#editor-one-sidebar-navigation',
+                        '#elementor-ai-admin',
+                        '.e-ai-layout-button',
+                        '#e-image-ai-media-library',
+                        '#e-image-ai-attachment-details',
+                        '#elementor-panel-get-pro-elements-sticky',
+                        '#elementor-navigator__footer__promotion',
+                        '#elementor-panel-category-pro-elements',
+                        '#elementor-panel-category-helloplus',
+                        '#elementor-panel-category-theme-elements',
+                        '#elementor-panel-category-theme-elements-single',
+                        '#elementor-panel-category-woocommerce-elements',
+                        '#tmpl-elementor-dynamic-tags-promo',
+                        '#tmpl-elementor-template-library-upgrade-plan-button',
+                        '#e-admin-top-bar-root',
+                        '#footer-upgrade',
+                    ]
+                )
+                . '{display:none!important;}</style>';
         },
         PHP_INT_MAX
     );
@@ -101,7 +124,23 @@ namespace {
     add_action(
         'elementor/editor/after_enqueue_styles',
         static function (): void {
-            echo '<style id="elementor-quiet-mode-elements">#elementor-panel-categories .elementor-panel-heading-promotion,#elementor-panel-get-pro-elements-sticky,#elementor-navigator__footer__promotion,#elementor-panel-category-pro-elements,#elementor-panel-category-helloplus,#elementor-panel-category-theme-elements,#elementor-panel-category-theme-elements-single,#elementor-panel-category-woocommerce-elements,#tmpl-elementor-dynamic-tags-promo,#tmpl-elementor-template-library-upgrade-plan-button{display:none!important;}</style>';
+            echo '<style id="elementor-quiet-mode-elements">'
+                . implode(
+                    ',',
+                    [
+                        '#elementor-panel-categories .elementor-panel-heading-promotion',
+                        '#elementor-panel-get-pro-elements-sticky',
+                        '#elementor-navigator__footer__promotion',
+                        '#elementor-panel-category-pro-elements',
+                        '#elementor-panel-category-helloplus',
+                        '#elementor-panel-category-theme-elements',
+                        '#elementor-panel-category-theme-elements-single',
+                        '#elementor-panel-category-woocommerce-elements',
+                        '#tmpl-elementor-dynamic-tags-promo',
+                        '#tmpl-elementor-template-library-upgrade-plan-button',
+                    ]
+                )
+                . '{display:none!important;}</style>';
         },
         PHP_INT_MAX
     );
