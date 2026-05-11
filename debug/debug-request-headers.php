@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-function _core_debug_request_headers()
+function _core2_debug_request_headers()
 {
     if (php_sapi_name() === 'cli' || wp_doing_cron() || !isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
         return;
@@ -23,4 +23,4 @@ function _core_debug_request_headers()
         FILE_APPEND | LOCK_EX
     );
 }
-_core_debug_request_headers();
+_core2_debug_request_headers();
