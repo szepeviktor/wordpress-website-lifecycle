@@ -15,13 +15,12 @@ add_action(
         $args = func_get_args();
         $hook_name = $args[0];
         $value = isset($args[1]) ? $args[1] : null;
-        $formatted_value = (is_string($value) || is_numeric($value))
-            ? $value
-            : '<'.(is_object($value)
-                ? get_class($value)
-                : (is_bool($value)
-                    ? ($value ? 'TRUE' : 'FALSE')
-                    : gettype($value))).'>';
+        $formatted_value = match (true) {
+            is_string($value) || is_numeric($value) => $value,
+            is_object($value) => '<'.get_class($value).'>',
+            is_bool($value) => $value ? '<TRUE>' : '<FALSE>',
+            default => '<'.gettype($value).'>'
+        };
         printf("%s=%s\n", $hook_name, $formatted_value);
     },
     PHP_INT_MAX,
