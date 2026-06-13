@@ -42,7 +42,11 @@ add_action(
             }
         }
 
+        error_log('Malicious traffic detected: w4wp_dot_404');
         status_header(404);
+        header('Content-Type: text/plain; charset=utf-8');
+        echo "404 Not Found\n";
+        echo "URLs containing a dot are denied because the requested file is missing.\n";
         exit;
     },
     0,
