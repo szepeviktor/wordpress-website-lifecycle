@@ -11,7 +11,8 @@ $args = [
     'body' => [
         'action' => 'check_theme_updates',
         'class_version' => '1.2',
-        'installed_themes' => ['Divi' => '4.0.0'],
+        'installed_themes' => ['Divi' => '5.0.0'],
+        'divi_5' => 'on',
     ],
 ];
 $response = wp_remote_post('https://www.elegantthemes.com/api/api.php', $args);
