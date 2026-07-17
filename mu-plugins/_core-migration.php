@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Migration
+ * Plugin Name: Migration source server guard
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
@@ -41,4 +41,27 @@ add_filter(
     },
     PHP_INT_MAX,
     2
+);
+
+// Block Action Scheduler
+add_action(
+    'init',
+    static function () {
+        if (!class_exists('ActionScheduler')) {
+            return;
+        }
+
+        remove_action(
+            'action_scheduler_run_queue',
+            [ActionScheduler::runner(), 'run']
+        );
+    },
+    PHP_INT_MAX,
+    0
+);
+add_filter(
+    'action_scheduler_allow_async_request_runner',
+    '__return_false',
+    10,
+    0
 );
