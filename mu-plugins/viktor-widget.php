@@ -22,9 +22,26 @@ function szv_add_dashboard_widget()
 
 function szv_render_dashboard_widget($post, $callback_args)
 {
-    echo '<div class="main"><ul>';
-    echo '<li class="onboarding-server"><a href="https://github.com/szepeviktor/debian-server-tools/blob/master/Onboarding.md#onboarding-for-developers" target="_blank">Server info for developers</a></li>';
-    echo '<li class="onboarding-wordpress"><a href="https://github.com/szepeviktor/wordpress-website-lifecycle/blob/master/README.md#onboarding-for-developers" target="_blank">WordPress info for developers</a></li>';
-    echo '<li class="questions"><a href="mailto:viktor@szepe.net">Questions?</a></li>';
-    echo '</ul></div>';
+    $profile_url = 'https://github.com/szepeviktor';
+    echo <<<HTML
+<div class="main">
+    <ul>
+        <li class="onboarding-server">
+            <a
+                href="{$profile_url}/debian-server-tools/blob/master/Onboarding.md#onboarding-for-developers"
+                target="_blank"
+            >Server info for developers</a>
+        </li>
+        <li class="onboarding-wordpress">
+            <a
+                href="{$profile_url}/wordpress-website-lifecycle/blob/master/README.md#onboarding-for-developers"
+                target="_blank"
+            >WordPress info for developers</a>
+        </li>
+        <li class="questions">
+            <a href="mailto:viktor@szepe.net">Questions?</a>
+        </li>
+    </ul>
+</div>
+HTML;
 }
