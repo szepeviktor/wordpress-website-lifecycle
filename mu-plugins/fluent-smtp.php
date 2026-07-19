@@ -39,3 +39,32 @@ add_action(
     0,
     0
 );
+
+// Hide notice on the plugin-install search screen
+add_action(
+    'admin_head-plugin-install.php',
+    static function () {
+        echo '<style>.fluent_smtp_box { display: none !important; }</style>';
+    }
+);
+
+// Suppress the subscription prompt
+add_filter(
+    'pre_option__fluentsmtp_dismissed_timestamp',
+    static function () {
+        return time();
+    }
+);
+
+// Remove the promotion from admin footer
+add_filter(
+    'admin_footer_text',
+    static function ($text) {
+        if (empty($_GET['page']) || $_GET['page'] !== 'fluent-mail') {
+            return $text;
+        }
+
+        return '';
+    },
+    PHP_INT_MAX
+);
