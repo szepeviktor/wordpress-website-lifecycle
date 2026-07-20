@@ -28,6 +28,8 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'sucuri-scanner',
     'svg-support',
     'updraftplus',
+    'temporary-login',
+    'temporary-login-without-password',
     'webp-express',
     'wordfence',
     'worker',
