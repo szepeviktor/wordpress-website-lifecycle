@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
-// permalink_structure must of enabled
+// permalink_structure must be enabled
 add_action(
     'parse_request',
     static function ($wp) {
