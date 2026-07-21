@@ -8,7 +8,7 @@
 // permalink_structure must of enabled
 add_action(
     'parse_request',
-    static function ($wp): {
+    static function ($wp) {
         if (is_admin()) {
             return;
         }
