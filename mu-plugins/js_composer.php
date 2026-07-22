@@ -9,7 +9,7 @@ add_action(
     'plugins_loaded',
     static function () {
         global $vc_manager;
-        if (! method_exists($vc_manager, 'disableUpdater')) {
+        if (!is_object($vc_manager) || !method_exists($vc_manager, 'disableUpdater')) {
             return;
         }
 

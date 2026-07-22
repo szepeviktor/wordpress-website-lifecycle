@@ -13,7 +13,7 @@ add_action(
             return;
         }
         $error = error_get_last();
-        if (E_ERROR === $error['type']) {
+        if (is_array($error) && $error['type'] === E_ERROR) {
             header('HTTP/1.1 500 Internal Server Error');
         }
     },

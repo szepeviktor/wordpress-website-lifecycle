@@ -1,7 +1,8 @@
 # MU plugins
 
-This directory is a catalog of standalone must-use plugins. Install only the
-files needed by a website into its `wp-content/mu-plugins/` directory.
+This directory catalogs standalone must-use plugins and related operations
+notes. Install only the required PHP files into a website's
+`wp-content/mu-plugins/` directory.
 
 ## Development
 
@@ -26,6 +27,19 @@ Rejects every WordPress username and password authentication attempt.
 
 Removes the `pingback.ping` XML-RPC method.
 
+### [_core-username.php](_core-username.php)
+
+> Whitespace in usernames creates confusing and error-prone account identifiers.
+
+Removes whitespace while WordPress performs strict username sanitization.
+
+### [waf4wordpress.php](waf4wordpress.php)
+
+> Malicious HTTP requests can reach WordPress before application-level defenses inspect them.
+
+Initializes WAF for WordPress core event handling and exposes its request
+analyzer as a drop-in on the Plugins screen.
+
 ### [_robots-gptbot.php](_robots-gptbot.php)
 
 > Automated AI crawling can consume resources or reuse content against the publisher's preference.
@@ -38,23 +52,14 @@ Adds a site-wide disallow rule for GPTBot to `robots.txt` on public websites.
 
 Adds a site-wide disallow rule for OSZKbot to `robots.txt` on public websites.
 
-### [revslider.php](revslider.php)
-
-> Legacy Revolution Slider upload endpoints can be probed for remote code execution.
-
-Logs a break-in attempt for Fail2Ban and immediately terminates execution.
-
-**Caution:** This file exits unconditionally and must not be installed as a
-general-purpose MU plugin.
-
-### [waf4wordpress.php](waf4wordpress.php)
-
-> Malicious HTTP requests can reach WordPress before application-level defenses inspect them.
-
-Initializes WAF for WordPress core event handling and exposes its request
-analyzer as a drop-in on the Plugins screen.
-
 ## WordPress administration
+
+### [_core-debrand-wordpress.php](_core-debrand-wordpress.php)
+
+> WordPress branding and informational screens distract users from managing their website.
+
+Removes the WordPress toolbar menu and footer text, and redirects the About,
+Credits, Freedoms, Privacy, and Contribute screens.
 
 ### [_core-admin-email-confirm.php](_core-admin-email-confirm.php)
 
@@ -68,13 +73,6 @@ Disables the WordPress administrator email confirmation reminder.
 
 Reverts the activation and displays an administrator notice when an installed
 child theme should be used instead.
-
-### [_core-debrand-wordpress.php](_core-debrand-wordpress.php)
-
-> WordPress branding and informational screens distract users from managing their website.
-
-Removes the WordPress toolbar menu and footer text, and redirects the About,
-Credits, Freedoms, Privacy, and Contribute screens.
 
 ### [_core-disable-command-palette.php](_core-disable-command-palette.php)
 
@@ -116,8 +114,6 @@ activating them again.
 
 Adjusts source selection during manual theme uploads so WordPress can locate
 the actual theme directory.
-
-## Content and frontend
 
 ### [_core-comment.php](_core-comment.php)
 
@@ -163,13 +159,14 @@ Sends the new-account notification only to the registered user.
 Restricts slug input to printable ASCII characters, Unicode letters, and
 Unicode numbers before WordPress performs its normal sanitization.
 
-### [_core-username.php](_core-username.php)
-
-> Whitespace in usernames creates confusing and error-prone account identifiers.
-
-Removes whitespace while WordPress performs strict username sanitization.
-
 ## HTTP and routing
+
+### [_core-http.php](_core-http.php)
+
+> Silent HTTP failures and inappropriate cache headers make integrations harder to operate reliably.
+
+Suppresses WordPress HTTPS detection, logs failed outbound requests, and removes
+the legacy `Pragma` header from HTTP/1.1 and newer responses.
 
 ### [_core-auto-trailing-slash.php](_core-auto-trailing-slash.php)
 
@@ -199,13 +196,6 @@ percent-encoding.
 Rebuilds request query parameters using RFC 3986 encoding before normal request
 processing.
 
-### [_core-http.php](_core-http.php)
-
-> Silent HTTP failures and inappropriate cache headers make integrations harder to operate reliably.
-
-Suppresses WordPress HTTPS detection, logs failed outbound requests, and removes
-the legacy `Pragma` header from HTTP/1.1 and newer responses.
-
 ### [_core-php-bug-50921.php](_core-php-bug-50921.php)
 
 > Fatal PHP errors reported as successful responses can be cached and missed by monitoring.
@@ -214,12 +204,6 @@ Changes the response status to `500 Internal Server Error` when a fatal error is
 detected during shutdown.
 
 ## Operations and observability
-
-### [_core-cron.php](_core-cron.php)
-
-> A stalled WP-Cron runner can leave scheduled business processes unexecuted without a visible signal.
-
-Records the timestamp of the latest WP-Cron invocation for external monitoring.
 
 ### [_core-log-deprecated.php](_core-log-deprecated.php)
 
@@ -243,6 +227,12 @@ Labels the old login screen and blocks WP-Cron, outbound HTTP requests, email,
 and Action Scheduler execution.
 
 **Caution:** Remove this MU plugin after the migration is complete.
+
+### [_core-cron.php](_core-cron.php)
+
+> A stalled WP-Cron runner can leave scheduled business processes unexecuted without a visible signal.
+
+Records the timestamp of the latest WP-Cron invocation for external monitoring.
 
 ### [_core-wp-cron-logger.php](_core-wp-cron-logger.php)
 
@@ -286,14 +276,12 @@ Disables the Easy Social Share Buttons update manager.
 Disables tracking, AI, onboarding, promotional modules, remote feeds, upsells,
 and related admin noise while retaining the functional editor screens.
 
-### [envato-market.php](envato-market.php)
+### [envato-market.md](envato-market.md)
 
 > ThemeForest software can fall behind when the Envato Market plugin cannot be refreshed repeatably.
 
-Writes an executable shell script that reinstalls the latest Envato Market
-plugin from its GitHub repository.
-
-**Caution:** This is a script generator rather than a conventional MU plugin.
+Provides instructions and a shell script that reinstalls the latest Envato
+Market plugin from its GitHub repository.
 
 ### [flamingo.php](flamingo.php)
 
@@ -433,11 +421,9 @@ Provides a no-op YITH upgrade manager.
 Provides no-op implementations of the Fusion patcher, patch checker, and
 updater.
 
-### [theme-unity.php](theme-unity.php)
+### [theme-unity.md](theme-unity.md)
 
 > Releases of plugins bundled by the Unity theme are difficult to monitor through normal WordPress updates.
 
-Writes an executable shell script that compares remote modification dates for
-the bundled WPBakery and Revolution Slider archives.
-
-**Caution:** This is a script generator rather than a conventional MU plugin.
+Provides instructions and a shell script that compares remote modification
+dates for the bundled WPBakery and Revolution Slider archives.

@@ -23,10 +23,11 @@ add_action(
     static function () {
         // EDIT here!
         global $wpoEngine;
-        if (method_exists($wpoEngine, 'initRequiredPlugin')) {
-            remove_action('admin_init', 'tgmpa_load_bulk_installer');
-            remove_action('tgmpa_register', [$wpoEngine, 'initRequiredPlugin']);
+        if (!is_object($wpoEngine) || !method_exists($wpoEngine, 'initRequiredPlugin')) {
+            return;
         }
+        remove_action('admin_init', 'tgmpa_load_bulk_installer');
+        remove_action('tgmpa_register', [$wpoEngine, 'initRequiredPlugin']);
     },
     PHP_INT_MAX,
     0
