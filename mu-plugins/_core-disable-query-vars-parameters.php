@@ -16,8 +16,12 @@ add_action(
         }
         $whitelist = [
             's', // Search
-            'preview', // Post preview
         ];
+        if (array_key_exists('preview', $_GET) && is_user_logged_in()) {
+            $whitelist[] = 'preview';
+            $whitelist[] = 'p';
+            $whitelist[] = 'page_id';
+        }
         $requested_query_vars = array_intersect(
             array_keys($_GET),
             $wp->public_query_vars
