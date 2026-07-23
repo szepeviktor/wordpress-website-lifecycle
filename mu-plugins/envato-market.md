@@ -6,10 +6,10 @@ repository. This is an operations script, not an MU plugin; do not place it in
 
 ## Instructions
 
-1. Save the snippet as `envato-market-update.sh` outside the public web root.
-2. Make the script executable.
-3. Run it from the WordPress installation directory, where WP-CLI can locate
-   the website.
+1.  Save the snippet as `envato-market-update.sh` outside the public web root.
+2.  Make the script executable.
+3.  Run it from the WordPress installation directory, where WP-CLI can locate
+    the website.
 
 ```bash
 chmod 0755 envato-market-update.sh

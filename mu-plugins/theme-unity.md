@@ -6,12 +6,12 @@ plugin; do not place it in `wp-content/mu-plugins/`.
 
 ## Instructions
 
-1. Save the snippet as `unity-plugin-update.sh` outside the public web root.
-2. Make the script executable.
-3. Create the initial `external-plugin-update.log` baseline.
-4. Run the script without arguments from a scheduled job. It exits with the
-   status returned by `diff` and prints any changed HTTP metadata.
-5. After reviewing and deploying an update, refresh the baseline.
+1.  Save the snippet as `unity-plugin-update.sh` outside the public web root.
+2.  Make the script executable.
+3.  Create the initial `external-plugin-update.log` baseline.
+4.  Run the script without arguments from a scheduled job. It exits with the
+    status returned by `diff` and prints any changed HTTP metadata.
+5.  After reviewing and deploying an update, refresh the baseline.
 
 ```bash
 chmod 0755 unity-plugin-update.sh
