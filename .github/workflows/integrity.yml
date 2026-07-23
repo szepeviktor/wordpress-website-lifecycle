@@ -27,6 +27,7 @@ jobs:
                 check-installation/wp-invalid-media.sh
                 check-installation/wp-missing-cron.sh
                 check-installation/wp-nonsilent-indices.sh
+                viktor-freshness
             not-printable-ascii-paths: >-
                 divi-child/
                 mu-plugins/
@@ -39,3 +40,4 @@ jobs:
             exported-paths: >-
                 LICENSE
                 README.md
+                viktor-freshness
