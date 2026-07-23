@@ -1,0 +1,159 @@
+#!/bin/bash
+
+set -euo pipefail
+
+program_name="${0##*/}"
+repository_dir="${VIKTOR_FRESHNESS_ROOT:-/usr/local/src/wordpress-website-lifecycle}"
+source_dir="$repository_dir/mu-plugins"
+
+usage() {
+    cat <<EOF
+Usage:
+  $program_name status
+  $program_name diff
+  $program_name deploy
+  $program_name install FILE...
+
+The target wp-content/mu-plugins directory is discovered from the current
+directory and its parents.
+The source repository defaults to /usr/local/src/wordpress-website-lifecycle.
+Override it with VIKTOR_FRESHNESS_ROOT.
+EOF
+}
+
+target_dir() {
+    local directory="$PWD"
+
+    while true; do
+        if [[ -d "$directory/wp-content/mu-plugins" ]]; then
+            printf '%s/wp-content/mu-plugins\n' "$directory"
+            return
+        fi
+
+        [[ "$directory" == / ]] && break
+        directory="${directory%/*}"
+        directory="${directory:-/}"
+    done
+
+    printf 'Could not find wp-content/mu-plugins from %s\n' "$PWD" >&2
+    return 1
+}
+
+status() {
+    local target
+    local target_file
+    local source_file
+    local file_name
+    local stale=0
+
+    target="$(target_dir)"
+
+    for target_file in "$target"/*.php; do
+        [[ -e "$target_file" ]] || continue
+
+        file_name="${target_file##*/}"
+        source_file="$source_dir/$file_name"
+
+        if [[ ! -e "$source_file" ]]; then
+            printf 'unmanaged  %s\n' "$file_name"
+            stale=1
+        elif cmp -s -- "$source_file" "$target_file"; then
+            printf 'current    %s\n' "$file_name"
+        else
+            printf 'stale      %s\n' "$file_name"
+            stale=1
+        fi
+    done
+
+    return "$stale"
+}
+
+show_diff() {
+    local target
+    local target_file
+    local source_file
+    local file_name
+
+    target="$(target_dir)"
+
+    for target_file in "$target"/*.php; do
+        [[ -e "$target_file" ]] || continue
+
+        file_name="${target_file##*/}"
+        source_file="$source_dir/$file_name"
+
+        [[ -e "$source_file" ]] || continue
+        cmp -s -- "$source_file" "$target_file" && continue
+
+        diff -u \
+            --label "source/$file_name" \
+            --label "installed/$file_name" \
+            "$source_file" \
+            "$target_file" || true
+    done
+}
+
+deploy() {
+    local target
+    local target_file
+    local source_file
+    local file_name
+
+    target="$(target_dir)"
+
+    for target_file in "$target"/*.php; do
+        [[ -e "$target_file" ]] || continue
+
+        file_name="${target_file##*/}"
+        source_file="$source_dir/$file_name"
+
+        [[ -e "$source_file" ]] || continue
+        cmp -s -- "$source_file" "$target_file" && continue
+
+        cp -- "$source_file" "$target_file"
+        printf 'deployed   %s\n' "$file_name"
+    done
+}
+
+install_files() {
+    local target
+    local file_name
+
+    target="$(target_dir)"
+
+    for file_name in "$@"; do
+        cp -- "$source_dir/$file_name" "$target/$file_name"
+        printf 'installed  %s\n' "$file_name"
+    done
+}
+
+if (( $# < 1 )); then
+    usage
+    exit 2
+fi
+
+command_name="$1"
+shift
+
+case "$command_name" in
+    status)
+        status
+        ;;
+    diff)
+        show_diff
+        ;;
+    deploy)
+        deploy
+        ;;
+    install)
+        if (( $# == 0 )); then
+            usage
+            exit 2
+        fi
+        install_files "$@"
+        ;;
+    *)
+        usage
+        exit 2
+        ;;
+esac
