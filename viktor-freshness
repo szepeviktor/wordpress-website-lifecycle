@@ -90,7 +90,7 @@ show_diff() {
         [[ -e "$source_file" ]] || continue
         cmp -s -- "$source_file" "$target_file" && continue
 
-        diff -u \
+        colordiff -u \
             --label "source/$file_name" \
             --label "installed/$file_name" \
             "$source_file" \
