@@ -9,11 +9,11 @@ source_dir="$repository_dir/mu-plugins"
 usage() {
     cat <<EOF
 Usage:
-  $program_name update
-  $program_name status
-  $program_name diff
-  $program_name deploy
-  $program_name install FILE...
+    $program_name update
+    $program_name status
+    $program_name diff
+    $program_name deploy
+    $program_name install FILE...
 
 The target wp-content/mu-plugins directory is discovered from the current
 directory and its parents.
