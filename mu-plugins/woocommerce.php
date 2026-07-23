@@ -199,9 +199,25 @@ add_filter(
 add_action(
     'plugins_loaded',
     static function () {
-        if (class_exists(WooCommerce::class, false)) {
-            require __DIR__.'/woocommerce/AdminSuggestionsServiceProvider.php';
+        $abstract_provider = \Automattic\WooCommerce\Internal\DependencyManagement\AbstractServiceProvider::class;
+        $suggestions_provider = \Automattic\WooCommerce\Internal\DependencyManagement\ServiceProviders\AdminSuggestionsServiceProvider::class;
+
+        if (
+            !class_exists(WooCommerce::class, false)
+            || !class_exists($abstract_provider)
+            || class_exists($suggestions_provider, false)
+        ) {
+            return;
         }
+
+        // WooCommerce discovers this class by name. Alias an inert provider to
+        // that name before WooCommerce's dependency container is initialized.
+        $inert_provider = new class extends \Automattic\WooCommerce\Internal\DependencyManagement\AbstractServiceProvider {
+            public function register()
+            {
+            }
+        };
+        class_alias(get_class($inert_provider), $suggestions_provider);
     },
     0,
     0
