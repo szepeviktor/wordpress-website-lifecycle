@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Manage WordPress must-use plugin freshness
+#
+# VERSION       :1.0.0
+# DEPENDS       :apt-get install colordiff git
+# LOCATION      :/usr/local/bin/viktor-freshness
 
 set -euo pipefail
 
@@ -60,12 +66,12 @@ status() {
         source_file="$source_dir/$file_name"
 
         if [[ ! -e "$source_file" ]]; then
-            printf '%-11s%s\n' 'unmanaged' "$file_name"
+            printf '%-12s%s\n' 'unmanaged' "$file_name"
             stale=1
         elif cmp -s -- "$source_file" "$target_file"; then
-            printf '%-11s%s\n' 'current' "$file_name"
+            printf '%-12s%s\n' 'current' "$file_name"
         else
-            printf '%-11s%s\n' 'stale' "$file_name"
+            printf '%-12s%s\n' 'stale' "$file_name"
             stale=1
         fi
     done
@@ -116,7 +122,7 @@ deploy() {
         cmp -s -- "$source_file" "$target_file" && continue
 
         cp -- "$source_file" "$target_file"
-        printf '%-11s%s\n' 'deployed' "$file_name"
+        printf '%-12s%s\n' 'deployed' "$file_name"
     done
 }
 
@@ -128,7 +134,7 @@ install_files() {
 
     for file_name in "$@"; do
         cp -- "$source_dir/$file_name" "$target/$file_name"
-        printf '%-11s%s\n' 'installed' "$file_name"
+        printf '%-12s%s\n' 'installed' "$file_name"
     done
 }
 
