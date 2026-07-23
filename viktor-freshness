@@ -60,12 +60,12 @@ status() {
         source_file="$source_dir/$file_name"
 
         if [[ ! -e "$source_file" ]]; then
-            printf 'unmanaged  %s\n' "$file_name"
+            printf '%-11s%s\n' 'unmanaged' "$file_name"
             stale=1
         elif cmp -s -- "$source_file" "$target_file"; then
-            printf 'current    %s\n' "$file_name"
+            printf '%-11s%s\n' 'current' "$file_name"
         else
-            printf 'stale      %s\n' "$file_name"
+            printf '%-11s%s\n' 'stale' "$file_name"
             stale=1
         fi
     done
@@ -116,7 +116,7 @@ deploy() {
         cmp -s -- "$source_file" "$target_file" && continue
 
         cp -- "$source_file" "$target_file"
-        printf 'deployed   %s\n' "$file_name"
+        printf '%-11s%s\n' 'deployed' "$file_name"
     done
 }
 
@@ -128,7 +128,7 @@ install_files() {
 
     for file_name in "$@"; do
         cp -- "$source_dir/$file_name" "$target/$file_name"
-        printf 'installed  %s\n' "$file_name"
+        printf '%-11s%s\n' 'installed' "$file_name"
     done
 }
 
