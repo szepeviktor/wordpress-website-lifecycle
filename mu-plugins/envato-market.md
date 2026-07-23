@@ -31,6 +31,6 @@ if [ -z "${WP_CONTENT_DIR}" ] || [ ! -d "${WP_CONTENT_DIR}" ]; then
 fi
 
 wp plugin install \
-    "https://github.com/envato/wp-envato-market/archive/master.zip" \
+    "https://github.com/envato/wp-envato-market/archive/refs/heads/master.zip" \
     --force
 ```

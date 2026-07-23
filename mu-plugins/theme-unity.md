@@ -33,12 +33,12 @@ REMOTE="$(mktemp)"
 trap 'rm -f "${REMOTE}"' EXIT
 
 EXTERNAL_PLUGINS=(
-    "http://source.wpopal.com/plugins/new/js_composer.zip"
-    "http://source.wpopal.com/plugins/new/revslider.zip"
+    "https://source.wpopal.com/plugins/new/js_composer.zip"
+    "https://source.wpopal.com/plugins/new/revslider.zip"
 )
 
 for PLUGIN in "${EXTERNAL_PLUGINS[@]}"; do
-    curl5 -L -sI "${PLUGIN}" \
+    curl -L -sI "${PLUGIN}" \
         | sed -n '/^last-modified:/Ip'
 done > "${REMOTE}"
 
