@@ -5,6 +5,7 @@
  * Plugin URI: https://github.com/szepeviktor/waf4wordpress
  */
 
+// Needs https://github.com/szepeviktor/waf4wordpress
 new SzepeViktor\WordPress\Waf\CoreEvents();
 
 // Display as a drop-in.
