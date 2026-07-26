@@ -35,6 +35,14 @@ Removes the `pingback.ping` XML-RPC method.
 
 Removes whitespace while WordPress performs strict username sanitization.
 
+### [_core-disable-query-vars-parameters.php](_core-disable-query-vars-parameters.php)
+
+> Public query variables expose an alternative frontend request interface that
+> bypasses permalink routes.
+
+Returns a 404 response when a public query variable is passed in the query
+string, while allowing searches and authenticated previews.
+
 ### [waf4wordpress.php](waf4wordpress.php)
 
 > Malicious HTTP requests can reach WordPress before application-level defenses
