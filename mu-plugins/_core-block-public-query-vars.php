@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: Disable query vars parameters
+ * Plugin Name: Block public query variables
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
