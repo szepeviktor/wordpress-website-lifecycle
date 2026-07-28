@@ -377,6 +377,15 @@ analytics consent.
 
 Defines a no-op Polylang wizard before the plugin attempts to start it.
 
+### [popup-maker.php](popup-maker.php)
+
+> Popup Maker promotions, tracking prompts, and onboarding redirects create
+> distraction and unnecessary external dependencies.
+
+Disables telemetry, review requests, promotional alerts, upsells, and
+unnecessary administration screens while retaining operational warnings and
+analytics.
+
 ### [redux-framework.php](redux-framework.php)
 
 > Theme frameworks can make unwanted remote requests and expose unnecessary AJAX
