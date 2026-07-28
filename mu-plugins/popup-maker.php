@@ -3,11 +3,12 @@
 /*
  * Plugin Name: Popup Maker Admin Cleanup
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
- * Description: Removes Popup Maker upsells, telemetry prompts, review requests, and unnecessary admin UI.
  */
 
 // Use Popup Maker's official kill switch before the plugin initializes.
-defined('POPUP_MAKER_DISABLE_UPSELLS') || define('POPUP_MAKER_DISABLE_UPSELLS', true);
+if (! defined('POPUP_MAKER_DISABLE_UPSELLS')) {
+    define('POPUP_MAKER_DISABLE_UPSELLS', true);
+}
 
 /*
  * Popup Maker registers its real controllers at plugins_loaded priority 11.
@@ -46,7 +47,8 @@ add_action(
 
         class_alias(get_class($inertController), $pluginsPage);
     },
-    PHP_INT_MIN
+    PHP_INT_MIN,
+    0
 );
 
 // Remove the Error Log tab from Tools.
@@ -56,7 +58,9 @@ add_filter(
         unset($tabs['error_log']);
 
         return $tabs;
-    }
+    },
+    10,
+    1
 );
 
 // Disable vendor notices, tips, and telemetry.
@@ -124,7 +128,8 @@ add_filter(
 
         return $pages;
     },
-    PHP_INT_MAX
+    PHP_INT_MAX,
+    1
 );
 
 // Remove the Go Pro settings tab and its fields.
@@ -135,7 +140,8 @@ add_filter(
 
         return $tabs;
     },
-    PHP_INT_MAX
+    PHP_INT_MAX,
+    1
 );
 add_filter(
     'pum_settings_tab_sections',
@@ -144,7 +150,8 @@ add_filter(
 
         return $sections;
     },
-    PHP_INT_MAX
+    PHP_INT_MAX,
+    1
 );
 add_filter(
     'pum_settings_fields',
@@ -153,7 +160,8 @@ add_filter(
 
         return $fields;
     },
-    PHP_INT_MAX
+    PHP_INT_MAX,
+    1
 );
 
 // Remove promotional alerts while preserving operational warnings.
@@ -194,7 +202,8 @@ add_filter(
             )
         );
     },
-    PHP_INT_MAX
+    PHP_INT_MAX,
+    1
 );
 
 // Keep the Popup Analytics dashboard widget, but hide its Pro promotion.
@@ -208,7 +217,9 @@ add_action(
             }
         </style>
         <?php
-    }
+    },
+    10,
+    0
 );
 
 // Remove translation prompts and the one-time activation redirect.
@@ -226,5 +237,6 @@ add_action(
             ['PUM_Admin_Onboarding', 'welcome_redirect']
         );
     },
-    99
+    99,
+    0
 );
