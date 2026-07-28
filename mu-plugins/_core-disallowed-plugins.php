@@ -8,6 +8,7 @@
 const HOSTING_DISALLOWED_PLUGINS = [
     'all-in-one-wp-security-and-firewall',
     'autoptimize',
+    'better-search-replace',
     'better-wp-security',
     'broken-link-checker',
     'bulletproof-security',
