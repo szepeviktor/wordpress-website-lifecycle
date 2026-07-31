@@ -77,7 +77,9 @@ final class ResizeOriginalMedia
             foreach ($attachment_ids as $attachment_id) {
                 $metadata = wp_get_attachment_metadata($attachment_id);
                 if (!is_array($metadata)) {
-                    WP_CLI::warning("Unable to read metadata for attachment {$attachment_id}; skipping");
+                    WP_CLI::warning(
+                        sprintf('Unable to read metadata for attachment %d; skipping', $attachment_id)
+                    );
                     continue;
                 }
 
@@ -86,13 +88,17 @@ final class ResizeOriginalMedia
                     ? wp_get_original_image_path($attachment_id)
                     : get_attached_file($attachment_id);
                 if (!is_string($path) || !is_file($path)) {
-                    WP_CLI::warning("Unable to locate original file for attachment {$attachment_id}; skipping");
+                    WP_CLI::warning(
+                        sprintf('Unable to locate original file for attachment %d; skipping', $attachment_id)
+                    );
                     continue;
                 }
 
                 $size = @getimagesize($path);
                 if (!is_array($size) || !isset($size[0], $size[1])) {
-                    WP_CLI::warning("Unable to read dimensions for attachment {$attachment_id}: {$path}");
+                    WP_CLI::warning(
+                        sprintf('Unable to read dimensions for attachment %d: %s', $attachment_id, $path)
+                    );
                     continue;
                 }
 
@@ -104,7 +110,9 @@ final class ResizeOriginalMedia
 
                 $file_size = filesize($path);
                 if (!is_int($file_size)) {
-                    WP_CLI::warning("Unable to read file size for attachment {$attachment_id}: {$path}");
+                    WP_CLI::warning(
+                        sprintf('Unable to read file size for attachment %d: %s', $attachment_id, $path)
+                    );
                     continue;
                 }
 
@@ -123,14 +131,22 @@ final class ResizeOriginalMedia
 
                 $backup_path = $path.'~';
                 if (!is_file($backup_path) && !copy($path, $backup_path)) {
-                    WP_CLI::warning("Unable to create backup for attachment {$attachment_id}: {$backup_path}");
+                    WP_CLI::warning(
+                        sprintf('Unable to create backup for attachment %d: %s', $attachment_id, $backup_path)
+                    );
                     continue;
                 }
                 $backup_count++;
 
                 $editor = wp_get_image_editor($path);
                 if (is_wp_error($editor)) {
-                    WP_CLI::warning("Unable to open attachment {$attachment_id}: {$editor->get_error_message()}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to open attachment %d: %s',
+                            $attachment_id,
+                            $editor->get_error_message()
+                        )
+                    );
                     continue;
                 }
 
@@ -148,7 +164,13 @@ final class ResizeOriginalMedia
 
                 $resize = $editor->resize(self::MAX_DIMENSION, self::MAX_DIMENSION, true);
                 if (is_wp_error($resize)) {
-                    WP_CLI::warning("Unable to resize attachment {$attachment_id}: {$resize->get_error_message()}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to resize attachment %d: %s',
+                            $attachment_id,
+                            $resize->get_error_message()
+                        )
+                    );
                     continue;
                 }
 
@@ -158,13 +180,25 @@ final class ResizeOriginalMedia
 
                 $saved = $editor->save($path);
                 if (is_wp_error($saved)) {
-                    WP_CLI::warning("Unable to save attachment {$attachment_id}: {$saved->get_error_message()}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to save attachment %d: %s',
+                            $attachment_id,
+                            $saved->get_error_message()
+                        )
+                    );
                     continue;
                 }
 
                 $final_size = @getimagesize($path);
                 if (!is_array($final_size) || !isset($final_size[0], $final_size[1])) {
-                    WP_CLI::warning("Unable to read resized dimensions for attachment {$attachment_id}: {$path}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to read resized dimensions for attachment %d: %s',
+                            $attachment_id,
+                            $path
+                        )
+                    );
                     continue;
                 }
 
@@ -182,7 +216,7 @@ final class ResizeOriginalMedia
                     continue;
                 }
 
-                WP_CLI::log("{$attachment_id}: {$path} ({$width} × {$height})");
+                WP_CLI::log(sprintf('%d: %s (%d x %d)', $attachment_id, $path, $width, $height));
             }
 
             if (count($attachment_ids) < self::BATCH_SIZE) {
@@ -207,7 +241,7 @@ final class ResizeOriginalMedia
                 "find %s -type f -name '*~' -delete",
                 escapeshellarg($uploads_dir)
             );
-            WP_CLI::warning("Backups were kept. Delete them all with: {$delete_command}");
+            WP_CLI::warning(sprintf('Backups were kept. Delete them all with: %s', $delete_command));
         }
     }
 }
