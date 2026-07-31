@@ -58,7 +58,6 @@ wp eval 'var_dump(wp_mail("admin@szepe.net","First outgoing",site_url()));'
 ```bash
 # Users and login
 
-wget https://github.com/szepeviktor/password-bcrypt/raw/wp/wp-password-bcrypt.php
 composer require typisttech/wp-password-argon-two
 # Sessions
 composer require wpackagist-plugin/user-session-control
@@ -66,9 +65,6 @@ composer require wpackagist-plugin/user-session-control
 composer require wpackagist-plugin/disallow-pwned-passwords
 # User roles
 composer require wpackagist-plugin/user-role-editor
-# KeePass button
-wget ${LEGACY_PLUGINS_URL}/mu-keepass-button/keepass-button.php
-
 # WAF for WordPress
 
 composer require szepeviktor/waf4wordpress
@@ -147,10 +143,6 @@ wp transient delete-all
 
 # Memcached @HumanMade
 wget -P ../ https://github.com/humanmade/wordpress-pecl-memcached-object-cache/raw/master/object-cache.php
-wp transient delete-all
-
-# File-based @emrikol from Automattic
-wget -P ../ ${LEGACY_PLUGINS_URL}/focus-cache/object-cache.php
 wp transient delete-all
 
 # FileSystem, Sqlite, APC/u, Memcached, Redis @inpsyde
