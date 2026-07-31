@@ -117,6 +117,9 @@ wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/m
 # User email addresses
 wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-banned-email-addresses.php
 
+# Classic menu management for Editors
+wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-menu-for-editors.php
+
 # Media
 wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control.php
 wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control-hu.php

@@ -89,6 +89,15 @@ Adds a site-wide disallow rule for OSZKbot to `robots.txt` on public websites.
 
 ## WordPress administration
 
+### [_core-menu-for-editors.php](_core-menu-for-editors.php)
+
+> Navigation menus are site content, but WordPress reserves their management
+> interface for users who can also modify themes.
+
+Gives Editors a dedicated top-level Menus page and grants the required theme
+capability only while handling classic menu requests. Block themes are
+excluded.
+
 ### [_core-debrand-wordpress.php](_core-debrand-wordpress.php)
 
 > WordPress branding and informational screens distract users from managing
