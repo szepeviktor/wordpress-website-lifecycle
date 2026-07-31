@@ -161,7 +161,13 @@ final class ResizeOriginalMedia
                 $metadata['original_width'] = (int) $final_size[0];
                 $metadata['original_height'] = (int) $final_size[1];
                 if (false === wp_update_attachment_metadata($attachment_id, $metadata)) {
-                    WP_CLI::warning("Unable to update metadata for attachment {$attachment_id}; keeping {$backup_path}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to update metadata for attachment %d; keeping %s',
+                            $attachment_id,
+                            $backup_path
+                        )
+                    );
                     continue;
                 }
 
