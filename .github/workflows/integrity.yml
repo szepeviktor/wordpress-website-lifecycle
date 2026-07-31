@@ -37,6 +37,7 @@ jobs:
                 --exclude="check-installation" --exclude="check-installation/*"
                 --exclude="debug" --exclude="debug/*"
                 --exclude="mu-plugins" --exclude="mu-plugins/*"
+                --exclude="tools" --exclude="tools/*"
             exported-paths: >-
                 LICENSE
                 README.md

@@ -125,7 +125,13 @@ final class ResizeOriginalMedia
 
                 $rotation = $editor->maybe_exif_rotate();
                 if (is_wp_error($rotation)) {
-                    WP_CLI::warning("Unable to apply EXIF orientation for attachment {$attachment_id}: {$rotation->get_error_message()}");
+                    WP_CLI::warning(
+                        sprintf(
+                            'Unable to apply EXIF orientation for attachment %d: %s',
+                            $attachment_id,
+                            $rotation->get_error_message()
+                        )
+                    );
                     continue;
                 }
 
