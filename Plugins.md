@@ -112,7 +112,7 @@ wget ${LEGACY_PLUGINS_URL}/mu-lock-session-ip/lock-session-ip.php
 composer require wpackagist-plugin/prevent-concurrent-logins
 
 # Weak passwords
-wget ${LEGACY_PLUGINS_URL}/mu-disallow-weak-passwords/disallow-weak-passwords.php
+wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-disallow-weak-passwords.php
 
 # User email addresses
 wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-banned-email-addresses.php

@@ -22,6 +22,14 @@ environment marker with the active theme name and version.
 
 Rejects every WordPress username and password authentication attempt.
 
+### [_core-disallow-weak-passwords.php](_core-disallow-weak-passwords.php)
+
+> WordPress allows users to override its password-strength warning when changing
+> their password.
+
+Hides the weak-password confirmation control on the current user's profile
+screen.
+
 ### [_core-pingback.php](_core-pingback.php)
 
 > XML-RPC pingbacks can reveal the origin IP address behind a firewall or
