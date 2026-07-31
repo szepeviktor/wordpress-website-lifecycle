@@ -5,7 +5,7 @@
  *
  * This file is loadable with WP-CLI's --require flag:
  *
- *     wp --require=tools/resize-original-media.php media resize-originals
+ * wp --require=resize-original-media.php media resize-originals
  *
  */
 
@@ -25,8 +25,8 @@ final class ResizeOriginalMedia
      * ## EXAMPLES
      *
      * ```
-     * $ wp --require=tools/resize-original-media.php media resize-originals
-     * $ wp --require=tools/resize-original-media.php media resize-originals --dry-run
+     * $ wp --require=resize-original-media.php media resize-originals
+     * $ wp --require=resize-original-media.php media resize-originals --dry-run
      * ```
      *
      * ## OPTIONS
@@ -41,6 +41,15 @@ final class ResizeOriginalMedia
         if (!class_exists('Imagick')) {
             WP_CLI::warning('The Imagick PHP extension is not available; WordPress may use another image editor.');
         }
+
+        add_filter(
+            'image_save_progressive',
+            static function (bool $progressive, string $mime_type): bool {
+                return $progressive || 'image/jpeg' === $mime_type;
+            },
+            10,
+            2
+        );
 
         $dry_run = isset($assoc_args['dry-run']);
         $backup_count = 0;
