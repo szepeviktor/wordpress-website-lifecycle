@@ -9,7 +9,7 @@
  *
  */
 
-namespace Viktor\WebsiteLifecycle\Cli;
+namespace SzepeViktor\WordPress\Cli;
 
 use WP_CLI;
 
@@ -24,8 +24,10 @@ final class ResizeOriginalMedia
      *
      * ## EXAMPLES
      *
-     *     wp --require=tools/resize-original-media.php media resize-originals
-     *     wp --require=tools/resize-original-media.php media resize-originals --dry-run
+     * ```
+     * $ wp --require=tools/resize-original-media.php media resize-originals
+     * $ wp --require=tools/resize-original-media.php media resize-originals --dry-run
+     * ```
      *
      * ## OPTIONS
      *
