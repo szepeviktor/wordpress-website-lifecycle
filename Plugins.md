@@ -106,7 +106,7 @@ composer require darylldoyle/safe-svg
 
 ```bash
 # Lock session IP
-wget ${LEGACY_PLUGINS_URL}/mu-lock-session-ip/lock-session-ip.php
+wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-lock-session-ip.php
 
 # Concurrent logins
 composer require wpackagist-plugin/prevent-concurrent-logins

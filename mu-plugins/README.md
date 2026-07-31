@@ -22,6 +22,14 @@ environment marker with the active theme name and version.
 
 Rejects every WordPress username and password authentication attempt.
 
+### [_core-lock-session-ip.php](_core-lock-session-ip.php)
+
+> A stolen authentication cookie can otherwise be reused from a different network.
+
+Invalidates a cookie-authenticated session when the request IP address differs
+from the address recorded at login. Users whose public IP address changes must
+log in again.
+
 ### [_core-disallow-weak-passwords.php](_core-disallow-weak-passwords.php)
 
 > WordPress allows users to override its password-strength warning when changing
