@@ -35,6 +35,13 @@ Removes the `pingback.ping` XML-RPC method.
 
 Removes whitespace while WordPress performs strict username sanitization.
 
+### [_core-banned-email-addresses.php](_core-banned-email-addresses.php)
+
+> Shared and role-based email addresses obscure who owns and operates a user account.
+
+Rejects WordPress and WooCommerce registrations that use a known role-based
+email address, while allowing site-specific exceptions through a filter.
+
 ### [_core-block-public-query-vars.php](_core-block-public-query-vars.php)
 
 > Public query variables expose an alternative frontend request interface that

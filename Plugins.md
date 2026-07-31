@@ -115,7 +115,7 @@ composer require wpackagist-plugin/prevent-concurrent-logins
 wget ${LEGACY_PLUGINS_URL}/mu-disallow-weak-passwords/disallow-weak-passwords.php
 
 # User email addresses
-wget ${LEGACY_PLUGINS_URL}/mu-banned-email-addresses/banned-email-addresses.php
+wget https://raw.githubusercontent.com/szepeviktor/wordpress-website-lifecycle/master/mu-plugins/_core-banned-email-addresses.php
 
 # Media
 wget ${LEGACY_PLUGINS_URL}/mu-image-upload-control/image-upload-control.php
