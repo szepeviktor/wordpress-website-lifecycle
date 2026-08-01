@@ -1,8 +1,8 @@
 require:
-  - invalid-format-characters.php
-  - invalid-language-files.php
-  - invalid-media-filenames.php
-  - latest-core-version.php
-  - missing-cron-hooks.php
-  - non-silent-indices.php
-  - resize-original-media.php
+    - invalid-format-characters.php
+    - invalid-language-files.php
+    - invalid-media-filenames.php
+    - latest-core-version.php
+    - missing-cron-hooks.php
+    - non-silent-indices.php
+    - resize-original-media.php
