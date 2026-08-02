@@ -22,14 +22,27 @@ use function WP_CLI\Utils\format_items;
 
 final class InvalidFormatCharacters
 {
+    private const FORMAT_CHARACTER_PATTERN = '\p{Cf}';
+
+    /**
+     * Match legitimate emoji ZWJ sequences before matching other Format characters.
+     *
+     * The SKIP verb prevents joiners in sequences such as the pirate flag,
+     * family emoji, and emoji with skin-tone modifiers from being reported.
+     */
+    private const EMOJI_AWARE_FORMAT_CHARACTER_PATTERN = '(?:\p{Extended_Pictographic}(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*(?:\x{200D}\p{Extended_Pictographic}(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*)+)(*SKIP)(*F)|\p{Cf}';
+
     /**
      * Finds Unicode Format (Cf) characters in all database tables.
      *
-     * This command only reports findings. Format characters can be legitimate
-     * in emoji, right-to-left text, and some writing systems, so they should be
-     * reviewed before any replacement is attempted.
+     * Format characters can be legitimate in emoji, right-to-left text, and
+     * some writing systems, so findings should be reviewed before any
+     * replacement is attempted.
      *
      * ## OPTIONS
+     *
+     * [--ignore-emoji-joiners]
+     * : Do not report U+200D joiners in valid emoji sequences.
      *
      * [--format=<format>]
      * : Render results in a particular format.
@@ -63,8 +76,15 @@ final class InvalidFormatCharacters
      */
     public function __invoke(array $args, array $assoc_args): void
     {
+        $pattern = isset($assoc_args['ignore-emoji-joiners'])
+            ? self::EMOJI_AWARE_FORMAT_CHARACTER_PATTERN
+            : self::FORMAT_CHARACTER_PATTERN;
+
         $results = WP_CLI::runcommand(
-            "db search '\\p{Cf}' --regex --regex-flags=u --all-tables --format=json",
+            sprintf(
+                "db search '%s' --regex --regex-flags=u --all-tables --format=json",
+                $pattern
+            ),
             [
                 'launch' => false,
                 'exit_error' => true,
@@ -100,7 +120,7 @@ final class InvalidFormatCharacters
             }
 
             $context = preg_replace_callback(
-                '/\p{Cf}/u',
+                '/' . $pattern . '/u',
                 static fn (array $matches): string => sprintf(
                     '[U+%04X]',
                     self::getCodePoint($matches[0])

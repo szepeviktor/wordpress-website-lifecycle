@@ -12,7 +12,8 @@ website's WP-CLI configuration.
 `wp db invalid-format-characters`
 
 Reports Unicode Format characters found in database text columns without
-modifying their contents.
+modifying their contents. Pass `--ignore-emoji-joiners` to ignore U+200D
+joiners in valid emoji sequences.
 
 ### [invalid-language-files.php](invalid-language-files.php)
 

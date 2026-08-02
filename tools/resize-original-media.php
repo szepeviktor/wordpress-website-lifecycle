@@ -24,10 +24,8 @@ final class ResizeOriginalMedia
      *
      * ## EXAMPLES
      *
-     * ```
-     * $ wp --require=resize-original-media.php media resize-originals
-     * $ wp --require=resize-original-media.php media resize-originals --dry-run
-     * ```
+     *     wp --require=tools/resize-original-media.php media resize-originals
+     *     wp --require=tools/resize-original-media.php media resize-originals --dry-run
      *
      * ## OPTIONS
      *

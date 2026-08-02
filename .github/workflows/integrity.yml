@@ -27,6 +27,8 @@ jobs:
                 mu-plugins/
                 :!:mu-plugins/szv-signature.php
                 wp-config/
+            multiple-spaces-excludes: >-
+                ':!:tools/**'
             export-excludes: >-
                 --exclude="check-installation" --exclude="check-installation/*"
                 --exclude="debug" --exclude="debug/*"
