@@ -30,7 +30,12 @@ final class InvalidFormatCharacters
      * The SKIP verb prevents joiners in sequences such as the pirate flag,
      * family emoji, and emoji with skin-tone modifiers from being reported.
      */
-    private const EMOJI_AWARE_FORMAT_CHARACTER_PATTERN = '(?:\p{Extended_Pictographic}(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*(?:\x{200D}\p{Extended_Pictographic}(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*)+)(*SKIP)(*F)|\p{Cf}';
+    private const EMOJI_AWARE_FORMAT_CHARACTER_PATTERN =
+        '(?:\p{Extended_Pictographic}' .
+        '(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*' .
+        '(?:\x{200D}\p{Extended_Pictographic}' .
+        '(?:\p{Grapheme_Extend}|\p{Emoji_Modifier})*)+)' .
+        '(*SKIP)(*F)|\p{Cf}';
 
     /**
      * Finds Unicode Format (Cf) characters in all database tables.
