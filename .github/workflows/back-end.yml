@@ -33,7 +33,7 @@ jobs:
                 tools: "parallel-lint"
         -
             name: "Checkout repository"
-            uses: "actions/checkout@v4"
+            uses: "actions/checkout@v6"
         -
             name: "Check source code for syntax errors"
             run: "parallel-lint debug/ divi-child/ mu-plugins/ wp-config/"
