@@ -5,6 +5,18 @@
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  */
 
+// Always return core messages in English
+if (defined('DOING_CRON') && DOING_CRON) {
+    add_filter(
+        'gettext_default',
+        static function ($translation, $text) {
+            return $text;
+        },
+        11,
+        2
+    );
+}
+
 add_filter(
     'cron_request',
     static function ($cron_request_array) {
@@ -31,15 +43,6 @@ add_filter(
             },
             10,
             1
-        );
-        // Always return core messages in English
-        add_filter(
-            'gettext_default',
-            static function ($translation, $text) {
-                return $text;
-            },
-            11,
-            2
         );
         return $cron_request_array;
     },
