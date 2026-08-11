@@ -10,11 +10,14 @@ function _core_debug_request_headers()
     if (php_sapi_name() === 'cli' || wp_doing_cron() || !isset($_SERVER['REMOTE_ADDR'], $_SERVER['REQUEST_URI'])) {
         return;
     }
+    $headers = getallheaders();
+
     $log_items = [
         sprintf('[%s] %s --- HTTP headers', date('c'), $_SERVER['REMOTE_ADDR']),
         sprintf('%s %s %s', $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL']),
+        sprintf('@@headers %s', implode(',', array_map('strtolower', array_keys($headers)))),
     ];
-    foreach (getallheaders() as $name => $value) {
+    foreach ($headers as $name => $value) {
         $log_items[] = sprintf('%s: %s', $name, $value);
     }
     file_put_contents(
