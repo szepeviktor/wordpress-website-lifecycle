@@ -14,6 +14,10 @@ add_action(
         if (is_admin() || $is_pretty_rest_request) {
             return;
         }
+        // Allow Divi Visual Builder requests for logged-in editors.
+        if (is_user_logged_in() && ($_GET['et_fb'] ?? '') === '1') {
+            return;
+        }
         $whitelist = [
             's', // Search
         ];
