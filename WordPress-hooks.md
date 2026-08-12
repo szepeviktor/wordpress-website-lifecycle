@@ -6,10 +6,11 @@ See https://codex.wordpress.org/Plugin_API/Action_Reference
 
 ## Earliest time to use `add_filter` and `add_action`
 
-- **Not** when plugin's main file or the themes's `functions.php` file is being loaded!
-- Plugins at `plugins_loaded`
-- Theme's `functions.php` file is loaded just before `after_setup_theme`
-- Generally at `init`
+-   **Not** when plugin's main file or the themes's `functions.php` file is
+    being loaded!
+-   Plugins at `plugins_loaded`
+-   Theme's `functions.php` file is loaded just before `after_setup_theme`
+-   Generally at `init`
 
 ```php
 add_action('plugins_loaded', 'myprefix_add_hooks', 10, 0);

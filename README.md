@@ -87,7 +87,8 @@ Let's prevent working against each other!
     because the entire WordPress installation is **managed with Composer**
 -   Plugin and theme update and WordPress management-related admin pages are removed
     (updated with Composer, administered with WP-CLI)
--   WP-Cron is ran by a Linux cron job (the default pseudo cron/web callback is disabled)
+-   WP-Cron is ran by a Linux cron job
+    (the default pseudo cron/web callback is disabled)
 -   Only things necessary for generating custom admin pages
     and generating HTML go into the **theme**
 -   Business logic (e.g. processing input from visitors) goes into **plugins**

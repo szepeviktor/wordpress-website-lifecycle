@@ -2,7 +2,7 @@
 
 How to achieve high performance in WordPress?
 
-<!-- markdownlint-disable MD013 MD033 -->
+<!-- markdownlint-disable MD013 MD033 MD060 -->
 | Item                          | Tool                               | Speedup                       |
 | ----------------------------- | ---------------------------------- | ----------------------------- |
 | [Infrastructure](/WordPress-stack.md) | CPU, disk, web server, PHP ([OPcache](http://php.net/manual/en/opcache.configuration.php#ini.opcache.validate-timestamps)) and DNS | Overall performance |
