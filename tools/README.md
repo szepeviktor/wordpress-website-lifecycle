@@ -29,6 +29,13 @@ WordPress.org.
 Finds uploads with filenames containing characters outside the portable ASCII
 set.
 
+### [missing-media-files.php](missing-media-files.php)
+
+`wp media missing-files [--dry-run]`
+
+Deletes attachment posts whose original media file is missing from disk. Pass
+`--dry-run` to list affected attachments without deleting them.
+
 ### [missing-cron-hooks.php](missing-cron-hooks.php)
 
 `wp cron missing-hooks`

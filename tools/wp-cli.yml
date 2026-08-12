@@ -3,6 +3,7 @@ require:
     - invalid-language-files.php
     - invalid-media-filenames.php
     - latest-core-version.php
+    - missing-media-files.php
     - missing-cron-hooks.php
     - non-silent-indices.php
     - resize-original-media.php
