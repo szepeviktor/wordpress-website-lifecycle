@@ -44,6 +44,28 @@ add_filter(
     0
 );
 
+// Prevent wp_gf_feed_processor loopback request.
+add_filter(
+    'gform_entry_post_save',
+    static function ($entry) {
+        add_filter(
+            'pre_http_request',
+            static function ($pre, $args, $url) {
+                parse_str(parse_url($url, PHP_URL_QUERY) ?: '', $query);
+                if (($query['action'] ?? '') !== 'wp_gf_feed_processor') {
+                    return $pre;
+                }
+                return ['response' => ['code' => 200]];
+            },
+            PHP_INT_MAX,
+            3
+        );
+        return $entry;
+    },
+    PHP_INT_MAX,
+    1
+);
+
 // Hide admin tooltips.
 add_filter(
     'gform_tooltips',
