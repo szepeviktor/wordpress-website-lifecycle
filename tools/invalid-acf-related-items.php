@@ -167,9 +167,7 @@ final class InvalidAcfRelatedItems
                 SELECT pm.post_id, pm.meta_key, pm.meta_value
                 FROM %i pm
                 INNER JOIN %i p ON p.ID = pm.post_id
-                WHERE pm.meta_key LIKE %s
-                  AND pm.meta_key NOT LIKE '\\_%%'
-                  AND p.post_status = 'publish'
+                WHERE pm.meta_key LIKE %s AND pm.meta_key NOT LIKE '\\_%%' AND p.post_status = 'publish'
                 ",
                 $wpdb->postmeta,
                 $wpdb->posts,
