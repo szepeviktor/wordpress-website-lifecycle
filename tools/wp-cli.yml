@@ -1,4 +1,5 @@
 require:
+    - invalid-acf-related-items.php
     - invalid-format-characters.php
     - invalid-language-files.php
     - invalid-media-filenames.php

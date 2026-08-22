@@ -7,6 +7,12 @@ website's WP-CLI configuration.
 
 ## Auditing
 
+### [invalid-acf-related-items.php](invalid-acf-related-items.php)
+
+`wp acf invalid-related-items <meta-key-suffix>`
+
+Finds ACF relationship field values pointing to unavailable posts.
+
 ### [invalid-format-characters.php](invalid-format-characters.php)
 
 `wp db invalid-format-characters`
