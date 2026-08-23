@@ -323,6 +323,13 @@ panel.
 Removes sender-domain validation errors from the primary and secondary mail
 configurations.
 
+### [contact-form-7-robot-trap.php](contact-form-7-robot-trap.php)
+
+> Spam bots can submit hidden fields or email domains without MX records.
+
+Adds a Contact Form 7 `[robottrap]` form tag and rejects submissions when the
+trap field is filled or an email domain has no MX record.
+
 ### [disqus-comment-system.php](disqus-comment-system.php)
 
 > Disqus API failures can silently interrupt comment synchronization.
