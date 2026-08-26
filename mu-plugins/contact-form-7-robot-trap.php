@@ -20,7 +20,7 @@
  * DNS failures can cause false positives during domain validation.
  * Disable domain validation by adding this to wp-config.php:
  *
- *     define('CF7_ROBOT_TRAP_TOLERATE_DNS_FAILURE', true);
+ * define('CF7_ROBOT_TRAP_TOLERATE_DNS_FAILURE', true);
  */
 add_action('plugins_loaded', 'wpcf7_robottrap_bootstrap');
 
