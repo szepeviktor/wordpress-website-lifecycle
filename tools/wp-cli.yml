@@ -8,3 +8,4 @@ require:
     - missing-cron-hooks.php
     - non-silent-indices.php
     - resize-original-media.php
+    - web-php-version.php

@@ -55,6 +55,13 @@ Lists scheduled WP-Cron events that have no registered callback.
 Finds `index.php` files under `WP_CONTENT_DIR` that contain executable code or
 output.
 
+### [web-php-version.php](web-php-version.php)
+
+`wp core web-php-version`
+
+Prints the PHP version used by the web server through a temporary REST API
+endpoint.
+
 ## Core and media operations
 
 ### [latest-core-version.php](latest-core-version.php)
