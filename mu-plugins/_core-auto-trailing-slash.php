@@ -11,7 +11,7 @@ add_filter(
         $insertion = <<<HTACCESS
 # Add trailing slash if URL doesn't contain a dot and doesn't already end with /
 RewriteCond %{REQUEST_URI} !(\.|/$)
-RewriteRule ^(.+)$ /$1/ [R=301,L]
+RewriteRule ^(.+)$ /$1/ [R=308,L]
 
 HTACCESS;
         $needle = "RewriteEngine On\n";
