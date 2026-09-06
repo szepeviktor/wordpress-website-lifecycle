@@ -40,6 +40,7 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'webp-express',
     'wordfence',
     'worker',
+    'wpmudev-updates',
     // eval($code)
     'wp-console',
     'wp-fastest-cache',
