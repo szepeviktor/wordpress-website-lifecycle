@@ -11,11 +11,13 @@ function _core_debug_request_headers()
         return;
     }
     $headers = getallheaders();
+    $header_names = array_map('strtolower', array_keys($headers));
+    // sort($header_names);
 
     $log_items = [
         sprintf('[%s] %s --- HTTP headers', date('c'), $_SERVER['REMOTE_ADDR']),
         sprintf('%s %s %s', $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL']),
-        sprintf('@@headers %s', implode(',', array_map('strtolower', array_keys($headers)))),
+        sprintf('@@headers %s', implode(',', $header_names)),
     ];
     foreach ($headers as $name => $value) {
         $log_items[] = sprintf('%s: %s', $name, $value);
