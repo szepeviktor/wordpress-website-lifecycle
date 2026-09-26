@@ -14,6 +14,7 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'bulletproof-security',
     // eval($code)
     'code-snippets',
+    'download-plugin',
     'file-manager-advanced',
     // anti WordPress
     'freesoul-deactivate-plugins',
