@@ -8,6 +8,9 @@
 add_filter(
     'woocommerce_admin_features',
     static function ($features) {
+        // WooCommerce 11.1 retires many stable WC Admin feature flags from
+        // feature loading. Keep this as a best-effort compatibility shim for
+        // legacy checks and window.wcAdminFeatures consumers.
         $disabled_features = [
             // Cost of Goods Sold
             // https://developer.woocommerce.com/2024/12/04/cogs-in-core/
@@ -148,6 +151,119 @@ add_filter(
     },
     11,
     1
+);
+
+// Full list of WooCommerce feature option names can be extracted from the
+// installed WooCommerce feature registry.
+//
+// wp eval '$c = wc_get_container()->get(\Automattic\WooCommerce\Internal\Features\FeaturesController::class); foreach (array_keys($c->get_features(true, false)) as $id) { echo $c->feature_enable_option_name($id), PHP_EOL; }'
+array_map(
+    static function ($option) {
+        add_filter(
+            sprintf('pre_option_%s', $option),
+            static function () {
+                return 'no';
+            },
+            PHP_INT_MAX,
+            0
+        );
+    },
+    [
+        // WooCommerce 11.1.2 feature registry: WooCommerce Analytics.
+        // https://woocommerce.com/document/woocommerce-analytics/
+        'woocommerce_analytics_enabled',
+        // WooCommerce 11.1.2 feature registry: Product gallery videos.
+        'woocommerce_feature_product_gallery_videos_enabled',
+        // WooCommerce 11.1.2 feature registry: Cart & Checkout Blocks.
+        'woocommerce_feature_cart_checkout_blocks_enabled',
+        // WooCommerce 11.1.2 feature registry: Rate limit Checkout.
+        // https://developer.woocommerce.com/docs/apis/store-api/rate-limiting/
+        'woocommerce_feature_rate_limit_checkout_enabled',
+        // WooCommerce 11.1.2 feature registry: Marketplace.
+        'woocommerce_feature_marketplace_enabled',
+        // WooCommerce 11.1.2 feature registry: Order withdrawal.
+        // https://woocommerce.com/document/customer-order-withdrawal/
+        'woocommerce_feature_order_withdrawal_enabled',
+        // WooCommerce 11.1.2 feature registry: Order Attribution.
+        // https://woocommerce.com/document/order-attribution-tracking/
+        'woocommerce_feature_order_attribution_enabled',
+        // WooCommerce 11.1.2 feature registry: Site visibility badge.
+        // https://woocommerce.com/document/configuring-woocommerce-settings/coming-soon-mode/
+        'woocommerce_feature_site_visibility_badge_enabled',
+        // WooCommerce 11.1.2 feature registry: HPOS Full text search indexes.
+        // Source: CustomOrdersTableController::HPOS_FTS_INDEX_OPTION.
+        'woocommerce_hpos_fts_index_enabled',
+        // WooCommerce 11.1.2 feature registry: HPOS Data Caching.
+        // Source: CustomOrdersTableController::HPOS_DATASTORE_CACHING_ENABLED_OPTION.
+        'woocommerce_hpos_datastore_caching_enabled',
+        // WooCommerce 11.1.2 feature registry: Remote Logging.
+        // https://developer.woocommerce.com/2024/09/23/recent-updates-to-error-handling-and-optional-remote-error-logging/
+        'woocommerce_feature_remote_logging_enabled',
+        // WooCommerce 11.1.2 feature registry: Deferred emails.
+        'woocommerce_feature_deferred_transactional_emails_enabled',
+        // WooCommerce 11.1.2 feature registry: Customer review request.
+        'woocommerce_feature_customer_review_request_enabled',
+        // WooCommerce 11.1.2 feature registry: Abandoned cart recovery.
+        'woocommerce_feature_abandoned_cart_recovery_enabled',
+        // WooCommerce 11.1.2 feature registry: Email improvements.
+        // https://developer.woocommerce.com/2025/01/20/woocommerce-9-6-fresh-new-tools-and-modernizing-classics/#h-email-improvements-beta
+        'woocommerce_feature_email_improvements_enabled',
+        // WooCommerce 11.1.2 feature registry: Blueprint.
+        'woocommerce_feature_blueprint_enabled',
+        // WooCommerce 11.1.2 feature registry: Block Email Editor.
+        // https://github.com/woocommerce/woocommerce/discussions/52897#discussioncomment-11630256
+        'woocommerce_feature_block_email_editor_enabled',
+        // WooCommerce 11.1.2 feature registry: Variation gallery.
+        'woocommerce_feature_variation_gallery_enabled',
+        // WooCommerce 11.1.2 feature registry: Color swatches for attributes.
+        'woocommerce_feature_wc_visual_attribute_enabled',
+        // WooCommerce 11.1.2 feature registry: Point of Sale.
+        'woocommerce_feature_point_of_sale_enabled',
+        // WooCommerce 11.1.2 feature registry: POS staff.
+        'woocommerce_feature_point_of_sale_staff_enabled',
+        // WooCommerce 11.1.2 feature registry: Order Fulfillments.
+        'woocommerce_feature_fulfillments_enabled',
+        // WooCommerce 11.1.2 feature registry: WooCommerce MCP.
+        // https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/docs/features/mcp/README.md
+        'woocommerce_feature_mcp_integration_enabled',
+        // WooCommerce 11.1.2 feature registry: Clear Customer Sessions When Empty.
+        'woocommerce_feature_destroy-empty-sessions_enabled',
+        // WooCommerce 11.1.2 feature registry: Agentic Checkout API.
+        'woocommerce_feature_agentic_checkout_enabled',
+        // WooCommerce 11.1.2 feature registry: Dual Code & GraphQL API.
+        'woocommerce_feature_dual_code_graphql_api_enabled',
+        // WooCommerce 11.1.2 feature registry: Push Notifications.
+        'woocommerce_feature_push_notifications_enabled',
+        // WooCommerce 11.1.2 feature registry: REST API Caching.
+        'woocommerce_feature_rest_api_caching_enabled',
+        // WooCommerce 11.1.2 feature registry: Save for Later in Cart.
+        'woocommerce_cart_save_for_later_enabled',
+        // WooCommerce 11.1.2 feature registry: Wishlists.
+        'woocommerce_product_wishlist_enabled',
+        // WooCommerce 11.1.2 feature registry: Cache Product Objects.
+        'woocommerce_feature_product_instance_caching_enabled',
+        // WooCommerce 11.1.2 feature registry: Unified block editor assets.
+        'woocommerce_feature_block_editor_unified_assets_enabled',
+        // WooCommerce 11.1.2 feature registry: High-Performance order storage.
+        // Source: CustomOrdersTableController::CUSTOM_ORDERS_TABLE_USAGE_ENABLED_OPTION.
+        'woocommerce_custom_orders_table_enabled',
+        // WooCommerce 11.1.2 feature registry: Cost of Goods Sold.
+        // https://developer.woocommerce.com/2024/12/04/cogs-in-core/
+        'woocommerce_feature_cost_of_goods_sold_enabled',
+
+        // Legacy WC Admin flag, not present in WooCommerce 11.1.2 FeaturesController output.
+        // Source: historical includes/react-admin/feature-config.php / woocommerce_admin_features.
+        'woocommerce_feature_experimental-blocks_enabled',
+        // Legacy WC Admin flag, not present in WooCommerce 11.1.2 FeaturesController output.
+        // Source: historical includes/react-admin/feature-config.php / woocommerce_admin_features.
+        'woocommerce_feature_product-data-views_enabled',
+        // Legacy WC Admin flag, not present in WooCommerce 11.1.2 FeaturesController output.
+        // Source: historical includes/react-admin/feature-config.php / woocommerce_admin_features.
+        'woocommerce_feature_rest-api-v4_enabled',
+        // Legacy WC Admin flag, not present in WooCommerce 11.1.2 FeaturesController output.
+        // Source: historical includes/react-admin/feature-config.php / woocommerce_admin_features.
+        'woocommerce_feature_store-alerts_enabled',
+    ]
 );
 
 // Disable password change notification email
