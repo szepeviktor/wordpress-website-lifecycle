@@ -12,16 +12,24 @@ add_action(
         wp_add_inline_script(
             'fluent_mail_admin_app_boot',
             <<<'JS'
-window.FluentMail.addFilter(
-    'fluentmail_top_menus',
-    'remove_about_and_documentation',
-    function (menus) {
-        return menus.filter(function (menu) {
-            return !['support', 'docs'].includes(menu.route);
-        });
-    }
-);
+['fluentmail_top_menus', 'fluent_mail_top_menus'].forEach(function (hook) {
+    window.FluentMail.addFilter(
+        hook,
+        'remove_about_and_documentation',
+        function (menus) {
+            return menus.filter(function (menu) {
+                return !['support', 'docs'].includes(menu.route);
+            });
+        }
+    );
+});
 JS
+        );
+
+        // Documentation is a separate help link in the redesigned admin app.
+        wp_add_inline_style(
+            'fluent_mail_admin_app',
+            '.fluent-mail-app .fsm_app_bar_help { display: none !important; }'
         );
     },
     10,
