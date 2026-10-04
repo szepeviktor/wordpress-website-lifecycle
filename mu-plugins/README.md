@@ -479,6 +479,20 @@ Disables selected WooCommerce features, onboarding, promotions, telemetry, and
 the Action Scheduler async runner; it also logs failed actions and limits access
 to diagnostics.
 
+To list feature option names from the installed WooCommerce feature registry,
+run this command in the WordPress directory:
+
+```bash
+wp eval '
+$controller = wc_get_container()->get(
+    \Automattic\WooCommerce\Internal\Features\FeaturesController::class
+);
+foreach (array_keys($controller->get_features(true, false)) as $id) {
+    echo $controller->feature_enable_option_name($id), PHP_EOL;
+}
+'
+```
+
 ### [wordpress-seo.php](wordpress-seo.php)
 
 > Promotional support content and unwanted structured data clutter Yoast SEO on

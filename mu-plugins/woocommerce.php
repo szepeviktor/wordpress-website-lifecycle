@@ -154,9 +154,7 @@ add_filter(
 );
 
 // Full list of WooCommerce feature option names can be extracted from the
-// installed WooCommerce feature registry.
-//
-// wp eval '$c = wc_get_container()->get(\Automattic\WooCommerce\Internal\Features\FeaturesController::class); foreach (array_keys($c->get_features(true, false)) as $id) { echo $c->feature_enable_option_name($id), PHP_EOL; }'
+// installed WooCommerce feature registry. See README.md#woocommercephp.
 array_map(
     static function ($option) {
         add_filter(
