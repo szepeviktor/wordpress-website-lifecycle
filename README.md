@@ -37,11 +37,18 @@ Please consider sponsoring me monthly if you use my packages in an agency.
 They are already sponsoring me.
 
 <!-- markdownlint-disable MD033 -->
-[<img src="https://github.com/yamadashy.png" width="50px" alt="yamadashy">](https://github.com/yamadashy)&nbsp;&nbsp;
+[<img src="https://github.com/tillkruss.png" width="50px" alt="tillkruss">](https://github.com/tillkruss)&nbsp;&nbsp;
 [<img src="https://github.com/johnbillion.png" width="50px" alt="johnbillion">](https://github.com/johnbillion)&nbsp;&nbsp;
-[<img src="https://github.com/JJJ.png" width="50px" alt="JJJ">](https://github.com/JJJ)&nbsp;&nbsp;
-[<img src="https://github.com/montchr.png" width="50px" alt="montchr">](https://github.com/montchr)&nbsp;&nbsp;
+[<img src="https://github.com/happyprime.png" width="50px" alt="happyprime">](https://github.com/happyprime)&nbsp;&nbsp;
+[<img src="https://github.com/lucatume.png" width="50px" alt="lucatume">](https://github.com/lucatume)&nbsp;&nbsp;
 [<img src="https://github.com/blockifywp.png" width="50px" alt="blockifywp">](https://github.com/blockifywp)&nbsp;&nbsp;
+[<img src="https://github.com/WPUserManager.png" width="50px" alt="WPUserManager">](https://github.com/WPUserManager)&nbsp;&nbsp;
+[<img src="https://github.com/polylang.png" width="50px" alt="polylang">](https://github.com/polylang)&nbsp;&nbsp;
+[<img src="https://github.com/wp-media.png" width="50px" alt="wp-media">](https://github.com/wp-media)&nbsp;&nbsp;
+[<img src="https://github.com/westonruter.png" width="50px" alt="westonruter">](https://github.com/westonruter)&nbsp;&nbsp;
+[<img src="https://github.com/rosswintle.png" width="50px" alt="rosswintle">](https://github.com/rosswintle)&nbsp;&nbsp;
+[<img src="https://github.com/stefanfisk.png" width="50px" alt="stefanfisk">](https://github.com/stefanfisk)&nbsp;&nbsp;
+[<img src="https://github.com/nickzou.png" width="50px" alt="nickzou">](https://github.com/nickzou)&nbsp;&nbsp;
 <!-- markdownlint-enable MD033 -->
 
 > [!IMPORTANT]
