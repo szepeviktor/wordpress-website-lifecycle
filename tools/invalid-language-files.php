@@ -93,13 +93,13 @@ final class InvalidLanguageFiles
                 );
 
                 foreach ($files as $file) {
-                    if (!$file->isFile() || $file->isLink() || 'mo' !== $file->getExtension()) {
+                    if (!$file->isFile() || $file->isLink() || $file->getExtension() !== 'mo') {
                         continue;
                     }
 
                     $filename = $file->getBasename('.mo');
                     $separator_position = strrpos($filename, '-');
-                    $locale = false === $separator_position
+                    $locale = $separator_position === false
                         ? $filename
                         : substr($filename, $separator_position + 1);
 
@@ -132,7 +132,7 @@ final class InvalidLanguageFiles
 
         $format = $assoc_args['format'] ?? 'plain';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line($finding['file']);
             }
@@ -140,7 +140,7 @@ final class InvalidLanguageFiles
             format_items($format, $findings, ['file', 'locale']);
         }
 
-        if ([] !== $findings) {
+        if ($findings !== []) {
             WP_CLI::halt(1);
         }
     }
@@ -161,7 +161,7 @@ final class InvalidLanguageFiles
 
         $response_code = wp_remote_retrieve_response_code($response);
 
-        if (200 !== $response_code) {
+        if ($response_code !== 200) {
             WP_CLI::error(sprintf(
                 'WordPress.org returned HTTP status %d for core translations.',
                 $response_code
@@ -185,7 +185,7 @@ final class InvalidLanguageFiles
                 !is_array($translation)
                 || !isset($translation['language'])
                 || !is_string($translation['language'])
-                || '' === $translation['language']
+                || $translation['language'] === ''
             ) {
                 WP_CLI::error('WordPress.org returned a malformed core translation.');
             }

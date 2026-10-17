@@ -83,7 +83,7 @@ final class NonSilentIndices
                 if (
                     !$file->isFile()
                     || $file->isLink()
-                    || 'index.php' !== $file->getFilename()
+                    || $file->getFilename() !== 'index.php'
                     || $this->isSilent($file->getPathname())
                 ) {
                     continue;
@@ -105,7 +105,7 @@ final class NonSilentIndices
 
         $format = $assoc_args['format'] ?? 'plain';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line($finding['file']);
             }
@@ -119,7 +119,7 @@ final class NonSilentIndices
     {
         $contents = file_get_contents($path);
 
-        if (false === $contents) {
+        if ($contents === false) {
             throw new RuntimeException(sprintf('Unable to read file: %s', $path));
         }
 
@@ -132,8 +132,8 @@ final class NonSilentIndices
 
             [$token_id, $token_text] = $token;
 
-            if (T_OPEN_TAG === $token_id) {
-                if ($has_open_tag || '<?php' !== trim($token_text)) {
+            if ($token_id === T_OPEN_TAG) {
+                if ($has_open_tag || trim($token_text) !== '<?php') {
                     return false;
                 }
 
@@ -145,7 +145,7 @@ final class NonSilentIndices
                 continue;
             }
 
-            if (T_INLINE_HTML === $token_id && '' === trim($token_text)) {
+            if ($token_id === T_INLINE_HTML && trim($token_text) === '') {
                 continue;
             }
 

@@ -93,7 +93,7 @@ final class InvalidMediaFilenames
                     continue;
                 }
 
-                if (1 !== preg_match('/[^0-9A-Za-z._-]/', $file->getBasename())) {
+                if (preg_match('/[^0-9A-Za-z._-]/', $file->getBasename()) !== 1) {
                     continue;
                 }
 
@@ -113,7 +113,7 @@ final class InvalidMediaFilenames
 
         $format = $assoc_args['format'] ?? 'plain';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line($finding['file']);
             }
@@ -121,7 +121,7 @@ final class InvalidMediaFilenames
             format_items($format, $findings, ['file']);
         }
 
-        if ([] !== $findings) {
+        if ($findings !== []) {
             WP_CLI::halt(1);
         }
     }

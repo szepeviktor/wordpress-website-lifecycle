@@ -77,7 +77,7 @@ final class MissingCronHooks
                     WP_CLI::error('WordPress returned a malformed cron event.');
                 }
 
-                if (false !== has_action($hook)) {
+                if (has_action($hook) !== false) {
                     continue;
                 }
 
@@ -113,7 +113,7 @@ final class MissingCronHooks
 
         $format = $assoc_args['format'] ?? 'table';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($items as $item) {
                 WP_CLI::line($item['hook']);
             }

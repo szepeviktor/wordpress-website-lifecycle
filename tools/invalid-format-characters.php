@@ -133,7 +133,7 @@ final class InvalidFormatCharacters
                 $result['match']
             );
 
-            if (null === $context) {
+            if ($context === null) {
                 throw new RuntimeException('Unable to render a Unicode Format character.');
             }
 
@@ -149,7 +149,7 @@ final class InvalidFormatCharacters
         $fields = ['table', 'column', 'primary_key_name', 'primary_key_value', 'context'];
         $format = $assoc_args['format'] ?? 'table';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line(sprintf(
                     '%s:%s:%s:%s:%s',
@@ -164,7 +164,7 @@ final class InvalidFormatCharacters
             format_items($format, $findings, $fields);
         }
 
-        if ([] !== $findings) {
+        if ($findings !== []) {
             WP_CLI::halt(1);
         }
     }

@@ -43,7 +43,7 @@ final class ResizeOriginalMedia
         add_filter(
             'image_save_progressive',
             static function (bool $progressive, string $mime_type): bool {
-                return $progressive || 'image/jpeg' === $mime_type;
+                return $progressive || $mime_type === 'image/jpeg';
             },
             10,
             2
@@ -203,7 +203,7 @@ final class ResizeOriginalMedia
                 // Store the original file's dimensions without regenerating sub-sizes.
                 $metadata['original_width'] = (int) $final_size[0];
                 $metadata['original_height'] = (int) $final_size[1];
-                if (false === wp_update_attachment_metadata($attachment_id, $metadata)) {
+                if (wp_update_attachment_metadata($attachment_id, $metadata) === false) {
                     WP_CLI::warning(
                         sprintf(
                             'Unable to update metadata for attachment %d; keeping %s',

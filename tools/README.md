@@ -7,6 +7,25 @@ website's WP-CLI configuration.
 
 ## Auditing
 
+### [db-tail.php](db-tail.php)
+
+`wp db tail <table> --cursor=<column> [--columns=<columns>] [--where=<expression>]`
+
+Prints new rows from an append-only table as JSON lines. Omit the WordPress
+table prefix and use a unique, increasing, nonnegative integer cursor.
+
+```shell
+wp --require=tools/db-tail.php db tail wpmailsmtp_debug_events --cursor=id --columns=id,created_at,content
+```
+
+The first run reads all matching rows; later runs resume from an autoload-disabled
+`db_tail_<sha256>` option derived from the source and query parameters. Reads in
+batches of 1000 until no rows remain. `--where` accepts trusted SQL.
+
+Run sequentially: there is no locking or output acknowledgement. Updates,
+deletions and late commits below the saved cursor are not tracked. Delete the
+state option to restart after a table reset or database restore.
+
 ### [invalid-acf-related-items.php](invalid-acf-related-items.php)
 
 `wp acf invalid-related-items <meta-key-suffix>`

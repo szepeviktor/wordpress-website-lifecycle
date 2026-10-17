@@ -47,7 +47,7 @@ final class LatestCoreVersion
     {
         $branch = $assoc_args['branch'] ?? null;
 
-        if (null !== $branch && (!is_string($branch) || 1 !== preg_match('/^\d+\.\d+$/D', $branch))) {
+        if ($branch !== null && (!is_string($branch) || preg_match('/^\d+\.\d+$/D', $branch) !== 1)) {
             WP_CLI::error('Branch must have major.minor form, for example 4.9.');
         }
 
@@ -72,19 +72,19 @@ final class LatestCoreVersion
 
             $version = $offer['version'];
 
-            if (1 !== preg_match('/^\d+\.\d+(?:\.\d+)?$/D', $version)) {
+            if (preg_match('/^\d+\.\d+(?:\.\d+)?$/D', $version) !== 1) {
                 continue;
             }
 
-            if (null !== $branch && $version !== $branch && !str_starts_with($version, $branch.'.')) {
+            if ($branch !== null && $version !== $branch && !str_starts_with($version, $branch.'.')) {
                 continue;
             }
 
             $versions[$version] = true;
         }
 
-        if ([] === $versions) {
-            if (null === $branch) {
+        if ($versions === []) {
+            if ($branch === null) {
                 WP_CLI::error('WordPress.org did not advertise a stable core release.');
             }
 

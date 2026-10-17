@@ -120,7 +120,7 @@ PHP;
 
         $written = file_put_contents($plugin_file, sprintf($contents, $route), LOCK_EX);
 
-        if (false === $written) {
+        if ($written === false) {
             WP_CLI::error(sprintf('Unable to write temporary MU plugin: %s', $plugin_file));
         }
     }

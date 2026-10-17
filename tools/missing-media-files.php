@@ -88,7 +88,7 @@ final class MissingMediaFiles
         foreach ($this->getAttachmentIds() as $attachment_id) {
             $relative_file = get_post_meta($attachment_id, '_wp_attached_file', true);
 
-            if (!is_string($relative_file) || '' === $relative_file) {
+            if (!is_string($relative_file) || $relative_file === '') {
                 continue;
             }
 
@@ -109,7 +109,7 @@ final class MissingMediaFiles
             foreach ($findings as $index => $finding) {
                 $deleted = wp_delete_attachment($finding['id'], true);
 
-                if (false === $deleted || null === $deleted) {
+                if ($deleted === false || $deleted === null) {
                     WP_CLI::warning(sprintf(
                         'Unable to delete attachment %d: %s',
                         $finding['id'],
@@ -129,7 +129,7 @@ final class MissingMediaFiles
 
         $format = $assoc_args['format'] ?? 'table';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line($finding['file']);
             }
@@ -138,7 +138,7 @@ final class MissingMediaFiles
         }
 
         if ($dry_run) {
-            if ([] !== $findings) {
+            if ($findings !== []) {
                 WP_CLI::halt(1);
             }
 
@@ -147,7 +147,7 @@ final class MissingMediaFiles
 
         $deleted_count = count(array_filter(
             $findings,
-            static fn (array $finding): bool => 'yes' === $finding['deleted']
+            static fn (array $finding): bool => $finding['deleted'] === 'yes'
         ));
         $failed_count = count($findings) - $deleted_count;
 
@@ -162,7 +162,7 @@ final class MissingMediaFiles
         WP_CLI::success(sprintf(
             'Deleted %d %s with missing files.',
             $deleted_count,
-            1 === $deleted_count ? 'attachment' : 'attachments'
+            $deleted_count === 1 ? 'attachment' : 'attachments'
         ));
     }
 

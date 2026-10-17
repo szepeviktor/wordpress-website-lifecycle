@@ -64,7 +64,7 @@ final class InvalidAcfRelatedItems
     {
         $meta_key_suffix = $args[0] ?? null;
 
-        if (!is_string($meta_key_suffix) || '' === $meta_key_suffix) {
+        if (!is_string($meta_key_suffix) || $meta_key_suffix === '') {
             WP_CLI::error('Meta key suffix must be a non-empty string.');
         }
 
@@ -90,13 +90,13 @@ final class InvalidAcfRelatedItems
             foreach ($items as $related_id) {
                 $related_id = (int) $related_id;
 
-                if (0 === $related_id) {
+                if ($related_id === 0) {
                     continue;
                 }
 
                 $post = get_post($related_id);
 
-                if (null === $post) {
+                if ($post === null) {
                     $findings[] = [
                         'source_id' => (int) $row->post_id,
                         'meta_key' => $row->meta_key,
@@ -108,7 +108,7 @@ final class InvalidAcfRelatedItems
                     continue;
                 }
 
-                if ('publish' === $post->post_status) {
+                if ($post->post_status === 'publish') {
                     continue;
                 }
 
@@ -133,7 +133,7 @@ final class InvalidAcfRelatedItems
         $fields = ['source_id', 'meta_key', 'related_id', 'status', 'type', 'title'];
         $format = $assoc_args['format'] ?? 'table';
 
-        if ('plain' === $format) {
+        if ($format === 'plain') {
             foreach ($findings as $finding) {
                 WP_CLI::line(sprintf(
                     '%d:%s:%d:%s:%s:%s',
@@ -149,7 +149,7 @@ final class InvalidAcfRelatedItems
             format_items($format, $findings, $fields);
         }
 
-        if ([] !== $findings) {
+        if ($findings !== []) {
             WP_CLI::halt(1);
         }
     }
