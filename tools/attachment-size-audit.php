@@ -52,7 +52,16 @@ final class AttachmentSizeAudit
     // Regenerate the affected size with wp media regenerate <id> --image_size=<size> after verifying the main image.
     private const DB_SIZE_FILE_MISSING = 'DB_SIZE_FILE_MISSING';
 
-    /** @var list<array{attachment_id: int, size: string, status: string, db_value: string, file_path: string, detail: string}> */
+    /**
+     * @var list<array{
+     *     attachment_id: int,
+     *     size: string,
+     *     status: string,
+     *     db_value: string,
+     *     file_path: string,
+     *     detail: string
+     * }>
+     */
     private array $findings = [];
 
     private bool $includeOk = false;
@@ -184,11 +193,10 @@ final class AttachmentSizeAudit
             $last_id = (int) end($ids);
 
             // Bypass WP object cache and read attachment metadata DIRECTLY from DB.
-            $safe_ids = implode(',', $ids); // Every value is an integer.
+            $safe_ids = implode(',', $ids);
             $meta_sql = $wpdb->prepare(
-                "SELECT post_id, meta_key, meta_value FROM {$wpdb->postmeta}
-                 WHERE post_id IN ({$safe_ids}) AND meta_key IN (%s, %s)
-                 ORDER BY meta_id ASC",
+                "SELECT post_id, meta_key, meta_value FROM {$wpdb->postmeta}"
+                . " WHERE post_id IN ({$safe_ids}) AND meta_key IN (%s, %s) ORDER BY meta_id ASC",
                 '_wp_attached_file',
                 '_wp_attachment_metadata'
             );
