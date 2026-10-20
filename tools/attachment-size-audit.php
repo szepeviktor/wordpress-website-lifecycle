@@ -527,7 +527,7 @@ final class AttachmentSizeAudit
     }
 
     /** @return array<int|string, mixed>|false */
-    private function dimensionsOf(string $path): array|false
+    private function dimensionsOf(string $path)
     {
         if ($path === '' || !is_file($path)) {
             return false;
