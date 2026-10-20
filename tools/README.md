@@ -7,6 +7,16 @@ website's WP-CLI configuration.
 
 ## Auditing
 
+### [attachment-size-audit.php](attachment-size-audit.php)
+
+`wp media audit-sizes [<id>] [--all-sizes] [--include-ok] [--format=<format>]`
+
+Audits image attachment metadata, database versus WordPress postmeta consistency,
+missing image files, and stored dimensions without modifying files or metadata.
+Checks WordPress and active WooCommerce default sizes. Pass `--all-sizes` to check
+all registered and stored sizes, `--include-ok` to include successful file checks,
+or an attachment ID to check one image. Returns exit code 1 when issues are found.
+
 ### [db-tail.php](db-tail.php)
 
 `wp db tail <table> --cursor=<column> [--columns=<columns>] [--where=<expression>]`

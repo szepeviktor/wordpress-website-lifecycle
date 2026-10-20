@@ -1,4 +1,5 @@
 require:
+    - attachment-size-audit.php
     - db-tail.php
     - invalid-acf-related-items.php
     - invalid-format-characters.php
