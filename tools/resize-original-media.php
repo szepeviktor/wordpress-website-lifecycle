@@ -160,7 +160,7 @@ final class ResizeOriginalMedia
                     continue;
                 }
 
-                $resize = $editor->resize(self::MAX_DIMENSION, self::MAX_DIMENSION, true);
+                $resize = $editor->resize(self::MAX_DIMENSION, self::MAX_DIMENSION, false);
                 if (is_wp_error($resize)) {
                     WP_CLI::warning(
                         sprintf(
