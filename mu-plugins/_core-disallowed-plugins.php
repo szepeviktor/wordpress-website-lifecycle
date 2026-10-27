@@ -33,6 +33,7 @@ const HOSTING_DISALLOWED_PLUGINS = [
     'really-simple-ssl',
     'redirection',
     'redis-cache',
+    'sql-buddy',
     'sucuri-scanner',
     'svg-support',
     'temporary-login',
