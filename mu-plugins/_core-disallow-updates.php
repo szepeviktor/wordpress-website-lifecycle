@@ -12,16 +12,21 @@ add_filter(
         return array_merge(
             $capabilities,
             [
-                'install_plugins' => false,
-                'install_themes' => false,
-                // 'switch_themes' => false,
-                'delete_plugins' => false,
-                'delete_themes' => false,
                 'update_core' => false,
+
+                'install_plugins' => false,
                 'update_plugins' => false,
+                'edit_plugins' => false,
+                'delete_plugins' => false,
+
+                'install_themes' => false,
                 'update_themes' => false,
-                'update_languages' => false,
+                'edit_themes' => false,
+                'delete_themes' => false,
+                // 'switch_themes' => false,
+
                 'install_languages' => false,
+                'update_languages' => false,
             ]
         );
     },

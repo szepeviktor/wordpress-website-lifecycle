@@ -18,6 +18,8 @@ function _core_debug_request_headers()
         sprintf('[%s] %s --- HTTP headers', date('c'), $_SERVER['REMOTE_ADDR']),
         sprintf('%s %s %s', $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_SERVER['SERVER_PROTOCOL']),
         sprintf('@@headers %s', implode(',', $header_names)),
+        // sprintf('@@ja4 %s', $_SERVER['JA4'] ?? '-'),
+        // sprintf('@@ja4_raw %s', $_SERVER['JA4_RAW'] ?? '-'),
     ];
     foreach ($headers as $name => $value) {
         $log_items[] = sprintf('%s: %s', $name, $value);
