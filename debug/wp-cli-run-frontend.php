@@ -6,7 +6,19 @@
  * wp --url="https://example.com/" eval-file wp-cli-run-frontend.php
  */
 
-WP_CLI::get_runner()->load_wordpress();
+/*
+These have already ran
+muplugins_loaded
+plugins_loaded
+setup_theme
+after_setup_theme
+init
+wp_loaded
+*/
+
+// Add --skip-wordpress 
+// WP_CLI::get_runner()->load_wordpress();
+// then use https://make.wordpress.org/cli/handbook/references/internal-api/wp-cli-add-wp-hook/
 
 // Log fired hooks
 add_action(
