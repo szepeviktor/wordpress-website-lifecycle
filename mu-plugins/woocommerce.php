@@ -432,3 +432,31 @@ add_filter(
     20,
     1
 );
+
+// https://github.com/woocommerce/woocommerce/issues/35166
+add_filter(
+    'ajax_query_attachments_args',
+    static function ($args) {
+        $args['meta_query'][] = [
+            'key' => '_wp_attached_file',
+            'value' => 'woocommerce_uploads/',
+            'compare' => 'NOT LIKE',
+        ];
+        return $args;
+    },
+    10,
+    1
+);
+add_filter(
+    'rest_attachment_query',
+    static function ($args) {
+        $args['meta_query'][] = [
+            'key' => '_wp_attached_file',
+            'value' => 'woocommerce_uploads/',
+            'compare' => 'NOT LIKE',
+        ];
+        return $args;
+    },
+    10,
+    1
+);
