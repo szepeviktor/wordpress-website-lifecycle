@@ -524,6 +524,12 @@ Provides a no-op YITH upgrade manager.
 
 ## Theme integrations
 
+### [divi-activecampaign-form-guard.php](divi-activecampaign-form-guard.php)
+
+Preserves ActiveCampaign form actions in Divi Code modules and restores them on
+visitor interaction or submission. Submit buttons remain disabled until the
+footer script initializes.
+
 ### [theme-avada.php](theme-avada.php)
 
 > Avada's bundled patcher and updater can modify software outside the managed
