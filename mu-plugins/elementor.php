@@ -4,10 +4,18 @@
  * Plugin Name: Elementor Cleanup
  * Plugin URI: https://github.com/szepeviktor/wordpress-website-lifecycle
  * Description: Disables Elementor onboarding, promotional notices, tracking prompts, and related admin noise.
- * Disabled Features: 38
+ * Disabled Features: 39
  */
 
 namespace {
+    // Hide the database update completion notice.
+    add_filter(
+        'pre_option_elementor_elementor_updater_completed',
+        static function (): int {
+            return 0;
+        }
+    );
+
     // Keep Elementor usage tracking disabled regardless of saved options.
     add_filter(
         'pre_option_elementor_allow_tracking',
