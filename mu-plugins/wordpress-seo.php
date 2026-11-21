@@ -46,6 +46,23 @@ add_action(
     1
 );
 
+// Remove Support from the loader before init, so it is never instantiated or hooked.
+// Yoast SEO 28.9: Loader::$integrations is protected and has no public removal API.
+add_action(
+    'wpseo_loaded',
+    static function () {
+        $loader = YoastSEO()->classes->get(\Yoast\WP\SEO\Loader::class);
+        (function () {
+            $this->integrations = array_values(array_diff(
+                $this->integrations,
+                [\Yoast\WP\SEO\Integrations\Support_Integration::class]
+            ));
+        })->call($loader);
+    },
+    10,
+    0
+);
+
 // Remove Premium pages.
 add_filter(
     'wpseo_submenu_pages',
@@ -55,7 +72,6 @@ add_filter(
             'wpseo_redirects',
             'wpseo_workouts',
             'wpseo_page_academy',
-            'wpseo_page_support',
         ];
         foreach ($submenuPages as $pageIndex => $submenuPage) {
             // Fifth element is $page_slug
