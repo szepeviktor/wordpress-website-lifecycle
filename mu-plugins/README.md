@@ -342,14 +342,6 @@ Logs the response body of unsuccessful Disqus API requests.
 
 Disables the Easy Social Share Buttons update manager.
 
-### [elementor.php](elementor.php)
-
-> Elementor onboarding, promotions, tracking prompts, and remote services create
-> distraction and external dependencies.
-
-Disables tracking, AI, onboarding, promotional modules, remote feeds, upsells,
-and related admin noise while retaining the functional editor screens.
-
 ### [envato-market.md](envato-market.md)
 
 > ThemeForest software can fall behind when the Envato Market plugin cannot be
